@@ -7,11 +7,18 @@ export const EmailService = {
 
 const KEY = 'eMails'
 
-function query() {
+function query(filterBy) {
     let eMails = _loadFromStorage(KEY)
     if (!eMails) {
         eMails = _createEmails()
         _saveToStorage(eMails)
+    }
+
+    if (filterBy) {
+        let { txt } = filterBy
+        eMails = eMails.filter(eMail =>
+            eMail.body.toLowerCase().includes(txt.toLowerCase())
+        )
     }
     return Promise.resolve(eMails)
 }
