@@ -1,0 +1,21 @@
+.note-list{
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.note-preview-container{
+   background-color: blue;
+   text-align: center;
+   padding: 10px;
+   margin-inline-start: 10px;
+   margin-inline-end: 10px;
+   margin-block-start: 10px;
+   margin-block-end: 10px;
+}
+/* .note-preview{} */
+
+/* .note-preview-txt{} */
+
+/* .note-preview-todos{} */
+/* .todos-preview{} */
+
+/* .note-preview-img{} */
