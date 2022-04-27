@@ -18,7 +18,7 @@ export class EmailDetails extends React.Component {
         const {eMail} = this.state
         if (!eMail) return <div>Loading...</div>
         return (
-            <section className="eMail-details flex column">
+            <section className="email-details">
                 <h2>{eMail.subject}</h2>
                 <span>{eMail.to}</span>
                 <span>{eMail.sentAt}</span>

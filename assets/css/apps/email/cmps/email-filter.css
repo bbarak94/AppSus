@@ -1,2 +1,33 @@
 .email-filter {
+
+}
+
+.search-container {
+    display: flex;
+    padding: 0.7em 1em;
+    border-radius: 0.7em;
+    background-color: var(--clr8);
+    transition: box-shadow , background-color .3s;
+}
+
+
+.search-container input {
+    border: none;
+    background-color: inherit;
+    outline: none;
+}
+
+.search-container:focus-within{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #FFF;
+}
+
+.search-container  img {
+    width:2em;
+}
+
+.search-container  select {
+    text-align: center;
+    border: none;
+    background-color: inherit;
 }

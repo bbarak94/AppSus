@@ -6,6 +6,11 @@ export const EmailService = {
     getById,
 }
 
+const gLoggedinUser = {
+    email: 'itai.rotstein@gmail.com',
+    fullname: 'Mahatma Appsus'
+}
+
 const KEY = 'eMails'
 
 function query(filterBy) {
@@ -16,10 +21,25 @@ function query(filterBy) {
     }
 
     if (filterBy) {
-        let { txt } = filterBy
-        eMails = eMails.filter(eMail =>
-            eMail.body.toLowerCase().includes(txt.toLowerCase())
-        )
+        if (filterBy.txt) {
+            let { txt, isRead } = filterBy
+            console.log(isRead);
+            eMails = eMails.filter(eMail =>
+                eMail.body.toLowerCase().includes(txt.toLowerCase()) &&
+                eMail.isRead.toString() === isRead
+            )
+        } else if (filterBy.status) {
+            switch (filterBy.status) {
+                case 'inbox':
+                    eMails = eMails.filter(email => email.to === gLoggedinUser.email)
+                    break
+                case 'sent':
+                    eMails = eMails.filter(email => email.to !== gLoggedinUser.email)
+                    break
+                case 'starred':
+                    eMails = eMails.filter(email => email.isStarred)
+            }
+        }
     }
     return Promise.resolve(eMails)
 }
@@ -44,6 +64,7 @@ function _createEmail() {
         subject: utilService.makeLorem(2),
         body: utilService.makeLorem(10),
         isRead: (Math.random() > 0.5) ? true : false,
+        isStarred: (Math.random() > 0.5) ? true : false,
         sentAt: new Intl.DateTimeFormat('en-US').format(Date.now()),
         to: (Math.random() > 0.5) ? 'itai.rotstein@gmail.com' : 'momo@momo.com'
     }
