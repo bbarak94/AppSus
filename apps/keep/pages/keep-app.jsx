@@ -1,4 +1,4 @@
-import {NoteService} from './services/note.service.js'
+import {NoteService} from '../services/note.service'
 
 export class KeepApp extends React.Component {
     render() {
