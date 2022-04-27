@@ -1,0 +1,15 @@
+.email-preview {
+    border-bottom: 1px solid var(--clr3);
+    /* margin: 1em auto; */
+    padding: 0.7em 0;
+}
+
+.email-preview:hover {
+    cursor: pointer;
+    box-shadow: rgb(100 100 111 / 20%) 0 2px 2px 2px;
+
+}
+
+.email-preview.isRead{
+    background-color: var(--clr7);
+}

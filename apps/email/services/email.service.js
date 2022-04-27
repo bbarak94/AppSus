@@ -8,7 +8,7 @@ export const EmailService = {
 const KEY = 'eMails'
 
 function query() {
-    let eMails = _loadFromStorage()
+    let eMails = _loadFromStorage(KEY)
     if (!eMails) {
         eMails = _createEmails()
         _saveToStorage(eMails)
@@ -30,13 +30,13 @@ function _createEmail() {
         subject: utilService.makeLorem(2),
         body: utilService.makeLorem(10),
         isRead: (Math.random() > 0.5) ? true : false,
-        sentAt: Date.now(),
+        sentAt: new Intl.DateTimeFormat('en-US').format(Date.now()),
         to: (Math.random() > 0.5) ? 'itai.rotstein@gmail.com' : 'momo@momo.com'
     }
 }
 
-function _loadFromStorage() {
-    storageService.loadFromStorage(KEY)
+function _loadFromStorage(KEY) {
+    return storageService.loadFromStorage(KEY)
 }
 
 function _saveToStorage(eMails) {
