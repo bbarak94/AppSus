@@ -3,7 +3,9 @@ import { utilService } from '../../../services/util.service.js'
 
 
 export const noteService = {
-    query
+    query,
+    getById,
+    replaceNote
 }
 
 
@@ -26,6 +28,13 @@ function getById(noteId) {
     const notes = _loadFromStorage()
     const note = notes.find((note) => noteId === note.id)
     return Promise.resolve(note)
+}
+
+function replaceNote(noteToUpdate) {
+    let notes = _loadFromStorage()
+    notes = notes.map(note => note.id ===noteToUpdate.id ? noteToUpdate : note)
+    _saveToStorage(notes)
+    return Promise.resolve()
 }
 
 function _saveToStorage(notes) {

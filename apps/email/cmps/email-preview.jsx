@@ -1,4 +1,4 @@
-import { EmailDetails } from '../cmps/email-details.jsx'
+import { EmailDetails } from '../pages/email-details.jsx'
 
 
 export function EmailPreview({ eMail }) {
