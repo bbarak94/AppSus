@@ -1,0 +1,16 @@
+.email-folder-list {
+    margin-top: 1em;
+    margin-inline-start: 1em;
+    padding: 4em;
+    gap: 2em;
+}
+
+.email-folder-list div {
+    border-radius: 2em;
+    padding: 1em 3em;
+    cursor: pointer;
+}
+
+.email-folder-list div:hover{
+    background-color: var(--clr8);
+}

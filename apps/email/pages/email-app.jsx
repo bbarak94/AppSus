@@ -1,5 +1,6 @@
 import { EmailHeader } from '../cmps/email-header.jsx'
 import { EmailList } from '../cmps/email-list.jsx'
+import { EmailFolderList } from '../cmps/email-folder-list.jsx'
 
 import { EmailService } from '../services/email.service.js'
 export class EmailApp extends React.Component {
@@ -21,7 +22,7 @@ export class EmailApp extends React.Component {
     }
 
     onFilter = (filterBy) => {
-        this.setState({filterBy}, this.loadEmails)       
+        this.setState({ filterBy }, this.loadEmails)
     }
 
     render() {
@@ -29,7 +30,10 @@ export class EmailApp extends React.Component {
         return (
             <section className='email-app'>
                 <EmailHeader onFilter={this.onFilter} />
-                <EmailList eMails={this.state.eMails} />
+                <section className="page-body flex">
+                    <EmailFolderList onFilter={this.onFilter} />
+                    <EmailList eMails={this.state.eMails} />
+                </section>
             </section>
         )
     }

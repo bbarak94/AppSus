@@ -2,7 +2,8 @@ import { utilService } from "../../../services/util.service.js"
 import { storageService } from "../../../services/storage.service.js"
 
 export const EmailService = {
-    query
+    query,
+    getById,
 }
 
 const KEY = 'eMails'
@@ -21,6 +22,12 @@ function query(filterBy) {
         )
     }
     return Promise.resolve(eMails)
+}
+
+function getById(eMailId) {
+    const eMails = _loadFromStorage(KEY)
+    const eMail = eMails.find(eMail => eMail.id === eMailId)
+    return Promise.resolve(eMail)
 }
 
 function _createEmails() {
