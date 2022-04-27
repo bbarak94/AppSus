@@ -6,15 +6,19 @@ export class NoteDetails extends React.Component {
     state = {
         note: this.props.note,
         type: this.props.note.type,
+        id: this.props.note.type,
     }
 
-
-
-    onUpdateNote = (note) => {
+    onReRenderNote = (note) => {
         // ev.preventDefault()
         console.log('note:', note)
-        // this.setState({ note: note })
-        this.setState({ note: note }, this.props.updateNote(this.state.note))
+        this.setState({ note: note })
+    }
+
+    onUpdateNote = (note) => {
+        console.log('FROM note-details - note:', note)
+        // this.setState({ note: note }, this.props.updateNote(this.state.note))
+        this.props.updateNote(note)
     }
 
     render() {
@@ -23,18 +27,21 @@ export class NoteDetails extends React.Component {
                 {this.state.type === 'note-txt' && (
                     <NoteDetailsTxt
                         onUpdateNote={this.onUpdateNote}
+                        onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
                     />
                 )}
                 {this.state.type === 'note-todos' && (
                     <NoteDetailsTodos
-                        onUpdateNote={this.onUpdateNote}
+                    onUpdateNote={this.onUpdateNote}
+                        onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
                     />
                 )}
                 {this.state.type === 'note-img' && (
                     <NoteDetailsImg
-                        onUpdateNote={this.onUpdateNote}
+                    onUpdateNote={this.onUpdateNote}
+                        onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
                     />
                 )}

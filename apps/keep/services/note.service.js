@@ -1,13 +1,11 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
-
 export const noteService = {
     query,
     getById,
-    replaceNote
+    replaceNote,
 }
-
 
 const KEY = 'keepDB'
 
@@ -31,10 +29,17 @@ function getById(noteId) {
 }
 
 function replaceNote(noteToUpdate) {
+    console.log('noteToUpdate:', noteToUpdate)
     let notes = _loadFromStorage()
-    notes = notes.map(note => note.id ===noteToUpdate.id ? noteToUpdate : note)
+    notes = notes.map((note) => {
+        // console.log('noteToUpdate:', noteToUpdate)
+        // console.log('note.id:', note.id)
+        return note.id === noteToUpdate.id ? noteToUpdate : note
+    })
+    console.log('notes:', notes)
+
     _saveToStorage(notes)
-    return Promise.resolve()
+    return Promise.resolve(notes)
 }
 
 function _saveToStorage(notes) {
@@ -52,40 +57,47 @@ function _createNotes() {
             id: 'n101',
             type: 'note-txt',
             isPinned: false,
-            info: { title: 'barak is the king!',txt: 'Fullstack Me Baby!' },
+            info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
             style: { backgroundColor: '#00d' },
         },
         {
             id: 'n102',
             type: 'note-img',
             isPinned: false,
-            info: { url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=', title: 'Bobi and Me' },
+            info: {
+                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                title: 'Bobi and Me',
+            },
             style: { backgroundColor: '#00d' },
         },
         {
             id: 'n103',
             type: 'note-todos',
             isPinned: false,
+            label: 'Get my stuff together',
             info: {
-               title: 'Must do fast',
-               label: 'Get my stuff together',
+                title: 'Must do fast',
                 todos: [
                     { id: 't101', txt: 'Driving liscence', doneAt: null },
                     { id: 't102', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-        },{
+        },
+        {
             id: 'n104',
             type: 'note-txt',
             isPinned: false,
-            info: { title: 'barak is the king!',txt: 'Fullstack Me Baby!' },
+            info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
             style: { backgroundColor: '#00d' },
         },
         {
             id: 'n105',
             type: 'note-img',
             isPinned: false,
-            info: { url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=', title: 'Bobi and Me' },
+            info: {
+                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                title: 'Bobi and Me',
+            },
             style: { backgroundColor: '#00d' },
         },
         {
@@ -93,25 +105,29 @@ function _createNotes() {
             type: 'note-todos',
             isPinned: false,
             info: {
-               title: 'Must do fast',
-               label: 'Get my stuff together',
+                title: 'Must do fast',
+                label: 'Get my stuff together',
                 todos: [
                     { id: 't103', txt: 'Driving liscence', doneAt: null },
                     { id: 't104', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-        },{
+        },
+        {
             id: 'n107',
             type: 'note-txt',
             isPinned: false,
-            info: { title: 'barak is the king!',txt: 'Fullstack Me Baby!' },
+            info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
             style: { backgroundColor: '#00d' },
         },
         {
             id: 'n108',
             type: 'note-img',
             isPinned: false,
-            info: { url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=', title: 'Bobi and Me' },
+            info: {
+                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                title: 'Bobi and Me',
+            },
             style: { backgroundColor: '#00d' },
         },
         {
@@ -119,14 +135,14 @@ function _createNotes() {
             type: 'note-todos',
             isPinned: false,
             info: {
-               title: 'Must do fast',
-               label: 'Get my stuff together',
+                title: 'Must do fast',
+                label: 'Get my stuff together',
                 todos: [
                     { id: 't105', txt: 'Driving liscence', doneAt: null },
                     { id: 't106', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-        }
+        },
     ]
 
     return notes

@@ -17,12 +17,10 @@
 .note-preview {
     height: 100%;
 }
-
-/* .note-preview-txt{} */
-
 .todos-preview {
     height: 100%;
 }
+
 
 .todos-preview {
     margin-top: 8px;
@@ -34,15 +32,8 @@
     height: initial;
 }
 
-/* .note-preview-img{} */
-
-/* .note-preview-todo {} */
-
-/* .todo-done,.todo-undone{} */
-
 .todo-img-container {
+    align-self: flex-start;
     height: 20px;
     width: 20px;
 }
-/* .note-preview-todo {
-} */
