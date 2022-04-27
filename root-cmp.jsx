@@ -10,7 +10,6 @@ const { Route, Switch } = ReactRouterDOM
 export function App() {
     return (
     <Router>
-       <AppHeader />
        <section className='app'>
           <Switch>
              <Route path='/keep' component={KeepApp} />
