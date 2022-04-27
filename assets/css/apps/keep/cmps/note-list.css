@@ -1,21 +1,48 @@
-.note-list{
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.note-list {
+    margin: 20px 60px;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
-.note-preview-container{
-   background-color: blue;
-   text-align: center;
-   padding: 10px;
-   margin-inline-start: 10px;
-   margin-inline-end: 10px;
-   margin-block-start: 10px;
-   margin-block-end: 10px;
+.note-preview-container {
+    cursor: pointer;
+    min-width: 240px;
+    max-width: 240px;
+    border: 2px black solid;
+    padding: 10px;
+    margin-block-start: 10px;
+    margin-block-end: 10px;
 }
-/* .note-preview{} */
+.note-preview {
+    height: 100%;
+}
 
 /* .note-preview-txt{} */
 
-/* .note-preview-todos{} */
-/* .todos-preview{} */
+.todos-preview {
+    height: 100%;
+}
+
+.todos-preview {
+    margin-top: 8px;
+    gap: 4px;
+}
+
+.todo-done-img {
+    margin: auto;
+    height: initial;
+}
 
 /* .note-preview-img{} */
+
+/* .note-preview-todo {} */
+
+/* .todo-done,.todo-undone{} */
+
+.todo-img-container {
+    height: 20px;
+    width: 20px;
+}
+/* .note-preview-todo {
+} */

@@ -13,7 +13,6 @@ import { NotePreviewImg } from './note-types/note-preview-img.jsx'
 export function NotePreview({ note }) {
     return (
         <div className='note-preview-container'>
-            <h1>I'm a Preview</h1>
             {note.type === 'note-txt' && <NotePreviewTxt note={note} />}
             {note.type === 'note-todos' && <NotePreviewTodos note={note} />}
             {note.type === 'note-img' && <NotePreviewImg note={note} />}
