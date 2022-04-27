@@ -7,7 +7,7 @@
 @import './basics/helpers.css';
 
 /* Pages */
-@import './pages/home.css';
+@import './pages/app-home.css';
 @import './pages/keep-app.css';
 @import './pages/email-app.css';
 
@@ -16,16 +16,17 @@
 @import './cmps/app-nav.css';
 @import './cmps/long-text.css';
 
-/* ////////////////////////////////////// */
-
 /* Keep Cmps */
+@import './cmps/keep/note-filter.css';
+@import './cmps/keep/note-add.css';
+@import './cmps/keep/note-list.css';
+@import './cmps/keep/note-preview.css';
+@import './cmps/keep/note-details.css';
 
-@import './cmps/keep/book-filter.css';
-@import './cmps/keep/book-import.css';
-
-
-/* Mail Cmps */
-@import './cmps/book-list.css';
-@import './cmps/book-preview.css';
-@import './cmps/book-details.css';
-@import './cmps/reviews-list.css';
+/* Email Cmps */
+@import './cmps/email/email-filter.css';
+@import './cmps/email/email-compose.css';
+@import './cmps/email/email-folder-list.css';
+@import './cmps/email/email-list.css';
+@import './cmps/email/email-preview.css';
+@import './cmps/email/email-details.css';
