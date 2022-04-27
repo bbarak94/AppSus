@@ -1,7 +1,7 @@
-import {EmailHeader} from '../cmps/email-header.jsx'
-import {EmailList} from '../cmps/email-list.jsx'
+import { EmailHeader } from '../cmps/email-header.jsx'
+import { EmailList } from '../cmps/email-list.jsx'
 
-import {EmailService} from '../services/email.service.js'
+import { EmailService } from '../services/email.service.js'
 export class EmailApp extends React.Component {
 
     state = {
@@ -12,21 +12,24 @@ export class EmailApp extends React.Component {
     componentDidMount() {
         this.loadEmails()
     }
-    
+
     loadEmails = () => {
-        EmailService.query()
+        EmailService.query(this.state.filterBy)
             .then(eMails => {
-                this.setState({eMails})
+                this.setState({ eMails })
             })
     }
 
+    onFilter = (filterBy) => {
+        this.setState({filterBy}, this.loadEmails)       
+    }
+
     render() {
-        
+
         return (
             <section className='email-app'>
-                Email App
-                <EmailHeader />
-                <EmailList eMails={this.state.eMails}/>
+                <EmailHeader onFilter={this.onFilter} />
+                <EmailList eMails={this.state.eMails} />
             </section>
         )
     }

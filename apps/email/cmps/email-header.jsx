@@ -1,12 +1,10 @@
 import {EmailFilter} from './email-filter.jsx'
 
-export function EmailHeader() {
+export function EmailHeader({onFilter}) {
     
     return (
-        <section className="email-header">
-            <EmailFilter />
-            I am E-mail Header
-
+        <section className="email-header flex justify-center">
+            <EmailFilter onFilter={onFilter} />
         </section>
     )
 }
