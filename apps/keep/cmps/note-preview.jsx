@@ -10,9 +10,9 @@ import { NotePreviewImg } from './note-types/note-preview-img.jsx'
 // import {NotePreviewCanvas} from './note-types/note-preview-canvas.jsx'
 // import {NotePreviewMap} from './note-types/note-preview-map.jsx'
 
-export function NotePreview({ note }) {
+export function NotePreview({ note, onSelectNote }) {
     return (
-        <div className='note-preview-container'>
+        <div onClick={() => onSelectNote(note.id)} className='note-preview-container'>
             {note.type === 'note-txt' && <NotePreviewTxt note={note} />}
             {note.type === 'note-todos' && <NotePreviewTodos note={note} />}
             {note.type === 'note-img' && <NotePreviewImg note={note} />}
