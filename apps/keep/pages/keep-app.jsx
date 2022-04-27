@@ -21,21 +21,26 @@ export class KeepApp extends React.Component {
     }
 
     updateNote = (note) => {
-        console.log('note:',note)
-        console.log('note.id:',note.id)
-        noteService.replaceNote(note).then((notes) => this.setState({notes}))
+        console.log('FROM keep-app - note:', note)
+        noteService
+            .replaceNote(note)
+            .then((notes) =>
+                this.setState({ notes: notes, selectedNote: null })
+            )
+        console.log('this.state:', this.state)
     }
 
-    onSelectNote = (noteId) =>{
-        console.log('noteId:',noteId)
-        noteService.getById(noteId).then((selectedNote) => this.setState({selectedNote}))
+    onSelectNote = (noteId) => {
+        console.log('noteId:', noteId)
+        noteService
+            .getById(noteId)
+            .then((selectedNote) => this.setState({ selectedNote }))
     }
 
-    onDeSelect = () => {
-        this.setState({selectedNote: null})
-    }
-
-
+    // onDeSelect = () => {
+    //     this.setState({selectedNote: null})
+    // }
+    // onDeSelect={this.onDeSelect}
 
     render() {
         const { notes, selectedNote } = this.state
@@ -43,7 +48,12 @@ export class KeepApp extends React.Component {
             <section className='keep-app'>
                 <KeepHeader />
                 <NoteList notes={notes} onSelectNote={this.onSelectNote} />
-                {(selectedNote) && <NoteDetails onDeSelect={this.onDeSelect} updateNote={this.updateNote} note={selectedNote}/>}
+                {selectedNote && (
+                    <NoteDetails
+                        updateNote={this.updateNote}
+                        note={selectedNote}
+                    />
+                )}
             </section>
         )
     }
