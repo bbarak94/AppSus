@@ -22,18 +22,18 @@ export class KeepApp extends React.Component {
     }
 
     updateNote = (note) => {
-        console.log('from keep-app: note.style.backgroundColor:',note.style.backgroundColor)
+        // console.log('from keep-app: note.style.backgroundColor:',note.style.backgroundColor)
         
         noteService
             .replaceNote(note)
             .then((notes) =>
                 this.setState({ notes: notes, selectedNote: null })
             )
-        console.log('this.state:', this.state)
+        // console.log('this.state:', this.state)
     }
 
     onSelectNote = (noteId) => {
-        console.log('noteId:', noteId)
+        // console.log('noteId:', noteId)
         noteService
             .getById(noteId)
             .then((selectedNote) => this.setState({ selectedNote }))
@@ -41,13 +41,13 @@ export class KeepApp extends React.Component {
 
     onSetFilter = (filterBy) => {
         this.setState({ filterBy }, () => {
-            console.log('filterBy from Keep App', this.state.filterBy)
+            // console.log('filterBy from Keep App', this.state.filterBy)
             this.loadNotes()
         })
     }
 
     onRemoveNote = () => {
-        console.log('remove note:', this.state.selectedNote)
+        // console.log('remove note:', this.state.selectedNote)
         noteService.remove(this.state.selectedNote.id).then(() => {
             this.loadNotes()
             this.onSelectNote(null)
@@ -55,7 +55,7 @@ export class KeepApp extends React.Component {
     }
 
     onAddNote = (ev) => {
-        console.log('ev.target.dataset.type:', ev.target.dataset.type)
+        // console.log('ev.target.dataset.type:', ev.target.dataset.type)
         var noteType = ev.target.dataset.type
         noteService.createNote(noteType).then((newNoteId) => {
             this.loadNotes()

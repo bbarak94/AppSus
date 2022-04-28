@@ -1,6 +1,7 @@
 import { NoteDetailsTxt } from './note-types/note-details-txt.jsx'
 import { NoteDetailsTodos } from './note-types/note-details-todos.jsx'
 import { NoteDetailsImg } from './note-types/note-details-img.jsx'
+import { NoteDetailsVid } from './note-types/note-details-vid.jsx'
 
 export class NoteDetails extends React.Component {
     state = {
@@ -14,13 +15,13 @@ export class NoteDetails extends React.Component {
 
     onReRenderNote = (note) => {
         // ev.preventDefault()
-        console.log('note:', note)
+        // console.log('note:', note)
         this.setState({ note: note })
     }
 
     onUpdateNote = (note) => {
         // console.log('FROM note-details - note:', note)
-        console.log('note.style:',note.style)
+        // console.log('note.style:',note.style)
         
         // this.setState({ note: note }, this.props.updateNote(this.state.note))
         this.props.updateNote(note)
@@ -68,6 +69,14 @@ export class NoteDetails extends React.Component {
                 )}
                 {this.state.type === 'note-img' && (
                     <NoteDetailsImg
+                        backgroundColor = {backgroundColor}
+                        onUpdateNote={this.onUpdateNote}
+                        onReRenderNote={this.onReRenderNote}
+                        note={this.state.note}
+                    />
+                )}
+                {this.state.type === 'note-vid' && (
+                    <NoteDetailsVid
                         backgroundColor = {backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
