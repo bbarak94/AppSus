@@ -22,7 +22,8 @@ export class KeepApp extends React.Component {
     }
 
     updateNote = (note) => {
-        console.log('FROM keep-app - note:', note)
+        console.log('from keep-app: note.style.backgroundColor:',note.style.backgroundColor)
+        
         noteService
             .replaceNote(note)
             .then((notes) =>
@@ -62,6 +63,10 @@ export class KeepApp extends React.Component {
         })
     }
 
+    changeColor = (newColor) => {
+        // console.log('newColor:', newColor)
+    }
+
     // onDeSelect = () => {
     //     this.setState({selectedNote: null})
     // }
@@ -83,6 +88,7 @@ export class KeepApp extends React.Component {
                 />
                 {selectedNote && (
                     <NoteDetails
+                        changeColor={this.changeColor}
                         onRemoveNote={this.onRemoveNote}
                         updateNote={this.updateNote}
                         note={selectedNote}

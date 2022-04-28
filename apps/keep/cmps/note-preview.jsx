@@ -11,10 +11,18 @@ import { NotePreviewImg } from './note-types/note-preview-img.jsx'
 // import {NotePreviewMap} from './note-types/note-preview-map.jsx'
 
 export function NotePreview({ note, onSelectNote, updateNote }) {
+    console.log('note:', note)
+    // console.log('note.style.backgroundColor:', note.style.backgroundColor)
     return (
-        <div onClick={() => onSelectNote(note.id)} className='note-preview-container'>
+        <div
+        style={{ backgroundColor: note.style.backgroundColor }}
+            onClick={() => onSelectNote(note.id)}
+            className='note-preview-container'
+        >
             {note.type === 'note-txt' && <NotePreviewTxt note={note} />}
-            {note.type === 'note-todos' && <NotePreviewTodos note={note} updateNote={updateNote}/>}
+            {note.type === 'note-todos' && (
+                <NotePreviewTodos note={note} updateNote={updateNote} />
+            )}
             {note.type === 'note-img' && <NotePreviewImg note={note} />}
         </div>
     )

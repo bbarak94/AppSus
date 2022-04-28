@@ -7,6 +7,7 @@ import {NotePreview} from './note-preview.jsx'
 // }
 
 export class NoteList extends React.Component{
+   
 
 render(){
    const {notes, onSelectNote} = this.props

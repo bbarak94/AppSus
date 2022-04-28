@@ -120,7 +120,7 @@ function _createNotes() {
             isPinned: false,
             label: 'Get my stuff together',
             info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n102',
@@ -131,7 +131,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n103',
@@ -145,13 +145,15 @@ function _createNotes() {
                     { id: 't102', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
+            style: { backgroundColor: '#b09696' },
+
         },
         {
             id: 'n104',
             type: 'note-txt',
             isPinned: false,
             info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n105',
@@ -161,7 +163,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n106',
@@ -175,13 +177,15 @@ function _createNotes() {
                     { id: 't104', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
+            style: { backgroundColor: '#b09696' },
+
         },
         {
             id: 'n107',
             type: 'note-txt',
             isPinned: false,
             info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n108',
@@ -191,7 +195,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#00d' },
+            style: { backgroundColor: '#b09696' },
         },
         {
             id: 'n109',
@@ -205,6 +209,8 @@ function _createNotes() {
                     { id: 't106', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
+            style: { backgroundColor: '#b09696' },
+
         },
     ]
 

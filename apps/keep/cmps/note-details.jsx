@@ -8,8 +8,8 @@ export class NoteDetails extends React.Component {
         type: this.props.note.type,
         id: this.props.note.type,
         style: {
-            backgroundColor :this.props.note.style.backgroundColor
-        }
+            backgroundColor: this.props.note.style.backgroundColor,
+        },
     }
 
     onReRenderNote = (note) => {
@@ -19,22 +19,40 @@ export class NoteDetails extends React.Component {
     }
 
     onUpdateNote = (note) => {
-        console.log('FROM note-details - note:', note)
+        // console.log('FROM note-details - note:', note)
+        console.log('note.style:',note.style)
+        
         // this.setState({ note: note }, this.props.updateNote(this.state.note))
         this.props.updateNote(note)
     }
     onColorChange = (ev) => {
-        console.log('ev:',ev)
-        
+        // console.log('ev.target.value:',ev.target.value)
+        // this.props.changeColor(ev.target.value)
+        var newNote = this.state.note
+        newNote.style.backgroundColor = ev.target.value
 
+        this.setState({
+            note: newNote,
+            style: {
+                backgroundColor: ev.target.value,
+            },
+        })
     }
+    // this.setState({style: {
+    //     backgroundColor :ev.target.value
+    // }})
 
     render() {
-        const {style} = this.state
+        const { style } = this.state
+        const { backgroundColor } = this.state.style
         return (
-            <div className='note-details'>
+            <div
+                className='note-details'
+                style={{ backgroundColor: this.state.style.backgroundColor }}
+            >
                 {this.state.type === 'note-txt' && (
                     <NoteDetailsTxt
+                        backgroundColor = {backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
@@ -42,21 +60,29 @@ export class NoteDetails extends React.Component {
                 )}
                 {this.state.type === 'note-todos' && (
                     <NoteDetailsTodos
-                    onUpdateNote={this.onUpdateNote}
+                        backgroundColor = {backgroundColor}
+                        onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
                     />
                 )}
                 {this.state.type === 'note-img' && (
                     <NoteDetailsImg
-                    onUpdateNote={this.onUpdateNote}
+                        backgroundColor = {backgroundColor}
+                        onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
                     />
                 )}
                 <button onClick={this.props.onRemoveNote}>Delete Note</button>
-                <label for="note-color">Color:</label>
-                <input onChange={this.onColorChange} id="note-color" type="color" name="note-color" value={style.backgroundColor}/>
+                <label>Color:</label>
+                <input
+                    onChange={this.onColorChange}
+                    id='note-color'
+                    type='color'
+                    name='note-color'
+                    value={style.backgroundColor}
+                />
             </div>
         )
     }
