@@ -7,6 +7,9 @@ export class NoteDetails extends React.Component {
         note: this.props.note,
         type: this.props.note.type,
         id: this.props.note.type,
+        style: {
+            backgroundColor :this.props.note.style.backgroundColor
+        }
     }
 
     onReRenderNote = (note) => {
@@ -20,8 +23,14 @@ export class NoteDetails extends React.Component {
         // this.setState({ note: note }, this.props.updateNote(this.state.note))
         this.props.updateNote(note)
     }
+    onColorChange = (ev) => {
+        console.log('ev:',ev)
+        
+
+    }
 
     render() {
+        const {style} = this.state
         return (
             <div className='note-details'>
                 {this.state.type === 'note-txt' && (
@@ -46,6 +55,8 @@ export class NoteDetails extends React.Component {
                     />
                 )}
                 <button onClick={this.props.onRemoveNote}>Delete Note</button>
+                <label for="note-color">Color:</label>
+                <input onChange={this.onColorChange} id="note-color" type="color" name="note-color" value={style.backgroundColor}/>
             </div>
         )
     }
