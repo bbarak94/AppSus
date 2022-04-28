@@ -34,9 +34,11 @@ export class NoteFilter extends React.Component {
         const { title, txt } = this.state.filterBy
 
         return (
-            <section className='note-filter flex justify-center'>
+            <section className='note-filter flex column justify-center'>
                 <form className="note-filter-form flex" onSubmit={this.onFilter}>
-                    <label>Title</label>
+                    <div>
+
+                    <label>Title: </label>
                     <input
                         type='text'
                         id='by-title'
@@ -45,7 +47,10 @@ export class NoteFilter extends React.Component {
                         value={title}
                         onChange={this.handleChange}
                     />
-                    <label>Text</label>
+                    </div>
+                    <div>
+
+                    <label>Text: </label>
                     <input
                         type='text'
                         id='by-text'
@@ -54,6 +59,7 @@ export class NoteFilter extends React.Component {
                         value={txt}
                         onChange={this.handleChange}
                     />
+                    </div>
                     <button>FILTER!</button>
                 </form>
                 <div className="add-buttons">

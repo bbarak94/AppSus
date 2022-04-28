@@ -1,16 +1,22 @@
 .note-list {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 20px 60px;
+    justify-content: space-between;
+    gap: 30px;
+}
+/* .note-list {
     margin: 20px 60px;
     gap: 10px;
     flex-wrap: wrap;
-    justify-content: flex-start;
-}
+    justify-content: space-between;
+} */
 
 .note-preview-container {
     cursor: pointer;
     min-width: 240px;
-    max-width: 240px;
+    /* max-width: 240px; */
     border: 2px black solid;
-    padding: 10px;
+    padding: 15px;
     margin-block-start: 10px;
     margin-block-end: 10px;
 }
@@ -20,7 +26,6 @@
 .todos-preview {
     height: 100%;
 }
-
 
 .todos-preview {
     margin-top: 8px;
@@ -37,3 +42,34 @@
     height: 20px;
     width: 20px;
 }
+
+@media (max-width: 1200px) {
+    .note-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 930px) {
+    .note-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 660px) {
+    .note-list {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+@media (max-width: 500px) {
+    .note-preview-container {
+        min-width: 100px;
+        margin-block-start: 4px;
+        margin-block-end: 4px;
+        width: 100%;
+        min-width: 50px;
+    }
+
+    .note-list {
+        margin: 0 10px;
+    }
+}
+

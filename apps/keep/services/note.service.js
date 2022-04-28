@@ -119,8 +119,8 @@ function _createNotes() {
             type: 'note-txt',
             isPinned: false,
             label: 'Get my stuff together',
-            info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#b09696' },
+            info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
+            style: { backgroundColor: '#eb5a46' },
         },
         {
             id: 'n102',
@@ -129,9 +129,9 @@ function _createNotes() {
             label: 'Get my stuff together',
             info: {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
-                title: 'Bobi and Me',
+                title: 'You can upload your images',
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#0079BF' },
         },
         {
             id: 'n103',
@@ -139,21 +139,21 @@ function _createNotes() {
             isPinned: false,
             label: 'Get my stuff together',
             info: {
-                title: 'Must do fast',
+                title: 'And manage your tasks',
                 todos: [
-                    { id: 't101', txt: 'Driving liscence', doneAt: null },
-                    { id: 't102', txt: 'Coding power', doneAt: 187111111 },
+                    { id: 't101', txt: 'Ready to give it a try?', doneAt: null },
+                    { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
                 ],
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#61BD4F' },
 
         },
         {
             id: 'n104',
             type: 'note-txt',
             isPinned: false,
-            info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#b09696' },
+            info: { title: 'The whole app mad with React.', txt: 'You can try it on you phone too!' },
+            style: { backgroundColor: '#F2D600' },
         },
         {
             id: 'n105',
@@ -163,7 +163,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#FF9F1A' },
         },
         {
             id: 'n106',
@@ -177,7 +177,7 @@ function _createNotes() {
                     { id: 't104', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#C377E0' },
 
         },
         {
@@ -185,7 +185,7 @@ function _createNotes() {
             type: 'note-txt',
             isPinned: false,
             info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#0098B7' },
         },
         {
             id: 'n108',
@@ -195,7 +195,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#eb5a46' },
         },
         {
             id: 'n109',
@@ -209,7 +209,7 @@ function _createNotes() {
                     { id: 't106', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-            style: { backgroundColor: '#b09696' },
+            style: { backgroundColor: '#0079BF' },
 
         },
     ]

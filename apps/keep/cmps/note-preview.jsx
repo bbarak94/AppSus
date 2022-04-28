@@ -11,7 +11,7 @@ import { NotePreviewImg } from './note-types/note-preview-img.jsx'
 // import {NotePreviewMap} from './note-types/note-preview-map.jsx'
 
 export function NotePreview({ note, onSelectNote, updateNote }) {
-    console.log('note:', note)
+    // console.log('note:', note)
     // console.log('note.style.backgroundColor:', note.style.backgroundColor)
     return (
         <div
