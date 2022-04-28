@@ -13,7 +13,8 @@ export class EmailApp extends React.Component {
 
     state = {
         eMails: [],
-        filterBy: null,
+        filterBy: {status:'inbox'},
+        isAdd: false,
     }
 
     componentDidMount() {
@@ -32,20 +33,25 @@ export class EmailApp extends React.Component {
         this.setState({ filterBy }, this.loadEmails)
     }
 
-    onAddEmail = () => {
-        console.log('reached');
+    onAddEmail = (newEmail) => {
+        EmailService.addEmail(newEmail)
+            .then(this.loadEmails)
+
+    }
+
+    onSetIsAdd = (isAdd) => {
+        this.setState({isAdd: isAdd})
     }
 
     render() {
-
+        let { isAdd } = this.state
         return (
             <section className='email-app'>
-
                 <EmailHeader onFilter={this.onFilter} />
                 <section className='email-body flex'>
-                    <EmailFolderList onFilter={this.onFilter}/>
+                    <EmailFolderList onFilter={this.onFilter} isAdd={() =>this.onSetIsAdd (true)} />
+                    {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() =>this.onSetIsAdd(false)}/>}
                     <Switch>
-                        <Route path='/email/add' component={EmailCompose} />
                         <Route path='/email/:emailId' component={EmailDetails} />
                         <Route path='/' component={EmailList} />
                     </Switch>

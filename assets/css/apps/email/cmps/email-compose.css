@@ -1,0 +1,8 @@
+.email-compose {
+    flex-grow:0.5;
+    display: flex;
+
+    /* margin-inline-start: 200px; */
+    transform: translateX(25%);
+}
+

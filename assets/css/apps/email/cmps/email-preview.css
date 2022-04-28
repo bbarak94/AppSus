@@ -2,6 +2,7 @@
     border-bottom: 1px solid var(--clr3);
     /* margin: 1em auto; */
     padding: 0.7em 0;
+    justify-content: flex-start;
 }
 
 .email-preview:hover {
@@ -10,6 +11,16 @@
 
 }
 
-.email-preview.isRead{
+.email-preview a{
+    display: flex;
+    align-items: center;    
+    margin-inline-start: 1em;
+}
+
+.email-preview.read{
     background-color: var(--clr7);
+}
+
+.email-preview .img-container {
+    width: 30px;
 }

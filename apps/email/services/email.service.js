@@ -4,6 +4,9 @@ import { storageService } from "../../../services/storage.service.js"
 export const EmailService = {
     query,
     getById,
+    addEmail,
+    setIsRead,
+    setIsStarred,
 }
 
 const gLoggedinUser = {
@@ -23,7 +26,6 @@ function query(filterBy) {
     if (filterBy) {
         if (filterBy.txt) {
             let { txt, isRead } = filterBy
-            console.log(isRead);
             eMails = eMails.filter(eMail =>
                 eMail.body.toLowerCase().includes(txt.toLowerCase()) &&
                 eMail.isRead.toString() === isRead
@@ -50,6 +52,28 @@ function getById(eMailId) {
     return Promise.resolve(eMail)
 }
 
+function addEmail(eMail) {
+    let eMails = _loadFromStorage()
+    const newEmail = _createEmail(eMail.to, eMail.subject, eMail.body)
+    eMails = [newEmail, ...eMails]
+    _saveToStorage(eMails)
+    return Promise.resolve()
+}
+
+function setIsRead(eMailId) {
+    const eMails = _loadFromStorage()
+    let eMail = eMails.find(eMail => eMail.id === eMailId)
+    eMail.isRead = true
+    _saveToStorage(eMails)
+}
+
+function setIsStarred(eMailId) {
+    const eMails = _loadFromStorage()
+    let eMail = eMails.find(eMail => eMail.id === eMailId)
+    eMail.isStarred = !eMail.isStarred
+    _saveToStorage(eMails)
+}
+
 function _createEmails() {
     const eMails = []
     for (let i = 0; i < 20; i++) {
@@ -58,19 +82,19 @@ function _createEmails() {
     return eMails
 }
 
-function _createEmail() {
+function _createEmail(to, subject, body) {
     return {
         id: utilService.makeId(),
-        subject: utilService.makeLorem(2),
-        body: utilService.makeLorem(10),
-        isRead: (Math.random() > 0.5) ? true : false,
-        isStarred: (Math.random() > 0.5) ? true : false,
+        subject: subject || utilService.makeLorem(2),
+        body: body || utilService.makeLorem(10),
+        isRead: false,
+        isStarred: false,
         sentAt: new Intl.DateTimeFormat('en-US').format(Date.now()),
-        to: (Math.random() > 0.5) ? 'itai.rotstein@gmail.com' : 'momo@momo.com'
+        to: to || ((Math.random() > 0.5) ? 'itai.rotstein@gmail.com' : 'momo@momo.com')
     }
 }
 
-function _loadFromStorage(KEY) {
+function _loadFromStorage() {
     return storageService.loadFromStorage(KEY)
 }
 

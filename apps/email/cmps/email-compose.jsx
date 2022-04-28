@@ -1,4 +1,6 @@
+import { EmailService } from "../services/email.service.js"
 
+const { Link } = ReactRouterDOM
 export class EmailCompose extends React.Component {
 
     state = {
@@ -7,31 +9,30 @@ export class EmailCompose extends React.Component {
         body: '',
     }
 
-    onHandleChange = ({target}) => {
+    onHandleChange = ({ target }) => {
         const key = target.name
-        this.setState({[key]: target.value})
+        this.setState({ [key]: target.value })
     }
 
     onAddEmail = (ev) => {
         ev.preventDefault()
-        console.log(ev);
+        const newEmail = this.state
+        // this.props.onAddEmail(newEmail)
+        EmailService.addEmail(newEmail)
+        this.props.isAdd()
     }
 
     render() {
-        const {to, subject, body} = this.state
+        const { to, subject, body } = this.state
         return (
             <section className="email-compose">
-                <form onSubmit={this.onAddEmail}>
-
-                    <input type="text" name="to" placeholder="To" required 
-                    value={to} onChange={this.onHandleChange}/>
-
-                    <input type="text" name="subject" placeholder="Subject" 
-                    value={subject} onChange={this.onHandleChange}/>
-
-                    <input type="text" name="body" value={body} onChange={this.onHandleChange}/>
-
-                    <button onSubmit={this.onAddEmail}></button>
+                <form className="flex column" onSubmit={this.onAddEmail}>
+                    <input type="text" name="to" placeholder="To" required
+                        value={to} onChange={this.onHandleChange} />
+                    <input type="text" name="subject" placeholder="Subject"
+                        value={subject} onChange={this.onHandleChange} />
+                    <input type="text" name="body" value={body} onChange={this.onHandleChange} />
+                    <button>Send</button>
                 </form>
             </section>
         )
