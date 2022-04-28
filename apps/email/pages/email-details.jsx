@@ -1,3 +1,4 @@
+import { EmailHeader } from "../cmps/email-header.jsx"
 import { EmailService } from "../services/email.service.js"
 
 export class EmailDetails extends React.Component {
@@ -15,15 +16,18 @@ export class EmailDetails extends React.Component {
             .then(eMail => { this.setState({ eMail }) })
     }
     render() {
-        const {eMail} = this.state
+        const { eMail } = this.state
         if (!eMail) return <div>Loading...</div>
         return (
-            <section className="email-details">
-                <h2>{eMail.subject}</h2>
-                <span>{eMail.to}</span>
-                <span>{eMail.sentAt}</span>
-                <p>{eMail.body}</p>   
-            </section>
+            <div>
+                <EmailHeader />
+                <section className="email-details">
+                    <h2>{eMail.subject}</h2>
+                    <span>{eMail.to}</span>
+                    <span>{eMail.sentAt}</span>
+                    <p>{eMail.body}</p>
+                </section>
+            </div>
         )
     }
 }
