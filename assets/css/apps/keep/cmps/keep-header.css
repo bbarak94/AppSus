@@ -9,3 +9,14 @@
 .keep-header .nav-logo {
    width: 60px;
 }
+
+@media (max-width: 500px) {
+   .keep-header .logo {
+      width: 30vw;
+      /* max-width: 150px; */
+      /* height: 100%; */
+  }
+  .nav-logo{
+     max-width: 20vw;
+  }
+}

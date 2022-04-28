@@ -13,6 +13,9 @@
 
 .note-preview-container {
     cursor: pointer;
+  transition: all 200ms;
+
+    border-radius: 10px;
     min-width: 240px;
     /* max-width: 240px; */
     border: 2px black solid;
@@ -20,6 +23,14 @@
     margin-block-start: 10px;
     margin-block-end: 10px;
 }
+
+.note-preview-container:hover {
+    z-index: 2;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0 transparent, 0 0 0 0 transparent,
+      0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+
 .note-preview {
     height: 100%;
 }
@@ -69,7 +80,7 @@
     }
 
     .note-list {
-        margin: 0 10px;
+        margin: 0 50px;
     }
 }
 

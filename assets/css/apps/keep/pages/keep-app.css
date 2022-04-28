@@ -1,5 +1,11 @@
 @media (max-width: 500px) {
    .keep-app{
+
       width: 100%;
       text-align: center;
-   }}
+   }
+   .keep-header{
+      margin: 0 50px;
+
+   }
+}
