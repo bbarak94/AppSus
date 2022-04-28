@@ -5,12 +5,42 @@
     gap: 2em;
 }
 
-.email-folder-list div {
-    border-radius: 2em;
-    padding: 1em 3em;
-    cursor: pointer;
+.folders > div {
+    margin-top: 3em;
+    padding: 0.4em 3.9em;
+    border-radius: 0.5em;
+
 }
 
-.email-folder-list div:hover{
+.folders div:hover{
     background-color: var(--clr8);
+    transform: scale(1.02);
+}
+
+.email-folder-list div {
+    /* padding: 1em 3em; */
+    cursor: pointer;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+
+.email-folder-list .img-container {
+    width: 30px;
+}
+
+.compose-btn {
+    padding: 0.5em;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.compose-btn:hover{
+    
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 12px 3px;
+}
+
+.img-container.compose {
+    width: 40px;
 }

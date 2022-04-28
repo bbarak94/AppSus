@@ -1,8 +1,5 @@
 .email-list {
-    flex-grow: 1;
-    margin: 1em;
-}
 
-.email-body {
-    /* justify-content: center; */
+    flex-grow: 1;
+    margin: 5em;
 }

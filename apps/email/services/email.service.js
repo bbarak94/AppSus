@@ -7,6 +7,8 @@ export const EmailService = {
     addEmail,
     setIsRead,
     setIsStarred,
+    getLength,
+    removeEmail,
 }
 
 const gLoggedinUser = {
@@ -60,6 +62,14 @@ function addEmail(eMail) {
     return Promise.resolve()
 }
 
+function removeEmail(eMailId) {
+    let eMails = _loadFromStorage()
+    const eMailIdx = eMails.findIndex(eMail => eMail.id === eMailId)
+    eMails.splice(eMailIdx, 1)
+    _saveToStorage(eMails)
+    return Promise.resolve()
+}
+
 function setIsRead(eMailId) {
     const eMails = _loadFromStorage()
     let eMail = eMails.find(eMail => eMail.id === eMailId)
@@ -73,6 +83,11 @@ function setIsStarred(eMailId) {
     eMail.isStarred = !eMail.isStarred
     _saveToStorage(eMails)
     return Promise.resolve()
+}
+
+function getLength() {
+    const eMails = _loadFromStorage()
+    return Promise.resolve(eMails.length)
 }
 
 function _createEmails() {

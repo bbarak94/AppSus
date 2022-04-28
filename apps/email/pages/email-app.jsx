@@ -30,11 +30,16 @@ export class EmailApp extends React.Component {
         EmailService.query(this.state.filterBy)
             .then(eMails => {
                 this.setState({ eMails })
-                eventBusService.emit('eMails', eMails)
+            })
+
+        EmailService.getLength()
+            .then(eMailsCount => {
+                eventBusService.emit('eMailsCount', eMailsCount)
             })
     }
 
     onFilter = (filterBy) => {
+        console.log(filterBy);
         this.setState({ filterBy }, this.loadEmails)
     }
 
@@ -48,7 +53,7 @@ export class EmailApp extends React.Component {
         this.setState({ isAdd: isAdd })
     }
 
-    
+
     onSetIsRead = (eMailId) => {
         EmailService.setIsRead(eMailId)
     }
@@ -65,7 +70,7 @@ export class EmailApp extends React.Component {
                 <section className='email-body flex'>
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
-                    <EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred}/>
+                    {<EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred} />}
                 </section>
             </section>
 

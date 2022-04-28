@@ -7,19 +7,22 @@ export function EmailPreview({ eMail, onSetIsRead, onSetIsStarred }) {
 
     return (
 
-        <article className={`email-preview flex ${isReadClass}`} >
-            <div className="img-container" >
-                <img src={`assets\\img\\mail\\${isStarredClass}.png`} onClick={() => onSetIsStarred(eMail.id)} />
-                {/* <img src="assets\img\mail\starred.png"/> */}
-            </div>
+        <article className={`email-preview  ${isReadClass}`} onClick={() => onSetIsRead(eMail.id)}>
 
             <Link to={`/email/${eMail.id}`}>
-                <div className=" preview-content flex space-between" onClick={() => onSetIsRead(eMail.id)}>
-                    <span className="subject">{eMail.subject}</span>
-                    <span className="body">{eMail.body}</span>
-                    <span>{eMail.to}</span>
-                    <span>{eMail.sentAt}</span>
-                </div>
+                <table>
+                    <tbody>
+
+                        <tr>
+                            <td><img src={`assets\\img\\mail\\${isStarredClass}.png`} onClick={() => onSetIsStarred(eMail.id)} /></td>
+                            <td className={`subject${isReadClass}`}>{eMail.subject}</td>
+                            <td className="body">{eMail.body}</td>
+                            <td className="to">{eMail.to}</td>
+                            <td className="sent-at">{eMail.sentAt}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </Link>
         </article>
     )

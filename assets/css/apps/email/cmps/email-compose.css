@@ -1,8 +1,60 @@
 .email-compose {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
     flex-grow:0.5;
     display: flex;
-
-    /* margin-inline-start: 200px; */
-    transform: translateX(25%);
+    /* transform: translate(-50%, -50%); */
 }
 
+.email-compose div {
+    padding: 0.8em;
+    /* margin: 1em; */
+}
+
+.new-massage {
+    border-top-left-radius: 0.4em;
+    border-top-right-radius: 0.4em;
+    background-color: #404040;
+    padding: 0.3em;
+    color: #FFF;
+    font-size: 1.3em;
+}
+
+.new-massage button {
+    font-family: roboto-bold;
+    color: #929292;
+    background-color: inherit;
+    border: none;
+}
+
+.new-massage button:hover {
+    color: white;
+    background-color: #929292;
+}
+
+
+textarea {
+    font-family: roboto-regular;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 1.3em;
+}
+
+.email-compose input {
+    border: none;
+    outline: none;
+}
+
+.send-btn-div button {
+    border: none;
+    background-color: var(--clr5);
+    color: #FFF;
+    padding: 0.8em 1.4em;
+    border-radius: .4em;
+}
+
+.send-btn-div button:hover {
+    box-shadow: -1px 1px 6px 3px #1a73e8a1;
+}

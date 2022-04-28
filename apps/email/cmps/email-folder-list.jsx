@@ -1,24 +1,54 @@
-const { Link } = ReactRouterDOM
+import { eventBusService } from "../../../services/event-bus-service.js"
 export class EmailFolderList extends React.Component {
-
-    onStatusFilter = (status) => {
+    state = {
+        eMailsCount: '',
+        activeFolder: '',
+    }
+    removeEvent
+    onStatusFilter = (folder) => {
         const filterBy = {
-            status: status
+            status: folder
         }
         this.props.onFilter(filterBy)
     }
 
-    render() {
+    componentDidMount() {
+        this.removeEvent = eventBusService.on('eMailsCount', (eMailsCount) => {
+            this.setState({ eMailsCount })
+        })
+    }
 
+    componentWillUnmount() {
+        this.removeEvent()
+    }
+
+    render() {
+        const { eMailsCount } = this.state
         return (
             <aside className="email-folder-list flex column">
-                <div onClick={this.props.isAdd}>➕Compose</div>
-                <section className="status-folders">
-                    <Link to="/email"><div onClick={() => this.onStatusFilter('inbox')}>Inbox</div></Link>
-                    <Link to="/email"><div onClick={() => this.onStatusFilter('starred')}>Starred</div></Link>
-                    <Link to="/email"><div onClick={() => this.onStatusFilter('sent')}>Sent</div></Link>
-                    <Link to="/email"><div onClick={() => this.onStatusFilter('trash')}>Trash</div></Link>
+                <div className="compose-btn" onClick={this.props.isAdd}>
+                    <div className="img-container compose"><img src="assets\img\mail\compose.png"/></div>
+                    Compose
+                    </div>
+                <section className="folders">
+                    <div onClick={() => this.onStatusFilter('inbox')}>
+                        <div className="img-container"><img src="assets\img\mail\inbox.png" /></div>
+                        Inbox
+                    </div>
+                    <div onClick={() => this.onStatusFilter('starred')}>
+                    <div className="img-container"><img src="assets\img\mail\starred.png" /></div>
+                        Starred
+                    </div>
+                    <div onClick={() => this.onStatusFilter('sent')}>
+                    <div className="img-container"><img src="assets\img\mail\sent.png" /></div>
+                        Sent
+                    </div>
+                    <div onClick={() => this.onStatusFilter('trash')}>
+                    <div className="img-container"><img src="assets\img\mail\trash.png" /></div>
+                        Trash
+                    </div>
                 </section>
+                {eMailsCount && <span>Emails Count: {eMailsCount}</span>}
             </aside>
         )
 

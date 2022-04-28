@@ -1,4 +1,3 @@
-import { EmailHeader } from "../cmps/email-header.jsx"
 import { EmailService } from "../services/email.service.js"
 
 export class EmailDetails extends React.Component {
@@ -15,19 +14,27 @@ export class EmailDetails extends React.Component {
         EmailService.getById(emailId)
             .then(eMail => { this.setState({ eMail }) })
     }
+
+    onDeleteEmail = () => {
+        EmailService.removeEmail(this.state.eMail.id)
+            .then(() => {
+                this.props.history.push('/email')
+            })
+    }
     render() {
         const { eMail } = this.state
         if (!eMail) return <div>Loading...</div>
         return (
-            <div>
-                <EmailHeader />
+            <React.Fragment>
                 <section className="email-details">
                     <h2>{eMail.subject}</h2>
                     <span>{eMail.to}</span>
                     <span>{eMail.sentAt}</span>
                     <p>{eMail.body}</p>
+                    <button onClick={this.onDeleteEmail}>Delete</button>
                 </section>
-            </div>
+                </React.Fragment>
+
         )
     }
 }
