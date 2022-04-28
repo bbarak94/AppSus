@@ -3,3 +3,18 @@
    margin-top: 10px;
    max-width: 80%;
 }
+
+.note-preview-vid-container{
+   margin: auto;
+   margin-top: 10px;
+   height:80%;
+   max-width: 80%;
+
+}
+
+iframe{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
+

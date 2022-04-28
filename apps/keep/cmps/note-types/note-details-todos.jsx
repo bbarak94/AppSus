@@ -8,8 +8,8 @@ export class NoteDetailsTodos extends React.Component {
     handleChange = ({ target }) => {
         const value = target.value
         const field = target.name
-        console.log('value:', value)
-        console.log('field:', field)
+        // console.log('value:', value)
+        // console.log('field:', field)
         var newNote = this.props.note
         if (field === 'title') newNote.info.title = value
         else newNote.info.todos[field]['txt'] = value
@@ -23,14 +23,14 @@ export class NoteDetailsTodos extends React.Component {
     }
 
     onToggleTask = (ev) => {
-        console.log('ev.target.dataset.status:', ev.target.dataset.status)
-        console.log('ev.target.dataset.id:', ev.target.dataset.id)
-        console.log('ev.target.dataset.idx:', ev.target.dataset.idx)
+        // console.log('ev.target.dataset.status:', ev.target.dataset.status)
+        // console.log('ev.target.dataset.id:', ev.target.dataset.id)
+        // console.log('ev.target.dataset.idx:', ev.target.dataset.idx)
         var idx = ev.target.dataset.idx
         var status = ev.target.dataset.status
         var newNote = this.props.note
         newNote.info.todos[idx].doneAt = status === 'done' ? null : Date.now()
-        console.log('newNote:', newNote)
+        // console.log('newNote:', newNote)
         this.setState({ note: newNote })
     }
 

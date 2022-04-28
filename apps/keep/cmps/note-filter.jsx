@@ -12,8 +12,8 @@ export class NoteFilter extends React.Component {
         const value = target.value
         const field = target.name
 
-        console.log('target.name:', target.name)
-        console.log('target.value:', target.value)
+        // console.log('target.name:', target.name)
+        // console.log('target.value:', target.value)
 
         this.setState(
             (prevState) => ({
@@ -64,9 +64,10 @@ export class NoteFilter extends React.Component {
                 </form>
                 <div className="add-buttons">
 
-                <button onClick={this.props.onAddNote} data-type='note-txt'>New Text</button>
-                <button onClick={this.props.onAddNote} data-type='note-todos'>New Todos</button>
-                <button onClick={this.props.onAddNote} data-type='note-img'>New Img</button>
+                <button onClick={this.props.onAddNote} data-type='note-txt'>New Memo</button>
+                <button onClick={this.props.onAddNote} data-type='note-todos'>New Mission</button>
+                <button onClick={this.props.onAddNote} data-type='note-img'>New Image</button>
+                <button onClick={this.props.onAddNote} data-type='note-vid'>New Video</button>
                 </div>
             </section>
         )

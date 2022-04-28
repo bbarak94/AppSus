@@ -1,9 +1,7 @@
 import { NotePreviewTxt } from './note-types/note-preview-txt.jsx'
 import { NotePreviewTodos } from './note-types/note-preview-todos.jsx'
 import { NotePreviewImg } from './note-types/note-preview-img.jsx'
-
-// Later:
-// import {NotePreviewVideo} from './note-types/note-preview-video.jsx'
+import { NotePreviewVid } from './note-types/note-preview-vid.jsx'
 
 // Advanced Features:
 // import {NotePreviewAudio} from './note-types/note-preview-audio.jsx'
@@ -24,6 +22,7 @@ export function NotePreview({ note, onSelectNote, updateNote }) {
                 <NotePreviewTodos note={note} updateNote={updateNote} />
             )}
             {note.type === 'note-img' && <NotePreviewImg note={note} />}
+            {note.type === 'note-vid' && <NotePreviewVid note={note} />}
         </div>
     )
 }

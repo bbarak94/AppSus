@@ -26,7 +26,7 @@ function query(filterBy) {
                     note.info.txt.toLowerCase().includes(txt.toLowerCase()) &&
                     note.info.title.toLowerCase().includes(title.toLowerCase())
                 )
-            } else if (note.type === 'note-img') {
+            } else if (note.type === 'note-img' || note.type === 'note-vid') {
                 return (
                     note.info.title
                         .toLowerCase()
@@ -66,14 +66,14 @@ function remove(noteId) {
 }
 
 function replaceNote(noteToUpdate) {
-    console.log('noteToUpdate:', noteToUpdate)
+    // console.log('noteToUpdate:', noteToUpdate)
     let notes = _loadFromStorage()
     notes = notes.map((note) => {
         // console.log('noteToUpdate:', noteToUpdate)
         // console.log('note.id:', note.id)
         return note.id === noteToUpdate.id ? noteToUpdate : note
     })
-    console.log('notes:', notes)
+    // console.log('notes:', notes)
 
     _saveToStorage(notes)
     return Promise.resolve(notes)
@@ -91,6 +91,8 @@ function createNote(noteType) {
     var info
     if (noteType === 'note-txt') info = { title: '', txt: '' }
     else if (noteType === 'note-img') info = { title: '', url: '' }
+    else if (noteType === 'note-vid') info = { title: '', url: ''}
+    // else if (noteType === 'note-vid') info = { title: '', url: 'https://www.youtube.com/embed/'}
     else if (noteType === 'note-todos') {
         info = {
             title: '',
@@ -114,6 +116,17 @@ function createNote(noteType) {
 
 function _createNotes() {
     const notes = [
+        {
+            id: 'n100',
+            type: 'note-vid',
+            isPinned: false,
+            info: {
+                url: 'https://www.youtube.com/embed/oLyM3i24tJM',
+                title: 'Bobi and Me',
+            },
+            style: { backgroundColor: '#FF9F1A' },
+        },
+
         {
             id: 'n101',
             type: 'note-txt',
@@ -165,6 +178,7 @@ function _createNotes() {
             },
             style: { backgroundColor: '#FF9F1A' },
         },
+
         {
             id: 'n106',
             type: 'note-todos',
