@@ -9,6 +9,7 @@ export const noteService = {
 
 const KEY = 'keepDB'
 
+
 function query(filterBy) {
     let notes = _loadFromStorage()
     if (!notes) {

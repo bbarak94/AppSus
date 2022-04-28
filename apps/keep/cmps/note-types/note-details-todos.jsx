@@ -1,3 +1,4 @@
+import {utilService} from '../../../../services/util.service.js'
 export class NoteDetailsTodos extends React.Component {
     state = {
         note: this.props.note,
@@ -33,9 +34,23 @@ export class NoteDetailsTodos extends React.Component {
         this.setState({ note: newNote })
     }
 
+    onAddNewTodo = () => {
+        var newNote = this.state.note
+        var newTodo = {
+            id: utilService.makeId(),
+            txt: '',
+            doneAt: null
+        }
+        newNote.info.todos.push(newTodo)
+        // this.props.onUpdateNote(newNote)
+        this.setState({ note: newNote })
+    }
+
     render() {
         const { title, todos } = this.state.info
         return (
+            <div className="todos-container">
+
             <form
                 className='details-txt-form flex column'
                 onSubmit={this.handleSubmit}
@@ -98,6 +113,9 @@ export class NoteDetailsTodos extends React.Component {
                 ))}
                 <button>Save</button>
             </form>
+                <button onClick={this.onAddNewTodo}>Add new task</button>
+            </div>
+
         )
     }
 }

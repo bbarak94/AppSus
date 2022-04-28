@@ -47,7 +47,7 @@ export class KeepApp extends React.Component {
         return (
             <section className='keep-app'>
                 <KeepHeader />
-                <NoteList notes={notes} onSelectNote={this.onSelectNote} />
+                <NoteList notes={notes} onSelectNote={this.onSelectNote} updateNote={this.updateNote} />
                 {selectedNote && (
                     <NoteDetails
                         updateNote={this.updateNote}
