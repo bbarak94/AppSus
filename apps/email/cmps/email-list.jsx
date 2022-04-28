@@ -2,6 +2,7 @@ import { eventBusService } from '../../../services/event-bus-service.js'
 import { EmailPreview } from '../cmps/email-preview.jsx'
 import { EmailService } from '../services/email.service.js'
 
+
 export class EmailList extends React.Component {
 
     state ={
@@ -19,7 +20,8 @@ export class EmailList extends React.Component {
     }
 
     onSetIsStarred = (eMailId) => {
-        EmailService.setIsStarred(eMailId)
+        eventBusService.emit('isStarred', eMailId)
+        // EmailService.setIsStarred(eMailId)
     }
     
     render() {

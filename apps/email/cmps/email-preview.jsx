@@ -3,6 +3,7 @@ const { Link } = ReactRouterDOM
 export class EmailPreview extends React.Component {
     state = {
         eMail: null,
+        isStarred: null
     }
     
     componentDidMount() {
@@ -10,9 +11,9 @@ export class EmailPreview extends React.Component {
     }
     render() {
         const {eMail} = this.state
-        if (!eMail) return <div></div> 
+        if (!eMail) return <div>Loading...</div> 
         const isReadClass = (eMail.isRead) ? 'read' : ''
-        const isStarredClass = (eMail.isRead) ? 'starred' : 'un-starred'
+        const isStarredClass = (eMail.isStarred) ? 'starred' : 'un-starred'
 
         return (
     
