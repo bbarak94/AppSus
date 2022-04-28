@@ -1,3 +1,13 @@
 .note-filter-form{
+   text-align: center;
+   flex-wrap: wrap;
    gap:10px;
+   justify-content: center;
+}
+
+.add-buttons{
+   text-align: center;
+}
+.add-buttons button{
+   margin: 20px 20px;
 }

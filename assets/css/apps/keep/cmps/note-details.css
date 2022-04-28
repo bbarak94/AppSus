@@ -1,24 +1,34 @@
-.note-details{
-   width: 600px;
-   background-color: whitesmoke;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%,-50%);
-   padding: 20px;
+.note-details {
+    width: 600px;
+    background-color: whitesmoke;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
 }
 
-.details-txt-form{
-   gap: 10px;
+.details-txt-form {
+    gap: 10px;
 }
-.details-txt-form input{
-   border: none;
-}
-
-.details-txt-form #title{
-   font-size: 22px;
+.details-txt-form input {
+    border: none;
 }
 
-.details-txt-form #txt{
-   font-size: 18px;
+.details-txt-form #title {
+    font-size: 22px;
+}
+
+.details-txt-form #txt {
+    font-size: 18px;
+}
+
+@media (max-width: 700px) {
+    .note-details {
+        width: 80vw;
+    }
+    
+    img{
+       max-width: 80vw;
+    }
 }
