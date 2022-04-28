@@ -1,4 +1,3 @@
-import { render } from 'express/lib/response'
 
 export class NoteFilter extends React.Component {
     state = {
