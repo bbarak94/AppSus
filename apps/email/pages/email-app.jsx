@@ -62,7 +62,6 @@ export class EmailApp extends React.Component {
                     <EmailFolderList onFilter={this.onFilter} isAdd={() =>this.onSetIsAdd (true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() =>this.onSetIsAdd(false)}/>}
                     <Switch>
-                        <Route path='/email/:emailId' component={EmailDetails} />
                         <Route path='/' component={EmailList} />
                     </Switch>
                 </section>
