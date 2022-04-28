@@ -45,6 +45,7 @@ export class NoteDetails extends React.Component {
                         note={this.state.note}
                     />
                 )}
+                <button onClick={this.props.onRemoveNote}>Delete Note</button>
             </div>
         )
     }
