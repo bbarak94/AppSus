@@ -72,6 +72,7 @@ function setIsStarred(eMailId) {
     let eMail = eMails.find(eMail => eMail.id === eMailId)
     eMail.isStarred = !eMail.isStarred
     _saveToStorage(eMails)
+    return Promise.resolve()
 }
 
 function _createEmails() {

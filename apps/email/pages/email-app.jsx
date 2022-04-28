@@ -16,9 +16,19 @@ export class EmailApp extends React.Component {
         filterBy: {status:'inbox'},
         isAdd: false,
     }
+    removeEvent
 
     componentDidMount() {
         this.loadEmails()
+        this.removeEvent = eventBusService.on('isStarred', (eMailId) => {
+            // console.log('str from header', str)
+                    EmailService.setIsStarred(eMailId)
+                        .then(this.loadEmails())
+        })
+    }
+
+    componentWillUnmount() {
+        this.removeEvent()
     }
 
     loadEmails = () => {
