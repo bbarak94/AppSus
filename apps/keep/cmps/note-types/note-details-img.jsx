@@ -22,6 +22,8 @@ export class NoteDetailsImg extends React.Component {
         ev.preventDefault()
         var newNote = this.state.note
         newNote.info = this.state.info
+        console.log('this.props.backgroundColor:',this.props.backgroundColor)        
+        newNote.style.backgroundColor = this.props.backgroundColor
         console.log('newNote:', newNote)
         this.props.onUpdateNote(newNote)
         // this.props.onUpdateNote(this.state.note)
