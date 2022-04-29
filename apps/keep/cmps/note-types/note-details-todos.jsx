@@ -1,4 +1,6 @@
 import {utilService} from '../../../../services/util.service.js'
+import { noteService } from '../../services/note.service.js'
+
 export class NoteDetailsTodos extends React.Component {
     state = {
         note: this.props.note,
@@ -32,6 +34,20 @@ export class NoteDetailsTodos extends React.Component {
         newNote.info.todos[idx].doneAt = status === 'done' ? null : Date.now()
         // console.log('newNote:', newNote)
         this.setState({ note: newNote })
+    }
+
+    onRemoveTodo = (ev) => {
+        console.log('ev.target.dataset.noteid:', ev.target.dataset.noteid)
+        console.log('ev.target.dataset.todoid:', ev.target.dataset.todoid)
+        var noteId = ev.target.dataset.noteid
+        var todoId = ev.target.dataset.todoid
+        var newNote = this.state.note
+        newNote.info.todos.filter((todo)=> todoId===todo.id)
+        this.setState({ note: newNote })
+
+
+
+
     }
 
     onAddNewTodo = () => {
@@ -109,6 +125,8 @@ export class NoteDetailsTodos extends React.Component {
                             value={todo.txt}
                             onChange={this.handleChange}
                         />
+                <button onClick={this.onRemoveTodo} data-noteid={this.state.note.id} data-todoid={todo.id} >X</button>
+
                     </div>
                 ))}
                 <button>Save</button>

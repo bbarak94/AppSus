@@ -7,6 +7,9 @@ export const noteService = {
     replaceNote,
     remove,
     createNote,
+    togglePin,
+    duplicateNote,
+    removeTodo
 }
 
 const KEY = 'keepDB'
@@ -65,15 +68,40 @@ function remove(noteId) {
     return Promise.resolve()
 }
 
+function removeTodo(noteId, todoId) {
+    var notes = _loadFromStorage()
+    var note = notes.find((note) => noteId === note.id)
+    var todos = note.info.todos
+    todos = todos.filter((todo) => todo.id !== todoId)
+    note.info.todos = todos
+    _saveToStorage(notes)
+    return Promise.resolve(note)
+}
+function togglePin(noteId) {
+    var notes = _loadFromStorage()
+    var selectedNote = notes.find((note) => noteId === note.id)
+    selectedNote.isPinned = !selectedNote.isPinned
+    notes = notes.filter((note) => note.id !== noteId)
+    notes.unshift(selectedNote)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
+function duplicateNote(noteId) {
+    var notes = _loadFromStorage()
+    var selectedNote = notes.find((note) => noteId === note.id)
+    selectedNote = { ...selectedNote }
+    selectedNote.id = utilService.makeId()
+    notes.unshift(selectedNote)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
 function replaceNote(noteToUpdate) {
-    // console.log('noteToUpdate:', noteToUpdate)
     let notes = _loadFromStorage()
     notes = notes.map((note) => {
-        // console.log('noteToUpdate:', noteToUpdate)
-        // console.log('note.id:', note.id)
         return note.id === noteToUpdate.id ? noteToUpdate : note
     })
-    // console.log('notes:', notes)
 
     _saveToStorage(notes)
     return Promise.resolve(notes)
@@ -91,7 +119,7 @@ function createNote(noteType) {
     var info
     if (noteType === 'note-txt') info = { title: '', txt: '' }
     else if (noteType === 'note-img') info = { title: '', url: '' }
-    else if (noteType === 'note-vid') info = { title: '', url: ''}
+    else if (noteType === 'note-vid') info = { title: '', url: '' }
     // else if (noteType === 'note-vid') info = { title: '', url: 'https://www.youtube.com/embed/'}
     else if (noteType === 'note-todos') {
         info = {
@@ -154,18 +182,24 @@ function _createNotes() {
             info: {
                 title: 'And manage your tasks',
                 todos: [
-                    { id: 't101', txt: 'Ready to give it a try?', doneAt: null },
+                    {
+                        id: 't101',
+                        txt: 'Ready to give it a try?',
+                        doneAt: null,
+                    },
                     { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
                 ],
             },
             style: { backgroundColor: '#61BD4F' },
-
         },
         {
             id: 'n104',
             type: 'note-txt',
             isPinned: false,
-            info: { title: 'The whole app mad with React.', txt: 'You can try it on you phone too!' },
+            info: {
+                title: 'The whole app mad with React.',
+                txt: 'You can try it on you phone too!',
+            },
             style: { backgroundColor: '#F2D600' },
         },
         {
@@ -192,7 +226,6 @@ function _createNotes() {
                 ],
             },
             style: { backgroundColor: '#C377E0' },
-
         },
         {
             id: 'n107',
@@ -204,19 +237,19 @@ function _createNotes() {
         {
             id: 'n108',
             type: 'note-img',
-            isPinned: false,
+            isPinned: true,
             info: {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
-                title: 'Bobi and Me',
+                title: 'pin Bobi and Me',
             },
             style: { backgroundColor: '#eb5a46' },
         },
         {
             id: 'n109',
             type: 'note-todos',
-            isPinned: false,
+            isPinned: true,
             info: {
-                title: 'Must do fast',
+                title: 'pin Must do fast',
                 label: 'Get my stuff together',
                 todos: [
                     { id: 't105', txt: 'Driving liscence', doneAt: null },
@@ -224,7 +257,6 @@ function _createNotes() {
                 ],
             },
             style: { backgroundColor: '#0079BF' },
-
         },
     ]
 

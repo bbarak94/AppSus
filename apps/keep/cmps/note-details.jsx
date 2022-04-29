@@ -22,7 +22,7 @@ export class NoteDetails extends React.Component {
     onUpdateNote = (note) => {
         // console.log('FROM note-details - note:', note)
         // console.log('note.style:',note.style)
-        
+
         // this.setState({ note: note }, this.props.updateNote(this.state.note))
         this.props.updateNote(note)
     }
@@ -39,6 +39,8 @@ export class NoteDetails extends React.Component {
             },
         })
     }
+
+
     // this.setState({style: {
     //     backgroundColor :ev.target.value
     // }})
@@ -53,7 +55,7 @@ export class NoteDetails extends React.Component {
             >
                 {this.state.type === 'note-txt' && (
                     <NoteDetailsTxt
-                        backgroundColor = {backgroundColor}
+                        backgroundColor={backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
@@ -61,7 +63,7 @@ export class NoteDetails extends React.Component {
                 )}
                 {this.state.type === 'note-todos' && (
                     <NoteDetailsTodos
-                        backgroundColor = {backgroundColor}
+                        backgroundColor={backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
@@ -69,7 +71,7 @@ export class NoteDetails extends React.Component {
                 )}
                 {this.state.type === 'note-img' && (
                     <NoteDetailsImg
-                        backgroundColor = {backgroundColor}
+                        backgroundColor={backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}
@@ -77,7 +79,7 @@ export class NoteDetails extends React.Component {
                 )}
                 {this.state.type === 'note-vid' && (
                     <NoteDetailsVid
-                        backgroundColor = {backgroundColor}
+                        backgroundColor={backgroundColor}
                         onUpdateNote={this.onUpdateNote}
                         onReRenderNote={this.onReRenderNote}
                         note={this.state.note}

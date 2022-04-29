@@ -17,6 +17,9 @@ export class TodoPreviewLine extends React.Component {
         // this.setState({ note: newNote })
         this.props.updateNote(newNote)
     }
+
+
+
     render() {
         const { id, txt, doneAt } = this.props.todo
         return (
