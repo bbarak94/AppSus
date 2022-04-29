@@ -3,6 +3,8 @@ import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteDetails } from '../cmps/note-details.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
+import { AppHeader } from "./common-cmps/app-header.jsx"
+
 
 export class KeepApp extends React.Component {
     state = {
@@ -91,6 +93,7 @@ export class KeepApp extends React.Component {
         const { notes, selectedNote } = this.state
         return (
             <section className='keep-app'>
+            <AppHeader />
                 <KeepHeader />
                 <NoteFilter
                     onAddNote={this.onAddNote}
