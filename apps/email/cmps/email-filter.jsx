@@ -24,8 +24,8 @@ export class EmailFilter extends React.Component {
             <section className="email-filter">
                 <form onSubmit={this.handleSubmit}>
                     <div className="search-container">
-                        <div><img src="assets\img\mail\search.svg" /></div>
-                        <input type="search" name="txt" id="" placeholder="Search mail" autoComplete="off"
+                        <label htmlFor="email-search"><div className="img-container"><img src="assets\img\mail\search.svg" /></div></label> 
+                        <input type="search" name="txt" id="email-search" placeholder="Search mail" autoComplete="off"
                             value={txt} onChange={this.handleChange} />
                         <select name="isRead" onChange={this.handleChange}>
                             <option value={''}>All</option>

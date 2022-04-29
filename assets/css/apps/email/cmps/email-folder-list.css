@@ -1,13 +1,28 @@
 .email-folder-list {
-    padding: 4em 1em;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
     gap: 1em;
+    z-index: 20;
+    top: 80px;
+    right: -50%;
+    height: 100vh;
+    background-color: #b6d1dd;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    padding: 4em 1em;
+    transition: right 0.3s;
+}
+
+body.menu-open .email-folder-list {
+    right: 0;
+
 }
 
 .folders > div {
-    margin-top: 3em;
-    padding: 0.4em 3.9em;
+    margin-top: 1em;
+    padding: 0.4em 1.5em;
     border-radius: 0.5em;
-
 }
 
 .folders div:hover{
@@ -24,30 +39,46 @@
 
 
 .email-folder-list .img-container {
-    width: 30px;
+    width: 20px;
 }
 
-.compose-btn {
+.compose-btn-container {
+    font-family: roboto-bold;
+    color: var(--clr3);
+    width: 150px;
     padding: 0.5em;
-    border-radius: 1em;
+    border-radius: 2em;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
 }
 
-.compose-btn:hover{
-    
+.compose-btn-container:hover{
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 12px 3px;
 }
 
-.img-container.compose {
-    width: 40px;
+.compose {
+    background-color: white;
 }
-
 
 @media (min-width: 720px) {
     .email-folder-list {
-        padding: 4em 3em;
+        position: static;
+        padding: 4em 1em;
+        background-color: transparent;
     }
-  
+    .folders > div {
+        margin-top: 3em;
+        padding: 0.4em 2.9em;
+        /* border-radius: 0.5em; */
+    }
+
+    .email-folder-list .img-container {
+        width: 30px;
+    }
+
+    .img-container.compose {
+        /* width: 40px; */
+    }
 }
 
 @media (min-width: 1120px) {

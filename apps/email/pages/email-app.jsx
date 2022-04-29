@@ -3,6 +3,7 @@ import { EmailList } from '../cmps/email-list.jsx'
 import { EmailFolderList } from '../cmps/email-folder-list.jsx'
 import { EmailCompose } from '../cmps/email-compose.jsx'
 import { eventBusService } from '../../../services/event-bus-service.js'
+import { MainScreen } from './email-main-screen.jsx'
 
 import { EmailService } from '../services/email.service.js'
 export class EmailApp extends React.Component {
@@ -70,6 +71,7 @@ export class EmailApp extends React.Component {
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
                     {<EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred} />}
+                    <MainScreen/>
                 </section>
             </section>
 

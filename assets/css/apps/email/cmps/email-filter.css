@@ -1,13 +1,11 @@
-.email-filter {
-
-}
+.email-filter {}
 
 .search-container {
     display: flex;
-    padding: 0.7em 1em;
-    border-radius: 0.7em;
-    background-color: var(--clr8);
-    transition: box-shadow , background-color .3s;
+    padding: 0.5em 0.5em;
+    border-radius: 1.7em;
+    background-color: #b6d1dd;
+    transition: box-shadow, background-color .3s;
 }
 
 
@@ -15,19 +13,39 @@
     border: none;
     background-color: inherit;
     outline: none;
+
 }
 
-.search-container:focus-within{
+.search-container:focus-within {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #FFF;
 }
 
-.search-container  img {
-    width:2em;
+
+.search-container .img-container {
+    width: 1.5em;
+    cursor: pointer;
 }
 
-.search-container  select {
+.search-container select {
     text-align: center;
     border: none;
     background-color: inherit;
+    outline: none;
+}
+
+@media (min-width: 720px) {
+
+    .search-container {
+        padding: 0.7em 1em;
+        border-radius: 0.7em;
+    }
+
+    .search-container input {
+        font-size: 16px;
+    }
+
+    .search-container .img-container {
+        width: 2em;
+    }
 }

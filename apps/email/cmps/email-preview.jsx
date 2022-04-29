@@ -19,20 +19,20 @@ export class EmailPreview extends React.Component {
     bodyLong(body) {
         const { windowWidth } = this.state
         if (body.length > 70 && windowWidth > 1500) return body.slice(0, 90) + '...'
-        else if (windowWidth > 1300) return body.slice(0, 55) + '...'
-        else if (windowWidth > 1150) return body.slice(0, 30) + '...'
-        else if (windowWidth > 980) return body.slice(0, 15) + '...'
-        return body.slice(0, 7) + '...'
+        else if (windowWidth > 1300) return body.slice(0, 70) + '...'
+        else if (windowWidth > 1000) return body.slice(0, 40) + '...'
+        else if (windowWidth > 720) return body.slice(0, 7) + '...'
+        else if (windowWidth <720 && body.length > 60) return body.slice(0, 60) +'...'
     }
 
     subjectLong(subject) {
         const { windowWidth } = this.state
-        if (subject.length > 20 && windowWidth > 1500) return subject.slice(0, 20) + '...'
-        else if (windowWidth > 1300) return subject.slice(0, 10) + '...'
+        if (subject.length > 20 && windowWidth > 1500) return subject.slice(0, 25) 
+        else if (windowWidth > 1300) return subject.slice(0, 30)  
         return subject.slice(0, 5) + '...'
-        
-    }
 
+    }
+  
     render() {
         const { eMail, onSetIsRead, onSetIsStarred } = this.props
         const isReadClass = (eMail.isRead) ? 'read' : ''
@@ -42,16 +42,12 @@ export class EmailPreview extends React.Component {
             <article className={`email-preview  ${isReadClass}`} onClick={() => onSetIsRead(eMail.id)}>
                 <img src={`assets\\img\\mail\\${isStarredClass}.png`} onClick={() => onSetIsStarred(eMail.id)} />
                 <Link to={`/email/${eMail.id}`}>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className={`preview-to ${isReadClass}`}>{eMail.to}</td>
-                                <td className={`preview-subject ${isReadClass}`}>{this.subjectLong(eMail.subject)}</td>
-                                <td className="preview-body">{this.bodyLong(eMail.body)}</td>
-                                <td className="sent-at">{eMail.sentAt}</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <section className="preview-container">
+                        <div className={`preview-to ${isReadClass}`}>{eMail.to}</div>
+                        <div className={`preview-subject ${isReadClass}`}>{this.subjectLong(eMail.subject)}</div>
+                        <div className="preview-body">{this.bodyLong(eMail.body)}</div>
+                        <div className="sent-at">{eMail.sentAt}</div>
+                    </section>
                 </Link>
             </article>
         )

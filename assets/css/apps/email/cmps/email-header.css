@@ -2,3 +2,25 @@
     border-bottom: 1px solid var(--clr8);
     padding: 1em;
 }
+
+.email-header .nav-mobile {
+    width: 40px;
+    cursor: pointer;
+    transition: transform .3s;
+    border-radius: 5em;
+    padding: 0.25em;
+}
+
+.email-header .nav-mobile:hover {
+    background-color: var(--clr9);
+}
+
+body.menu-open .email-header .nav-mobile {
+    transform: rotate(90deg);
+}
+
+@media (min-width: 720px) {
+    .email-header .nav-mobile {
+        display: none;
+    }   
+}
