@@ -3,7 +3,7 @@ import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteDetails } from '../cmps/note-details.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
-import { AppHeader } from "./common-cmps/app-header.jsx"
+import { AppHeader } from "../../common-cmps/app-header.jsx"
 
 
 export class KeepApp extends React.Component {

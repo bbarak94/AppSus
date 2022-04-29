@@ -1,5 +1,5 @@
 
-import { AppHeader } from "./common-cmps/app-header.jsx"
+import { AppHeader } from "./app-header.jsx"
 
 export function About() {
 

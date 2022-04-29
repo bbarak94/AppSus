@@ -4,7 +4,7 @@ import { EmailFolderList } from '../cmps/email-folder-list.jsx'
 import { EmailCompose } from '../cmps/email-compose.jsx'
 import { eventBusService } from '../../../services/event-bus-service.js'
 import { MainScreen } from './email-main-screen.jsx'
-import { AppHeader } from "./common-cmps/app-header.jsx"
+import { AppHeader } from "../../common-cmps/app-header.jsx"
 
 import { EmailService } from '../services/email.service.js'
 export class EmailApp extends React.Component {
