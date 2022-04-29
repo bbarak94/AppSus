@@ -1,0 +1,41 @@
+.user-msg {
+    position: fixed;
+    top: 130px;
+    right: 20px;   
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 1em;
+    display: none;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.user-msg a {
+    color: var(--clr8);
+    text-decoration: underline;
+}
+
+.msg-container button {
+    margin-inline-end: 2em;
+}
+
+
+.user-msg.success {
+    display: block;   
+    background-color: lightgreen;
+}
+
+.user-msg.success::after {
+    content: ' ✅'
+}
+
+.user-msg.danger {
+    display: block;   
+    background-color: rgb(228, 92, 58);
+}
+
+.user-msg.danger::after {
+    content: ' ❌'
+}
+
+

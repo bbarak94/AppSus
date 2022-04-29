@@ -4,12 +4,10 @@
     bottom: 50px;
     flex-grow:0.5;
     display: flex;
-    /* transform: translate(-50%, -50%); */
 }
 
 .email-compose div {
     padding: 0.8em;
-    /* margin: 1em; */
 }
 
 .new-massage {
@@ -57,4 +55,9 @@ textarea {
 
 .send-btn-div button:hover {
     box-shadow: -1px 1px 6px 3px #1a73e8a1;
+}
+
+.email-compose .to, .subject {
+    background-color: #FFF;
+    border-bottom: solid 1px #707070;
 }
