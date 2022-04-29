@@ -1,5 +1,6 @@
 .email-compose {
     position: absolute;
+    z-index: 50;
     right: 50px;
     bottom: 50px;
     flex-grow:0.5;

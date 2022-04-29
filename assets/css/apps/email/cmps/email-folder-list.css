@@ -1,8 +1,6 @@
 .email-folder-list {
-    margin-top: 1em;
-    margin-inline-start: 1em;
-    padding: 4em;
-    gap: 2em;
+    padding: 4em 1em;
+    gap: 1em;
 }
 
 .folders > div {
@@ -18,7 +16,6 @@
 }
 
 .email-folder-list div {
-    /* padding: 1em 3em; */
     cursor: pointer;
     display: flex;
     gap: 1em;
@@ -44,3 +41,17 @@
 .img-container.compose {
     width: 40px;
 }
+
+
+@media (min-width: 720px) {
+    .email-folder-list {
+        padding: 4em 3em;
+    }
+  
+}
+
+@media (min-width: 1120px) {
+    .email-folder-list {
+        padding: 4em 3em;
+    }
+} 
