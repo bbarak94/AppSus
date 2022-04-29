@@ -15,7 +15,7 @@ export class EmailCompose extends React.Component {
     onAddEmail = (ev) => {
         ev.preventDefault()
         const newEmail = this.state
-        EmailService.addEmail(newEmail)
+       this.props.onAddEmail(newEmail)
         this.props.isAdd()
     }
 

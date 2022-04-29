@@ -1,5 +1,7 @@
 .email-details {
-    margin-top: 5em;
+    margin: 15em 18em;
+    padding: 4em;
+    background-color: antiquewhite;
 }
 
 .email-details h2 {
@@ -8,4 +10,8 @@
 
 .email-details span {
     margin-inline-end: 1em;
+}
+
+.email-details button {
+    margin: 0.5em;
 }

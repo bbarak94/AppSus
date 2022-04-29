@@ -1,5 +1,5 @@
 import { EmailService } from "../services/email.service.js"
-
+import { eventBusService } from "../../../services/event-bus-service.js"
 export class EmailDetails extends React.Component {
     state = {
         eMail: null
@@ -16,24 +16,38 @@ export class EmailDetails extends React.Component {
     }
 
     onDeleteEmail = () => {
-        EmailService.removeEmail(this.state.eMail.id)
+        const {eMail} = this.state
+        EmailService.removeEmail(eMail.id)
             .then(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'success', txt: 'Deleted eMail successfully'
+                })
                 this.props.history.push('/email')
             })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger', txt: 'Could not delete eMail'
+                })
+            })
+    }
+
+    onCloseEmail = () => {
+        this.props.history.push('/email')
     }
     render() {
         const { eMail } = this.state
         if (!eMail) return <div>Loading...</div>
         return (
             <React.Fragment>
-                <section className="email-details">
+                <section className="email-details flex space-between align-center column shadow">
                     <h2>{eMail.subject}</h2>
                     <span>{eMail.to}</span>
                     <span>{eMail.sentAt}</span>
                     <p>{eMail.body}</p>
                     <button onClick={this.onDeleteEmail}>Delete</button>
+                    <button onClick={this.onCloseEmail}>Close</button>
                 </section>
-                </React.Fragment>
+            </React.Fragment>
 
         )
     }

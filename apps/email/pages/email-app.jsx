@@ -12,18 +12,9 @@ export class EmailApp extends React.Component {
         filterBy: { status: 'inbox' },
         isAdd: false,
     }
-    removeEvent
 
     componentDidMount() {
         this.loadEmails()
-        this.removeEvent = eventBusService.on('isStarred', (eMailId) => {
-            EmailService.setIsStarred(eMailId)
-                .then(this.loadEmails())
-        })
-    }
-
-    componentWillUnmount() {
-        this.removeEvent()
     }
 
     loadEmails = () => {
@@ -39,27 +30,35 @@ export class EmailApp extends React.Component {
     }
 
     onFilter = (filterBy) => {
-        console.log(filterBy);
         this.setState({ filterBy }, this.loadEmails)
     }
 
     onAddEmail = (newEmail) => {
         EmailService.addEmail(newEmail)
-            .then(this.loadEmails)
-
+            .then(() => {
+                this.loadEmails()
+                eventBusService.emit('user-msg', {
+                    type: 'success', txt: 'Email added successfully'
+                })
+            })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger', txt: 'Could not add email'
+                })
+            })
     }
 
     onSetIsAdd = (isAdd) => {
         this.setState({ isAdd: isAdd })
     }
 
-
     onSetIsRead = (eMailId) => {
         EmailService.setIsRead(eMailId)
     }
 
     onSetIsStarred = (eMailId) => {
-        eventBusService.emit('isStarred', eMailId)
+        EmailService.setIsStarred(eMailId)
+            .then(this.loadEmails)
     }
 
     render() {
