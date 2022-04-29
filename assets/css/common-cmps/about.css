@@ -1,0 +1,37 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    margin: 7em;
+}
+
+.about h2 {
+    margin-bottom: 2em;
+    text-align: center;
+}
+
+.about-subject {
+    font-family: roboto-bold;
+    display: block;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.about .img-container {
+    width: 50px;
+    margin: 3em auto 0;
+}
+
+@media (min-width: 720px) {
+
+}
+
+@media (min-width: 1120px) {
+    .about {
+        margin:7em 20m;
+    }
+
+    .about > div {
+        margin:0 5em;
+    }
+
+}
