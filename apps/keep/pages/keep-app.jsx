@@ -23,7 +23,7 @@ export class KeepApp extends React.Component {
 
     updateNote = (note) => {
         // console.log('from keep-app: note.style.backgroundColor:',note.style.backgroundColor)
-        
+
         noteService
             .replaceNote(note)
             .then((notes) =>
@@ -66,6 +66,21 @@ export class KeepApp extends React.Component {
     changeColor = (newColor) => {
         // console.log('newColor:', newColor)
     }
+    onTogglePin = (ev) => {
+        ev.stopPropagation()
+        var noteId = ev.target.dataset.id
+        noteService.togglePin(noteId).then(() => {
+            this.loadNotes()
+        })
+    }
+
+    onDuplicateNote = (ev) => {
+        ev.stopPropagation()
+        var noteId = ev.target.dataset.id
+        noteService.duplicateNote(noteId).then(() => {
+            this.loadNotes()
+        })
+    }
 
     // onDeSelect = () => {
     //     this.setState({selectedNote: null})
@@ -82,12 +97,16 @@ export class KeepApp extends React.Component {
                     onSetFilter={this.onSetFilter}
                 />
                 <NoteList
+                    onTogglePin={this.onTogglePin}
+                    onDuplicateNote={this.onDuplicateNote}
                     notes={notes}
                     onSelectNote={this.onSelectNote}
                     updateNote={this.updateNote}
                 />
                 {selectedNote && (
                     <NoteDetails
+                        onTogglePin={this.onTogglePin}
+                        onDuplicateNote={this.onDuplicateNote}
                         changeColor={this.changeColor}
                         onRemoveNote={this.onRemoveNote}
                         updateNote={this.updateNote}

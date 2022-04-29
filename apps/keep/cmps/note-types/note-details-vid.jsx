@@ -41,6 +41,7 @@ export class NoteDetailsVid extends React.Component {
     }
 
     convertLinkToEmbed(urlFromUser) {
+        if (urlFromUser.includes('embed')) return urlFromUser
         console.log('urlFromUser:', urlFromUser)
         let startIdx = urlFromUser.indexOf('?v=') + 3
         let videoUrl = 'https://www.youtube.com/embed/'
