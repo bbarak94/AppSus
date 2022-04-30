@@ -26,14 +26,13 @@ export class EmailPreview extends React.Component {
 
     subjectLong(subject) {
         const { windowWidth } = this.state
-        if (subject.length > 20 && windowWidth > 1500) return subject.slice(0, 25)
-        else if (windowWidth > 1300) return subject.slice(0, 30)
+        if (windowWidth > 1500) return subject.slice(0, 25)
+        else if (windowWidth > 1300) return subject.slice(0, 15)
         return subject.slice(0, 5) + '...'
-
     }
 
     render() {
-        const { eMail, onSetIsRead, onSetIsStarred } = this.props
+        const { eMail, onSetIsRead, onSetIsStarred, filterBy } = this.props
         const isReadClass = (eMail.isRead) ? 'read' : ''
         const isStarredClass = (eMail.isStarred) ? 'starred' : 'un-starred'
 
@@ -42,7 +41,8 @@ export class EmailPreview extends React.Component {
                 <img src={`assets/img/mail/${isStarredClass}.png`} onClick={() => onSetIsStarred(eMail.id)} />
                 <Link to={`/email/${eMail.id}`}>
                     <section className="preview-container">
-                        <div className={`preview-to ${isReadClass}`}>{eMail.to}</div>
+                        {(filterBy.status === 'inbox') && <div className={`preview-from ${isReadClass}`}>{eMail.from}</div>}
+                        {(filterBy.status === 'sent') && <div className={`preview-to ${isReadClass}`}>{eMail.to}</div>}
                         <div className={`preview-subject ${isReadClass}`}>{this.subjectLong(eMail.subject)}</div>
                         <div className="preview-body">{this.bodyLong(eMail.body)}</div>
                         <div className="sent-at">{eMail.sentAt}</div>

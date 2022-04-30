@@ -13,10 +13,115 @@ export const EmailService = {
 
 const gLoggedinUser = {
     email: 'itai.rotstein@gmail.com',
-    fullname: 'Mahatma Appsus'
+    fullname: 'Itai Rotstein'
 }
 
 const KEY = 'eMails'
+
+let gEmails = [
+    {
+        id: utilService.makeId(),
+        subject: 'Long time not talk!!! how is it going mannn???',
+        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        isRead: true,
+        isStarred: false,
+        sentAt: '03-07-2021',
+        to: 'itai.rotstein@gmail.com',
+        from: '<momo1232@gmail.com>'
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Your plane tickets to Hawai!! have a nice vacation :)',
+        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        isRead: false,
+        isStarred: false,
+        sentAt: '19-02-2020',
+        to: 'itai.rotstein@gmail.com',
+        from: '<booking@booking.com>'
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'The reason why most people are afraid of snakes',
+        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        isRead: true,
+        isStarred: false,
+        sentAt: '01-09-2021',
+        to: 'itai.rotstein@gmail.com',
+        from: '<discovery@channel.co.il>'  
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Kibutz Hanita bills and depos',
+        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        isRead: false,
+        isStarred: true,
+        sentAt: '03-03-2022',
+        to: 'itai.rotstein@gmail.com',
+        from: '<kibutz@hanita.com>'  
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Rental cars offers: Rent our cars today! big discounts for coders',
+        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        isRead: false,
+        isStarred: false,
+        sentAt: '21-9-2021',
+        to: 'itai.rotstein@gmail.com',
+        from: '<rental@cars.net>'  
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Discover Portugal newsletter',
+        body: 'Etty spent much of the time eloquently describing her experience in diaries and letters, many of which she passed to Maria Tuinzing (the recipient of this particular missive) before her departure from Westerbork. Her final note, written to a family friend, was thrown from the train and found by a farmer who sent it on.',
+        isRead: false,
+        isStarred: false,
+        sentAt: '15-09-2021',
+        to: 'itai.rotstein@gmail.com',
+        from: '<discovery@channel.com>'  
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Iati, Parpar Nehmad season 32 is now on netflix!',
+        body: 'It was in 1915, aged thirty-seven, that British poet and writer Edward Thomas joined the British Army—a decision prompted, in part, by The Road Not Taken, a poem by his close friend Robert Frost that had in fact been inspired by Thomas, a person who, Frost later said, “whichever road he went, would be sorry he didnt go the other.',
+        isRead: true,
+        isStarred: true,
+        sentAt: '15-09-2021',
+        to: 'itai.rotstein@gmail.com',
+        from: '<netflix@channel.net>' 
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Hello there at Coding Academy, I would like to sign up please.',
+        body: 'People have been praised for self-possession in danger. I have heard Edward doubt if he was as brave as the bravest. But who was ever so completely himself right up to the verge of destruction, so sure of his thought, so sure of his word? He was the bravest and best and dearest man you and I have ever known. I knew from the moment when I first met him at his unhappiest that he would some day clear his mind and save his life. I have had four wonderful years with him. I know he has done this all for you: he is all yours. But you must let me cry my cry for him as if he were almost all mine too.',
+        isRead: true,
+        isStarred: false,
+        sentAt: '11-01-2022',
+        to: '<coding@academy.com>',
+        from: 'itai.rotstein@gmail.com' 
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'Hello my love, I miss you, how is Sri-Lanka',
+        body: 'Of the three ways out of here, by death where there is no choice, by death where there is a noble choice, and by death where there is a choice not so noble, he found the greatest way. There is no regret—nothing that I will call a regret. Only I can’t help wishing he could have saved his life without so wholly losing it and come back from France not too much hurt to enjoy our pride in him',
+        isRead: false,
+        isStarred: false,
+        sentAt: '28-04-2022',
+        to: '<nisan.rotstein@gmail.com>',
+        from: 'itai.rotstein@gmail.com' 
+    },
+    {
+        id: utilService.makeId(),
+        subject: 'We are leaving the kibutz, please unregister our number from the kolbo',
+        body: 'It was beautiful as he did it. And I don’t suppose there is anything for us to do to show our admiration but to love him forever.',
+        isRead: false,
+        isStarred: true,
+        sentAt: '12-04-2020',
+        to: '<kibutz@hanita.com>',
+        from: 'itai.rotstein@gmail.com' 
+    },
+]
+
+_saveToStorage(gEmails)
 
 function query(filterBy) {
     let eMails = _loadFromStorage(KEY)

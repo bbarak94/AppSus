@@ -1,4 +1,3 @@
-import { EmailHeader } from '../cmps/email-header.jsx'
 import { EmailList } from '../cmps/email-list.jsx'
 import { EmailFolderList } from '../cmps/email-folder-list.jsx'
 import { EmailCompose } from '../cmps/email-compose.jsx'
@@ -58,8 +57,8 @@ export class EmailApp extends React.Component {
             })
     }
 
-    onSetIsAdd = (isAdd) => {
-        this.setState({ isAdd: isAdd })
+    onSetIsAdd = () => {
+        this.setState({ isAdd: true })
     }
 
     onSetIsRead = (eMailId) => {
@@ -72,13 +71,21 @@ export class EmailApp extends React.Component {
     }
 
     render() {
-        let { isAdd, eMails } = this.state
+        let { isAdd, eMails, filterBy } = this.state
         return (
             <section className='email-app'>
                 <section className='email-body'>
-                    <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
-                    {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
-                    {<EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred} />}
+                    <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd()} />
+                    {isAdd && <EmailCompose
+                        onAddEmail={this.onAddEmail}
+                        isAdd={() => this.onSetIsAdd(false)}
+                    />}
+                    {<EmailList
+                        eMails={eMails}
+                        onSetIsRead={this.onSetIsRead}
+                        onSetIsStarred={this.onSetIsStarred}
+                        filterBy={filterBy}
+                    />}
                     <MainScreen />
                 </section>
             </section>

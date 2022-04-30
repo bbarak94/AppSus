@@ -7,13 +7,13 @@
 }
 
 .main-logo{
-   width: 40px;
+   width: 50px;
    margin-inline-start: 1.6em;
 }
 
 @media (min-width:720px) {
    .main-logo{
-      width: 60px;
+      width: 70px;
       margin-inline-start: 4.6em;
    }   
 }
