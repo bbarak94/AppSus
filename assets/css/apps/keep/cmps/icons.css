@@ -9,10 +9,17 @@
    height: 100%;
 }
 .add-buttons{
+   border: 1px solid #8f8f8f;
+   border-radius: 10px;
+   padding: 2px 10px;
+   min-width: 370px;
+   max-width: 370px;
    gap: 10px;
-   margin: 0 60px;
-   max-height: 120px;
-   margin:20px
+   /* margin: 0 60px; */
+   max-height: 100px;
+   margin: auto;
+   margin-bottom: 30px;
+
 
 }
 .add-buttons button{
@@ -27,13 +34,14 @@
 
 .icon-container:hover{
    border-radius: 50%;
-   background-color: grey;
+   background-color: #e9eaea;
 }
 
 .keep-icon{
    width: 50%;
    height: 50%;
-   fill: black;
+   /* fill: #767676; */
+   /* color: #767676; */
    margin: auto;
 }
 
@@ -55,7 +63,7 @@
    top:105%;
    left:50%;
    margin-left: -60px;
-   background-color: black;
+   background-color: #4f5355;
    color: #fff;
    text-align: center;
    border-radius: 6px;

@@ -7,3 +7,9 @@
 }
 
 
+@media (max-width: 580px) {
+
+
+   .note-filter-form{
+      margin: 10px 30px;
+   }}

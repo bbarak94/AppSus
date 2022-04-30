@@ -70,11 +70,11 @@
         gap: 0;
     }
 }
-@media (max-width: 500px) {
+@media (max-width: 570px) {
     .note-preview-container {
         min-width: 100px;
-        margin-block-start: 4px;
-        margin-block-end: 4px;
+        margin-block-start: 12px;
+        margin-block-end: 12px;
         width: 100%;
         min-width: 50px;
     }
