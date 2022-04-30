@@ -1,10 +1,7 @@
 
 export function MainScreen() {
-
-    
-
     return (
-        <div className="main-screen" onClick={toggleMenu}>I am main screen</div>
+        <div className="main-screen" onClick={toggleMenu}></div>
     )
 }
 

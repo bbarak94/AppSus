@@ -24,13 +24,14 @@ export class EmailFilter extends React.Component {
             <section className="email-filter">
                 <form onSubmit={this.handleSubmit}>
                     <div className="search-container">
-                        <div onClick={this.handleSubmit} className="img-container"><img src="assets\img\mail\search.svg" /></div> 
+                        <div onClick={this.handleSubmit} className="img-container"><img src="assets\img\mail\search.svg" /></div>
                         <input type="search" name="txt" id="email-search" placeholder="Search mail" autoComplete="off"
                             value={txt} onChange={this.handleChange} />
+                            {/* <img className='nav-mobile' onClick={this.toggleMenu} src="assets\img\mail\nav-mobile.svg" /> */}
                         <select name="isRead" onChange={this.handleChange}>
                             <option value={null}>All</option>
-                            <option value={true}>Read Mail</option>
-                            <option value={false}>UnRead Mail</option>
+                            <option value={true}>Read</option>
+                            <option value={false}>UnRead</option>
                         </select>
                     </div>
                 </form>

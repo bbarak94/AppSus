@@ -7,21 +7,24 @@ import { About } from './apps/common-cmps/about.jsx'
 import { AppHeader } from "./apps/common-cmps/app-header.jsx"
 import { eventBusService } from './services/event-bus-service.js'
 
-
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
-
 export class App extends React.Component {
    state = {
       selectedPage: null
    }
+   removeEvent
 
    onSetSelectedPage = (selectedPage) => {
       this.setState({ selectedPage })
    }
+
+   componentWillUnmount() {
+      this.removeEvent()
+   }
    
    render() {
-      eventBusService.on('selectedPage', (selectedPage) => {
+      this.removeEvent = eventBusService.on('selectedPage', (selectedPage) => {
          this.setState({selectedPage})
       })
       const { selectedPage } = this.state

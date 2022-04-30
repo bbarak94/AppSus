@@ -1,4 +1,3 @@
-import { KeepHeader } from '../cmps/keep-header.jsx'
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteDetails } from '../cmps/note-details.jsx'
@@ -98,7 +97,6 @@ export class KeepApp extends React.Component {
         const { notes, selectedNote } = this.state
         return (
             <section className='keep-app'>
-                {/* <KeepHeader /> */}
                 <NoteFilter
                     onAddNote={this.onAddNote}
                     onSetFilter={this.onSetFilter}

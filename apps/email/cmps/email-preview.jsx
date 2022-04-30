@@ -11,9 +11,7 @@ export class EmailPreview extends React.Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', () => {
-            this.setState({ windowWidth: window.innerWidth })
-        })
+        window.removeEventListener('resize', () => {})
     }
 
     bodyLong(body) {

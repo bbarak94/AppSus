@@ -72,12 +72,11 @@ export class EmailApp extends React.Component {
     }
 
     render() {
-        console.log('render at email');
         let { isAdd, eMails } = this.state
         return (
             <section className='email-app'>
                 {/* <EmailHeader onFilter={this.onFilter} /> */}
-                <section className='email-body flex'>
+                <section className='email-body'>
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
                     {<EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred} />}

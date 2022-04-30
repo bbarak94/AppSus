@@ -1,5 +1,4 @@
 const { Link, NavLink, withRouter } = ReactRouterDOM
-
 class _AppNav extends React.Component {
 
     handleClick = ({ target }) => {
@@ -10,9 +9,8 @@ class _AppNav extends React.Component {
     toggleMenu = () => {
         document.body.classList.toggle('main-menu-open')
     }
-    
-    render() {
 
+    render() {
         if (!this.props) return <div>no props yet</div>
         return (
             <section>
