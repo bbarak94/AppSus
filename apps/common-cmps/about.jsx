@@ -6,7 +6,7 @@ export function About() {
         
             <h2>Who is Barai?</h2>
             <h3>
-                Barai is a IL-based software development company specializing in providing businesses worldwide with custom technology solutions. As a mobile and web-based application development company with over 2,800 skilled software developers, Barai combines technological expertise, specific domain experience, and a passion for excellence to deliver enterprise-grade solutions.
+                Barai is an IL-based software development company specializing in providing businesses worldwide with custom technology solutions. As a mobile and web-based application development company with over 2,800 skilled software developers, Barai combines technological expertise, specific domain experience, and a passion for excellence to deliver enterprise-grade solutions.
             </h3>
 
             <div>

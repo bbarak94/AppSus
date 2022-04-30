@@ -1,5 +1,5 @@
 .app-nav img {
-   width: 40px;
+   width: 30px;
    cursor: pointer;
 }
 
@@ -9,7 +9,7 @@
    align-items: center;
    padding: 20px 60px;
    background-color: lightblue;
-   gap: 30px;
+   gap: 20px;
    font-family: roboto-bold;
    font-size: 18px;
 }
@@ -18,19 +18,12 @@
    color: green;
 }
 
-@media (min-width: 720) {
+@media (min-width: 720px) {
    .app-nav {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px 60px;
-      background-color: lightblue;
       gap: 90px;
-      font-family: roboto-bold;
-      font-size: 18px;
    }
 
    .app-nav img {
-      width: 60px;
+      width: 50px;
    }
 }

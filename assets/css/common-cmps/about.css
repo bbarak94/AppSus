@@ -1,7 +1,10 @@
 .about {
     display: flex;
     flex-direction: column;
+    margin: 5em 1.5em;
+    color: var(--clr1);
 }
+
 
 .about h2 {
     margin-bottom: 2em;
@@ -11,26 +14,33 @@
 .about-subject {
     font-family: roboto-bold;
     display: block;
-    margin-bottom: 0.5em;
+    margin-bottom: 1.2em;
     text-align: center;
 }
 
 .about .img-container {
     width: 50px;
-    margin: 3em auto 0;
+    margin: 3em auto 1em;
 }
 
 @media (min-width: 720px) {
+    .about .img-container {
+        width: 60px;
+    }
+    .about {
+        margin: 5em 12em;
 
+    }
 }
 
 @media (min-width: 1120px) {
     .about {
-        margin:7em 20m;
+        margin: 5em 25em;
+
     }
 
-    .about > div {
-        margin:0 5em;
+    .about .img-container {
+        width: 70px;
     }
 
 }
