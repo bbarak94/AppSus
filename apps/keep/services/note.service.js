@@ -9,7 +9,8 @@ export const noteService = {
     createNote,
     togglePin,
     duplicateNote,
-    removeTodo
+    removeTodo,
+    changeColor,
 }
 
 const KEY = 'keepDB'
@@ -83,6 +84,14 @@ function togglePin(noteId) {
     selectedNote.isPinned = !selectedNote.isPinned
     notes = notes.filter((note) => note.id !== noteId)
     notes.unshift(selectedNote)
+    _saveToStorage(notes)
+    return Promise.resolve()
+}
+
+function changeColor(noteId, newColor) {
+    var notes = _loadFromStorage()
+    var selectedNote = notes.find((note) => noteId === note.id)
+    selectedNote.style.backgroundColor = newColor
     _saveToStorage(notes)
     return Promise.resolve()
 }

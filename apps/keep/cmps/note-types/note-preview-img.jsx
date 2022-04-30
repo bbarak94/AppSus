@@ -1,4 +1,3 @@
-
 export function NotePreviewImg({note}){
    const {info} = note
    return <div className="note-preview note-preview-img">

@@ -28,6 +28,7 @@
 @import './apps/keep/cmps/note-list.css';
 @import './apps/keep/cmps/note-preview.css';
 @import './apps/keep/cmps/note-details.css';
+@import './apps/keep/cmps/icons.css';
 
 /* Email Cmps */
 @import './apps/email/cmps/email-header.css';

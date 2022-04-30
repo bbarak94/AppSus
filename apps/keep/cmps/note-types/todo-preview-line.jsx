@@ -14,12 +14,8 @@ export class TodoPreviewLine extends React.Component {
         var newNote = this.props.note
         newNote.info.todos[idx].doneAt = status === 'done' ? null : Date.now()
         console.log('newNote:', newNote)
-        // this.setState({ note: newNote })
         this.props.updateNote(newNote)
     }
-
-
-
     render() {
         const { id, txt, doneAt } = this.props.todo
         return (
