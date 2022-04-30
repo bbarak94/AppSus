@@ -13,9 +13,18 @@ export class EmailApp extends React.Component {
         filterBy: { status: 'inbox' },
         isAdd: false,
     }
+    removeEvent;
 
     componentDidMount() {
         this.loadEmails()
+        this.removeEvent = eventBusService.on('filterBy', (filterBy) => {
+            this.onFilter(filterBy)
+        })
+        eventBusService.emit('selectedPage', 'email')
+    }
+
+    componentWillUnmount() {
+        this.removeEvent()
     }
 
     loadEmails = () => {
@@ -31,9 +40,7 @@ export class EmailApp extends React.Component {
     }
 
     onFilter = (filterBy) => {
-        
-        console.log('state', this.state)
-        this.setState({ filterBy },()=>{this.loadEmails()} )
+        this.setState({ filterBy }, () => { this.loadEmails() })
     }
 
     onAddEmail = (newEmail) => {
@@ -65,10 +72,11 @@ export class EmailApp extends React.Component {
     }
 
     render() {
+        console.log('render at email');
         let { isAdd, eMails } = this.state
         return (
             <section className='email-app'>
-                <EmailHeader onFilter={this.onFilter} />
+                {/* <EmailHeader onFilter={this.onFilter} /> */}
                 <section className='email-body flex'>
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
