@@ -28,12 +28,10 @@ function query(filterBy) {
     if (filterBy) {
         if (filterBy.txt) {
             let { txt, isRead } = filterBy
-            console.log(isRead);
             eMails = eMails.filter(eMail =>
                 eMail.body.toLowerCase().includes(txt.toLowerCase())
             )
             if (isRead !== null && isRead !== 'All') {
-                console.log('wentinside');
                 eMails = eMails.filter(eMail =>
                     eMail.isRead.toString() === isRead
                 )

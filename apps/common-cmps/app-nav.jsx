@@ -1,6 +1,6 @@
 const { Link, NavLink, withRouter } = ReactRouterDOM
 class _AppNav extends React.Component {
-
+    
     handleClick = ({ target }) => {
         this.props.onSetSelectedPage(target.id)
         this.toggleMenu()
