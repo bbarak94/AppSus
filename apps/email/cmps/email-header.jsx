@@ -3,7 +3,7 @@ import { EmailFilter } from './email-filter.jsx'
 export class EmailHeader extends React.Component {
 
     toggleMenu = () => {
-        document.body.classList.toggle('menu-open')
+        document.body.classList.toggle('email-menu-open')
     }
     render() {
 

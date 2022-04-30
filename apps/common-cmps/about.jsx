@@ -1,11 +1,8 @@
 
-import { AppHeader } from "./app-header.jsx"
-
 export function About() {
 
     return (
         <section className="about">
-        <AppHeader />
         
             <h2>Who is Barai?</h2>
             <h3>

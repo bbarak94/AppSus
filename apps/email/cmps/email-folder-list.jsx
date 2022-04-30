@@ -3,6 +3,7 @@ export class EmailFolderList extends React.Component {
     state = {
         eMailsCount: '',
         activeFolder: '',
+        windowWidth: window.innerWidth
     }
     removeEvent
     onStatusFilter = (folder) => {
@@ -10,20 +11,29 @@ export class EmailFolderList extends React.Component {
             status: folder
         }
         this.props.onFilter(filterBy)
+        const { windowWidth } = this.state
+        if (windowWidth < 720) document.body.classList.toggle('email-menu-open')
     }
 
     componentDidMount() {
         this.removeEvent = eventBusService.on('eMailsCount', (eMailsCount) => {
             this.setState({ eMailsCount })
         })
+        window.addEventListener('resize', () => {
+            this.setState({ windowWidth: window.innerWidth })
+        })
     }
 
     componentWillUnmount() {
         this.removeEvent()
+        window.removeEventListener('resize', () => {
+            this.setState({ windowWidth: window.innerWidth })
+        })
     }
 
     handleComposeClick = () => {
-        
+        const { windowWidth } = this.state
+        if (windowWidth < 720) document.body.classList.toggle('email-menu-open')
         this.props.isAdd()
     }
 

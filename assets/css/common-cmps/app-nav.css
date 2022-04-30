@@ -1,0 +1,36 @@
+.app-nav img {
+   width: 40px;
+   cursor: pointer;
+}
+
+.app-nav {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px 60px;
+   background-color: lightblue;
+   gap: 30px;
+   font-family: roboto-bold;
+   font-size: 18px;
+}
+
+.active {
+   color: green;
+}
+
+@media (min-width: 720) {
+   .app-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: lightblue;
+      gap: 90px;
+      font-family: roboto-bold;
+      font-size: 18px;
+   }
+
+   .app-nav img {
+      width: 60px;
+   }
+}

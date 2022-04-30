@@ -33,6 +33,7 @@
 }
 
 .email-preview .sent-at {
+    color: var(--clr5);
     width: 100px;
     position: static;
     right: 0;

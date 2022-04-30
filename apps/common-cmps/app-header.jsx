@@ -1,8 +1,10 @@
 import { AppNav } from './app-nav.jsx'
 
-export function AppHeader() {
+export function AppHeader({isKeep}) {
+
     return (
-        <header className='app-header flex'>
+        <header className='app-header'>
+
             <AppNav />
         </header>
     )

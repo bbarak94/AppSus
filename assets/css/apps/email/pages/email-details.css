@@ -1,6 +1,6 @@
 .email-details {
-    margin: 15em 18em;
-    padding: 4em;
+    margin: 2em 1em;
+    padding: 3em;
     background-color: antiquewhite;
 }
 
@@ -14,4 +14,22 @@
 
 .email-details button {
     margin: 0.5em;
+}
+
+.email-details .details-sent-at {
+    color: var(--clr5);
+}
+
+@media (min-width: 720px) {
+    .email-details {
+        margin: 4em 5em;
+        padding: 3em;
+    } 
+}
+
+@media (min-width: 1120px) {
+    .email-details {
+        margin: 15em 18em;
+        padding: 3em;
+    } 
 }

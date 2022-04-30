@@ -4,7 +4,6 @@ import { EmailFolderList } from '../cmps/email-folder-list.jsx'
 import { EmailCompose } from '../cmps/email-compose.jsx'
 import { eventBusService } from '../../../services/event-bus-service.js'
 import { MainScreen } from './email-main-screen.jsx'
-import { AppHeader } from "../../common-cmps/app-header.jsx"
 
 import { EmailService } from '../services/email.service.js'
 export class EmailApp extends React.Component {
@@ -32,7 +31,9 @@ export class EmailApp extends React.Component {
     }
 
     onFilter = (filterBy) => {
-        this.setState({ filterBy }, this.loadEmails)
+        
+        console.log('state', this.state)
+        this.setState({ filterBy },()=>{this.loadEmails()} )
     }
 
     onAddEmail = (newEmail) => {
@@ -67,16 +68,14 @@ export class EmailApp extends React.Component {
         let { isAdd, eMails } = this.state
         return (
             <section className='email-app'>
-            <AppHeader />
                 <EmailHeader onFilter={this.onFilter} />
                 <section className='email-body flex'>
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
                     {<EmailList eMails={eMails} onSetIsRead={this.onSetIsRead} onSetIsStarred={this.onSetIsStarred} />}
-                    <MainScreen/>
+                    <MainScreen />
                 </section>
             </section>
-
         )
     }
 }

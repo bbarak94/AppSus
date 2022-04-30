@@ -1,0 +1,16 @@
+
+.header-container {
+    height: 50vh;
+    background-image: url('../../img/common-imgs/nasa.jpg');
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    color: #FFF;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center ;
+    font-family: montserrat;
+    font-size: 40px;
+}
+

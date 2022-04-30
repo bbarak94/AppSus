@@ -15,7 +15,7 @@
     background-color: var(--clr9);
 }
 
-body.menu-open .email-header .nav-mobile {
+body.email-menu-open .email-header .nav-mobile {
     transform: rotate(90deg);
 }
 

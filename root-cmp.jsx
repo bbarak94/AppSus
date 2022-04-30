@@ -4,6 +4,8 @@ import { KeepApp } from './apps/keep/pages/keep-app.jsx'
 import { EmailDetails } from './apps/email/pages/email-details.jsx'
 import { UserMsg } from './apps/common-cmps/user-msg.jsx'
 import { About } from './apps/common-cmps/about.jsx'
+import { AppHeader } from "./apps/common-cmps/app-header.jsx"
+
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -11,6 +13,7 @@ const { Route, Switch } = ReactRouterDOM
 export function App() {
    return (
       <Router>
+         <AppHeader/>
          <section className='app'>
             <Switch>
                <Route path='/email/:emailId' component={EmailDetails} />

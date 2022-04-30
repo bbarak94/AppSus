@@ -16,7 +16,7 @@ export class EmailDetails extends React.Component {
     }
 
     onDeleteEmail = () => {
-        const {eMail} = this.state
+        const { eMail } = this.state
         EmailService.removeEmail(eMail.id)
             .then(() => {
                 eventBusService.emit('user-msg', {
@@ -42,10 +42,12 @@ export class EmailDetails extends React.Component {
                 <section className="email-details flex space-between align-center column shadow">
                     <h2>{eMail.subject}</h2>
                     <span>{eMail.to}</span>
-                    <span>{eMail.sentAt}</span>
+                    <span className="details-sent-at">{eMail.sentAt}</span>
                     <p>{eMail.body}</p>
-                    <button onClick={this.onDeleteEmail}>Delete</button>
-                    <button onClick={this.onCloseEmail}>Close</button>
+                    <div>
+                        <button onClick={this.onDeleteEmail}>Delete</button>
+                        <button onClick={this.onCloseEmail}>Close</button>
+                    </div>
                 </section>
             </React.Fragment>
 

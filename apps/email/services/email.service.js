@@ -28,10 +28,15 @@ function query(filterBy) {
     if (filterBy) {
         if (filterBy.txt) {
             let { txt, isRead } = filterBy
+            console.log(isRead);
             eMails = eMails.filter(eMail =>
-                eMail.body.toLowerCase().includes(txt.toLowerCase()) &&
-                eMail.isRead.toString() === isRead
+                eMail.body.toLowerCase().includes(txt.toLowerCase())
             )
+            if (isRead !== null) {
+                eMails = eMails.filter(eMail =>
+                    eMail.isRead.toString() === isRead
+                )
+            }
         } else if (filterBy.status) {
             switch (filterBy.status) {
                 case 'inbox':

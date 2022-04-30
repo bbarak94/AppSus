@@ -9,5 +9,5 @@ export function MainScreen() {
 }
 
 function toggleMenu(){
-    document.body.classList.toggle('menu-open')
+    document.body.classList.toggle('email-menu-open')
 }

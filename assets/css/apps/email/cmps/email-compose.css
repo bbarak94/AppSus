@@ -1,10 +1,8 @@
 .email-compose {
-    position: absolute;
+    position: fixed;
     z-index: 50;
-    right: 50px;
-    bottom: 50px;
-    flex-grow:0.5;
-    display: flex;
+    right:  20px;
+    bottom: 70px;
 }
 
 .email-compose div {
@@ -33,17 +31,22 @@
 }
 
 
-textarea {
+.email-compose textarea {
     font-family: roboto-regular;
     resize: none;
     outline: none;
     border: none;
     padding: 1.3em;
+    width: 25em;
 }
 
 .email-compose input {
     border: none;
     outline: none;
+}
+
+.send-btn-div {
+    background-color: #FFF;
 }
 
 .send-btn-div button {
@@ -61,4 +64,8 @@ textarea {
 .email-compose .to, .subject {
     background-color: #FFF;
     border-bottom: solid 1px #707070;
+}
+
+@media (min-width: 720) {
+   
 }

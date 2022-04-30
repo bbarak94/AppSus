@@ -8,7 +8,7 @@
     transition: opacity .6s;
 }
 
-body.menu-open .main-screen {
+body.email-menu-open .main-screen {
     pointer-events: auto;
     opacity: 1;
 }

@@ -40,7 +40,7 @@ export class EmailCompose extends React.Component {
                         <input type="text" name="subject" placeholder="Subject"
                             value={subject} onChange={this.onHandleChange} />
                     </div>
-                    <textarea name="body" value={body} onChange={this.onHandleChange} id="" cols="60" rows="30"></textarea>
+                    <textarea name="body" value={body} onChange={this.onHandleChange} id="" cols="60" rows="20"></textarea>
                     <div className="send-btn-div">
                         <button>Send</button>
                     </div>
