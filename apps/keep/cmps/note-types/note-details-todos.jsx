@@ -67,7 +67,10 @@ export class NoteDetailsTodos extends React.Component {
                     />
 
                     {todos.map((todo, idx) => (
-                        <div className='flex align-center' key={idx}>
+                        <div
+                            className='todo-line flex align-center'
+                            key={idx}
+                        >
                             {!todo.doneAt && (
                                 <div className='todo-undone'>
                                     <div
@@ -101,6 +104,7 @@ export class NoteDetailsTodos extends React.Component {
                                 </div>
                             )}
                             <input
+                                className='todo-text'
                                 type='text'
                                 id='txt'
                                 placeholder='Add a task:'
@@ -108,14 +112,46 @@ export class NoteDetailsTodos extends React.Component {
                                 value={todo.txt}
                                 onChange={this.handleChange}
                             />
-                            <button onClick={this.onRemoveTodo} data-idx={idx}>
+                            {/* <button onClick={this.onRemoveTodo} data-idx={idx}>
                                 X
-                            </button>
+                            </button> */}
+
+                            <div className='icon-details-container tooltip tooltip-revmove-todo flex justify-center align-center'>
+                                <img
+                                    onClick={this.onRemoveTodo}
+                                    data-idx={idx}
+                                    className='keep-icon-details revmove-todo-icon'
+                                    src='assets\img\keep\remove-todo.svg'
+                                />
+                                <span className='tooltiptext tooltiptext-remove-todo'>
+                                    Delete Task
+                                </span>
+                            </div>
                         </div>
                     ))}
-                    <button>Save</button>
+
+                    <div className='icon-details-container tooltip tooltip-save flex justify-center align-center'>
+                        <img
+                            onClick={this.handleSubmit}
+                            className='keep-icon-details save-icon'
+                            src='assets\img\keep\save.svg'
+                        />
+                        <span className='tooltiptext tooltip-save-text'>
+                            Save Note
+                        </span>
+                    </div>
                 </form>
-                <button onClick={this.onAddNewTodo}>Add new task</button>
+                {/* <button onClick={this.onAddNewTodo}>Add new task</button> */}
+                <div className='icon-details-container tooltip tooltip-add-todo flex justify-center align-center'>
+                    <img
+                        onClick={this.onAddNewTodo}
+                        className='keep-icon-details add-todo-icon'
+                        src='assets\img\keep\add.svg'
+                    />
+                    <span className='tooltiptext tooltip-add-todo'>
+                        Add Todo
+                    </span>
+                </div>
             </div>
         )
     }

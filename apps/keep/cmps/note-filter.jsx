@@ -32,39 +32,45 @@ export class NoteFilter extends React.Component {
                     className='note-filter-form flex'
                     onSubmit={this.onFilter}
                 >
-                    <div className='icon-container-search'>
-                        <img
-                            className='keep-icon-search'
-                            src='assets\img\keep\search.svg'
-                        />
+                    <div className='title-search flex justify-center align-center'>
+                        <div className='icon-container-search'>
+                            <img
+                                className='keep-icon-search'
+                                src='assets\img\keep\search.svg'
+                            />
+                        </div>
+                        <div>
+                            {/* <label>Title: </label> */}
+                            <input
+                                className='search-input'
+                                type='text'
+                                id='by-title'
+                                placeholder='Search by Title'
+                                name='title'
+                                value={title}
+                                onChange={this.handleChange}
+                            />
+                        </div>
                     </div>
-                    <div>
-                        {/* <label>Title: </label> */}
-                        <input
-                            type='text'
-                            id='by-title'
-                            placeholder='Search by Title'
-                            name='title'
-                            value={title}
-                            onChange={this.handleChange}
-                        />
-                    </div>
-                    <div className='icon-container-search'>
-                        <img
-                            className='keep-icon-search'
-                            src='assets\img\keep\search.svg'
-                        />
-                    </div>
-                    <div>
-                        {/* <label>Text: </label> */}
-                        <input
-                            type='text'
-                            id='by-text'
-                            placeholder='Search by Text'
-                            name='txt'
-                            value={txt}
-                            onChange={this.handleChange}
-                        />
+                    <div className='text-search flex justify-center align-center'>
+                        <div className='icon-container-search'>
+                            <img
+                                className='keep-icon-search'
+                                src='assets\img\keep\search.svg'
+                            />
+                        </div>
+                        <div>
+                            {/* <label>Text: </label> */}
+                            <input
+                                className='search-input'
+                                type='text'
+                                id='by-text'
+                                placeholder='Search by Text'
+                                name='txt'
+                                value={txt}
+                                onChange={this.handleChange}
+                            />
+                        </div>
                     </div>
                     {/* <button>FILTER!</button> */}
                 </form>
@@ -79,7 +85,9 @@ export class NoteFilter extends React.Component {
                             onClick={this.props.onAddNote}
                             data-type='note-txt'
                         />
-                        <span class="tooltiptext tooltiptext-new-note">New Note</span>
+                        <span className='tooltiptext tooltiptext-new-note'>
+                            New Note
+                        </span>
                     </div>
                     {/* <button
                         onClick={this.props.onAddNote}
@@ -94,7 +102,9 @@ export class NoteFilter extends React.Component {
                             onClick={this.props.onAddNote}
                             data-type='note-todos'
                         />
-                        <span class="tooltiptext tooltiptext-new-todos">New Todo List</span>
+                        <span className='tooltiptext tooltiptext-new-todos'>
+                            New Todo List
+                        </span>
                     </div>
                     {/* <button onClick={this.props.onAddNote} data-type='note-img'>
                         New Image
@@ -103,10 +113,12 @@ export class NoteFilter extends React.Component {
                         <img
                             className='keep-icon new-img-icon'
                             src='assets\img\keep\img.svg'
-                            onClick={this.props.onAddNote} data-type='note-img'
+                            onClick={this.props.onAddNote}
+                            data-type='note-img'
                         />
-                        <span class="tooltiptext tooltiptext-new-img">New Img URL</span>
-
+                        <span className='tooltiptext tooltiptext-new-img'>
+                            New Img URL
+                        </span>
                     </div>
                     {/* <button onClick={this.props.onAddNote} data-type='note-vid'>
                         New Video
@@ -115,10 +127,12 @@ export class NoteFilter extends React.Component {
                         <img
                             className='keep-icon new-img-icon'
                             src='assets\img\keep\vid.svg'
-                            onClick={this.props.onAddNote} data-type='note-vid'
+                            onClick={this.props.onAddNote}
+                            data-type='note-vid'
                         />
-                        <span class="tooltiptext tooltiptext-new-vid">New Video URL</span>
-
+                        <span className='tooltiptext tooltiptext-new-vid'>
+                            New Video URL
+                        </span>
                     </div>
                 </div>
             </section>

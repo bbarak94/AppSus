@@ -31,9 +31,9 @@ export class NoteDetails extends React.Component {
         })
     }
     render() {
-        const { note,style } = this.state
+        const { note, style } = this.state
         const { backgroundColor } = this.state.style
-        const {onTogglePin} = this.props
+        const { onTogglePin } = this.props
         return (
             <div
                 className='note-details'
@@ -71,34 +71,77 @@ export class NoteDetails extends React.Component {
                         note={this.state.note}
                     />
                 )}
-                {!note.isPinned && (
-                        <button
-                            onClick={onTogglePin}
-                            className='pin-button not-pinned'
-                            data-id={this.state.note.id}
-                        >
-                            Pin
-                        </button>
+                <div className='details-buttons flex '>
+                    {!note.isPinned && (
+                        <div className='icon-details-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                            <img
+                                onClick={onTogglePin}
+                                className='keep-icon-details revmove-pin-icon'
+                                src='assets\img\keep\unpin.svg'
+                                data-id={note.id}
+                            />
+                            <span className='tooltiptext tooltiptext-new-note'>
+                                Pin
+                            </span>
+                        </div>
                     )}
                     {note.isPinned && (
-                        <button
-                            onClick={onTogglePin}
-                            className='pin-button pinned'
-                            data-id={this.state.note.id}
-                        >
-                            UnPin
-                        </button>
+                        <div className='icon-details-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                            <img
+                                onClick={onTogglePin}
+                                className='keep-icon-prev revmove-pin-icon'
+                                src='assets\img\keep\pin.svg'
+                                data-id={note.id}
+                            />
+                            <span className='tooltiptext tooltiptext-pin'>
+                                Remove Pin
+                            </span>
+                        </div>
                     )}
-                <button onClick={this.props.onRemoveNote}>Remove</button>
-                <label>Color:</label>
-                <input
-                    onChange={this.onColorChange}
-                    id='note-color'
-                    type='color'
-                    name='note-color'
-                    value={style.backgroundColor}
-                />
+                    {/* <button onClick={this.props.onRemoveNote}>Remove</button> */}
+                    <div className='icon-details-container tooltip tooltip-remove flex justify-center align-center'>
+                        <img
+                            onClick={this.props.onRemoveNote}
+                            className='keep-icon-details remove-icon'
+                            src='assets\img\keep\remove-note.svg'
+                            data-id={note.id}
+                        />
+                        <span className='tooltiptext tooltiptext-remove'>
+                            Delete Note
+                        </span>
+                    </div>
+
+                    <div className='icon-details-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                        <input
+                            onChange={this.onColorChange}
+                            id='note-color'
+                            type='color'
+                            name='note-color'
+                            value={style.backgroundColor}
+                        />
+                    </div>
+                </div>
             </div>
         )
     }
+}
+
+{
+    /* <button
+onClick={onTogglePin}
+className='pin-button not-pinned'
+data-id={this.state.note.id}
+>
+Pin
+</button> */
+}
+
+{
+    /* <button
+onClick={onTogglePin}
+className='pin-button pinned'
+data-id={this.state.note.id}
+>
+UnPin
+</button> */
 }

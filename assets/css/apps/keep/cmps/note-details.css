@@ -57,3 +57,41 @@ margin: 10px auto;
        max-width: 80vw;
     }
 }
+
+.todo-text{
+    width: 80%;
+}
+
+.todo-line{
+    /* justify-content: space-evenly; */
+    gap: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.details-txt-input{
+    height: 45px;
+    border: 1px solid #727272;
+    border-radius: 30px;
+    padding-left: 25px;
+}
+
+.todo-text{
+    height: 35px;
+    border: 1px solid #727272;
+    border-radius: 30px;
+    padding-left: 25px;
+}
+
+.url-text{
+    margin: 10px auto 5px;
+}
+
+.text-area{
+    border: 1px solid #727272;
+    border-radius: 30px;
+    padding-left: 25px;
+}
+
+    

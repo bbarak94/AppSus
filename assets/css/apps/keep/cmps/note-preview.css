@@ -1,21 +1,20 @@
-.note-preview-img-container{
-   margin: auto;
-   margin-top: 10px;
-   max-width: 80%;
+.note-preview-img-container {
+    margin: auto;
+    margin-top: 10px;
+    max-width: 80%;
 }
 
-.note-preview-vid-container{
-   margin: auto;
-   margin-top: 10px;
-   height:80%;
-   max-width: 80%;
-
+.note-preview-vid-container {
+    margin: auto;
+    margin-top: 10px;
+    height: 80%;
+    max-width: 80%;
 }
 
-iframe{
-   height: 100%;
-   width: 100%;
-   object-fit: cover;
+iframe {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 /* .colorPrev-button{
@@ -25,5 +24,11 @@ iframe{
 /* .pin-button */
 /* .pinned */
 /* .not-pinned */
-/* .preview-buttons */
+
 /* .duplicate-button */
+
+@media (max-width: 580px) {
+    .note-preview-container {
+        margin-bottom: 50px;
+    }
+}

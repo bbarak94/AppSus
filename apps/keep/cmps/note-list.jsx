@@ -4,8 +4,8 @@ export class NoteList extends React.Component {
     render() {
         const { notes, onSelectNote, onTogglePin, onDuplicateNote,onRemoveNote } = this.props
         return (
-            <div>
-                <h1 className='flex justify-center'>Pinned Notes</h1>
+            <div className='lists-container'>
+                <h1 className='flex justify-center'>Pinned Notes:</h1>
                 <section className='note-list grid'>
                     {notes.map(
                         (note) =>
@@ -24,7 +24,7 @@ export class NoteList extends React.Component {
                     )}
                 </section>
 
-                <h1 className='flex justify-center'>Non-Pinned Notes</h1>
+                <h1 className='flex justify-center'>Non-Pinned Notes:</h1>
                 <section className='note-list grid'>
                     {notes.map(
                         (note) =>
