@@ -7,7 +7,7 @@ export class About extends React.Component {
     }
     render() {
         return (
-            <section className="about">
+            <section className="app-about">
 
                 <h2>Who is Barai?</h2>
                 <h3>
