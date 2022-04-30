@@ -10,7 +10,7 @@
    width: 60px;
 }
 
-@media (max-width: 570px) {
+@media (max-width: 580px) {
    .keep-header .logo {
       width: 30vw;
       /* max-width: 150px; */
@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 580px) {
 .keep-header{
    margin: 6px 15px;
 }

@@ -61,6 +61,7 @@ export class NoteDetailsVid extends React.Component {
                     onChange={this.handleChange}
                 />
                 <input
+                className="todo-text url-text"
                     type='text'
                     id='url'
                     placeholder='IMG URL:'
@@ -77,7 +78,16 @@ export class NoteDetailsVid extends React.Component {
                         allowFullScreen
                     ></iframe>
                 </div>
-                <button>Save</button>
+                <div className='icon-details-container tooltip tooltip-save flex justify-center align-center'>
+                        <img
+                            onClick={this.handleSubmit}
+                            className='keep-icon-details save-icon'
+                            src='assets\img\keep\save.svg'
+                        />
+                        <span className='tooltiptext tooltip-save-text'>
+                            Save Note
+                        </span>
+                    </div>
             </form>
         )
     }

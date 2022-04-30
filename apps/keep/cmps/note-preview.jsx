@@ -26,8 +26,14 @@ export class NotePreview extends React.Component {
         })
     }
     render() {
-        const { note, onSelectNote, updateNote, onTogglePin, onDuplicateNote,onRemoveNote } =
-            this.props
+        const {
+            note,
+            onSelectNote,
+            updateNote,
+            onTogglePin,
+            onDuplicateNote,
+            onRemoveNote,
+        } = this.props
 
         return (
             <div
@@ -41,39 +47,58 @@ export class NotePreview extends React.Component {
                 )}
                 {note.type === 'note-img' && <NotePreviewImg note={note} />}
                 {note.type === 'note-vid' && <NotePreviewVid note={note} />}
-                <div className='preview-buttons'>
+                <div className='preview-buttons flex align-center justify-center'>
                     {!note.isPinned && (
-                        <button
-                            onClick={onTogglePin}
-                            className='pin-button not-pinned'
-                            data-id={note.id}
-                        >
-                            Pin
-                        </button>
+                        <div className='icon-prev-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                            <img
+                                onClick={onTogglePin}
+                                className='keep-icon-prev revmove-pin-icon'
+                                src='assets\img\keep\unpin.svg'
+                                data-id={note.id}
+                            />
+                            <span className='tooltiptext tooltiptext-new-note'>
+                                Pin
+                            </span>
+                        </div>
                     )}
                     {note.isPinned && (
-                        <button
-                            onClick={onTogglePin}
-                            className='pin-button pinned'
-                            data-id={note.id}
-                        >
-                            UnPin
-                        </button>
+                        <div className='icon-prev-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                            <img
+                                onClick={onTogglePin}
+                                className='keep-icon-prev revmove-pin-icon'
+                                src='assets\img\keep\pin.svg'
+                                data-id={note.id}
+                            />
+                            <span className='tooltiptext tooltiptext-new-note'>
+                                Remove Pin
+                            </span>
+                        </div>
                     )}
-                    <button
-                        onClick={onDuplicateNote}
-                        className='duplicate-button'
-                        data-id={note.id}
-                    >
-                        Duplicate
-                    </button>
-                    <button
-                        onClick={onRemoveNote}
-                        className='remove-button'
-                        data-id={note.id}
-                    >
-                        Remove
-                    </button>
+
+                    <div className='icon-prev-container tooltip tooltip-duplicate flex justify-center align-center'>
+                        <img
+                            onClick={onDuplicateNote}
+                            className='keep-icon-prev duplicate-icon'
+                            src='assets\img\keep\duplicate.svg'
+                            data-id={note.id}
+                        />
+                        <span className='tooltiptext tooltip-text-duplicate'>
+                            Duplicate Note
+                        </span>
+                    </div>
+
+                    <div className='icon-prev-container tooltip tooltip-remove flex justify-center align-center'>
+                        <img
+                            onClick={onRemoveNote}
+                            className='keep-icon-prev remove-icon'
+                            src='assets\img\keep\remove-note.svg'
+                            data-id={note.id}
+                        />
+                        <span className='tooltiptext tooltip-text-remove'>
+                            Delete Note
+                        </span>
+                    </div>
+
                     <input
                         onClick={this.clickedColor}
                         onChange={this.handleColorChange}
@@ -89,3 +114,38 @@ export class NotePreview extends React.Component {
         )
     }
 }
+
+// ;<button
+//     onClick={onTogglePin}
+//     className='pin-button not-pinned'
+//     data-id={note.id}
+// >
+//     Pin
+// </button>
+
+// is pinned:
+{
+    /* <button
+                            onClick={onTogglePin}
+                            className='pin-button pinned'
+                            data-id={note.id}
+                        >
+                            UnPin
+                        </button> */
+}
+
+//     <button
+//     onClick={onDuplicateNote}
+//     className='duplicate-button'
+//     data-id={note.id}
+// >
+//     Duplicate
+// </button>
+
+//     <button
+//     onClick={onRemoveNote}
+//     className='remove-button'
+//     data-id={note.id}
+// >
+//     Remove
+// </button>
