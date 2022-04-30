@@ -22,7 +22,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Long time not talk!!! how is it going mannn???',
-        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        body: 'Mother and Father have definitely been turned down for Barneveld1; we heard the news yesterday. They were also told to be ready to leave here on next Tuesday',
         isRead: true,
         isStarred: false,
         sentAt: '03-07-2021',
@@ -42,7 +42,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'The reason why most people are afraid of snakes',
-        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        body: 'I have a good friend here. Last week he was told to keep himself in readiness for transport. When I went to see him, he stood straight as an arrow, face calm, rucksack packed beside his bed. We didnt mention his leaving, but he did read me various things he had written, and we talked a little philosophy. ',
         isRead: true,
         isStarred: false,
         sentAt: '01-09-2021',
@@ -52,7 +52,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Kibutz Hanita bills and depos',
-        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        body: 'This is something people refuse to admit to themselves: at a given point you can no longer do, but can only be and accept.',
         isRead: false,
         isStarred: true,
         sentAt: '03-03-2022',
@@ -62,7 +62,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Rental cars offers: Rent our cars today! big discounts for coders',
-        body: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum minus nisi ducimus porro, ex consectetur excepturi tempora facilis amet, ad, blanditiis quae adipisci voluptatem sint.',
+        body: 'Ten thousand have passed through this place, the clothed and the naked, the old and the young, the sick and the healthy—and I am left to live and work and stay cheerful. It will be my parents turn to leave soon, if by some miracle not this week, then certainly one of the next. ',
         isRead: false,
         isStarred: false,
         sentAt: '21-9-2021',
@@ -81,7 +81,7 @@ let gEmails = [
     },
     {
         id: utilService.makeId(),
-        subject: 'Iati, Parpar Nehmad season 32 is now on netflix!',
+        subject: 'Itai, Parpar Nehmad season 32 is now on netflix!',
         body: 'It was in 1915, aged thirty-seven, that British poet and writer Edward Thomas joined the British Army—a decision prompted, in part, by The Road Not Taken, a poem by his close friend Robert Frost that had in fact been inspired by Thomas, a person who, Frost later said, “whichever road he went, would be sorry he didnt go the other.',
         isRead: true,
         isStarred: true,
@@ -102,7 +102,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'Hello my love, I miss you, how is Sri-Lanka',
-        body: 'Of the three ways out of here, by death where there is no choice, by death where there is a noble choice, and by death where there is a choice not so noble, he found the greatest way. There is no regret—nothing that I will call a regret. Only I can’t help wishing he could have saved his life without so wholly losing it and come back from France not too much hurt to enjoy our pride in him',
+        body: 'Of the three ways out of here, by death where there is no choice, by death where there is a noble choice, and by death where there is a choice not so noble, he found the greatest way. There is no regret—nothing that I will call a regret. Only I cant help wishing he could have saved his life without so wholly losing it and come back from France not too much hurt to enjoy our pride in him',
         isRead: false,
         isStarred: false,
         sentAt: '28-04-2022',
@@ -112,7 +112,7 @@ let gEmails = [
     {
         id: utilService.makeId(),
         subject: 'We are leaving the kibutz, please unregister our number from the kolbo',
-        body: 'It was beautiful as he did it. And I don’t suppose there is anything for us to do to show our admiration but to love him forever.',
+        body: 'It was beautiful as he did it. And I dont suppose there is anything for us to do to show our admiration but to love him forever.',
         isRead: false,
         isStarred: true,
         sentAt: '12-04-2020',
