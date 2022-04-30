@@ -13,6 +13,23 @@ export class NoteDetails extends React.Component {
         },
     }
 
+    componentDidMount() {
+        scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        })
+
+
+    }
+    componentDidUpdate() {
+        scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        })
+    }
+
     onReRenderNote = (note) => {
         this.setState({ note: note })
     }
@@ -36,6 +53,7 @@ export class NoteDetails extends React.Component {
         const { onTogglePin } = this.props
         return (
             <div
+                id='note-details'
                 className='note-details'
                 style={{ backgroundColor: this.state.style.backgroundColor }}
             >

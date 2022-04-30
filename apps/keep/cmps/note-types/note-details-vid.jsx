@@ -64,7 +64,7 @@ export class NoteDetailsVid extends React.Component {
                 className="todo-text url-text"
                     type='text'
                     id='url'
-                    placeholder='IMG URL:'
+                    placeholder='Video URL:'
                     name='url'
                     value={url}
                     onChange={this.handleChange}
