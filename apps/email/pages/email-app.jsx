@@ -75,7 +75,6 @@ export class EmailApp extends React.Component {
         let { isAdd, eMails } = this.state
         return (
             <section className='email-app'>
-                {/* <EmailHeader onFilter={this.onFilter} /> */}
                 <section className='email-body'>
                     <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose onAddEmail={this.onAddEmail} isAdd={() => this.onSetIsAdd(false)} />}
