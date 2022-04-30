@@ -39,13 +39,13 @@ export class NoteDetailsImg extends React.Component {
                 className="todo-text url-text"
                     type='text'
                     id='url'
-                    placeholder='IMG URL:'
+                    placeholder='Image URL:'
                     name='url'
                     value={url}
                     onChange={this.handleChange}
                 />
                 <div className='note-details-img-container'>
-                    <img src={url}></img>
+                    <img className="details-img" src={url}></img>
                 </div>
                 {/* <button>Save</button> */}
                 <div className='icon-details-container tooltip tooltip-save flex justify-center align-center'>

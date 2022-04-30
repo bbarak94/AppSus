@@ -27,6 +27,14 @@ iframe {
 
 /* .duplicate-button */
 
+.note-preview-txt{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+
+
 @media (max-width: 580px) {
     .note-preview-container {
         margin-bottom: 50px;

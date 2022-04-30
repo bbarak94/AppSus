@@ -30,6 +30,10 @@ export class KeepApp extends React.Component {
             )
     }
 
+    onDeSelectNote= () =>{
+        this.setState({ selectedNote:null })
+}
+
     onSelectNote = (noteId) => {
         noteService
             .getById(noteId)
@@ -112,6 +116,7 @@ export class KeepApp extends React.Component {
                 />
                 {selectedNote && (
                     <NoteDetails
+                    onDeSelectNote={this.onDeSelectNote}
                         onTogglePin={this.onTogglePin}
                         onDuplicateNote={this.onDuplicateNote}
                         changeColor={this.changeColor}

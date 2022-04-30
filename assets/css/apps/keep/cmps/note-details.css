@@ -1,4 +1,5 @@
 .note-details {
+    max-height: 80vh;
     width: 600px;
     border-radius: 20px;
     border: 3px black solid;
@@ -11,34 +12,29 @@
     z-index: 3;
 }
 
+.details-vid-form {
+    height: 60vh;
+}
 
-.details-vid-form{
-    height: 60vh; 
- }
-
- 
- .note-details-vid-container{
+.note-details-vid-container {
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
     height: 90%;
     width: 90%;
- }
- 
- .note-details-img-container{
-margin: 10px auto; 
 }
 
-
-
-
+.note-details-img-container {
+    max-width: 80%;
+    margin: 10px auto;
+}
 
 .details-txt-form {
     gap: 10px;
 }
-.details-txt-form input {
+/* .details-txt-form input {
     border: none;
-}
+} */
 
 .details-txt-form #title {
     font-size: 22px;
@@ -52,46 +48,43 @@ margin: 10px auto;
     .note-details {
         width: 80vw;
     }
-    
-    img{
-       max-width: 80vw;
+
+    img {
+        max-width: 80vw;
     }
 }
 
-.todo-text{
+.todo-text {
     width: 80%;
 }
 
-.todo-line{
+.todo-line {
     /* justify-content: space-evenly; */
     gap: 15px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-
+    /* margin-top: 5px;
+    margin-bottom: 5px; */
 }
 
-.details-txt-input{
+.details-txt-input {
     height: 45px;
     border: 1px solid #727272;
     border-radius: 30px;
     padding-left: 25px;
 }
 
-.todo-text{
+.todo-text {
     height: 35px;
     border: 1px solid #727272;
     border-radius: 30px;
     padding-left: 25px;
 }
 
-.url-text{
+.url-text {
     margin: 10px auto 5px;
 }
 
-.text-area{
+.text-area {
     border: 1px solid #727272;
     border-radius: 30px;
     padding-left: 25px;
 }
-
-    
