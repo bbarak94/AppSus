@@ -25,6 +25,15 @@ export class NotePreview extends React.Component {
             this.props.onColorPrevChange(this.state)
         })
     }
+
+    onMailNote = (ev) => {
+        ev.stopPropagation()
+        ev.preventDefault()
+        // console.log('ev:',ev)
+        
+        this.props.mailNote(ev)
+    }
+
     render() {
         const {
             note,
@@ -96,6 +105,18 @@ export class NotePreview extends React.Component {
                         />
                         <span className='tooltiptext tooltip-text-remove'>
                             Delete Note
+                        </span>
+                    </div>
+
+                    <div className='icon-prev-container tooltip tooltip-mail flex justify-center align-center'>
+                        <img
+                            onClick={this.onMailNote}
+                            className='keep-icon-prev mail-icon'
+                            src='assets\img\keep\mail.svg'
+                            data-id={note.id}
+                        />
+                        <span className='tooltiptext tooltip-text-mail'>
+                            Send Note by Mail
                         </span>
                     </div>
 

@@ -30,9 +30,9 @@ export class KeepApp extends React.Component {
             )
     }
 
-    onDeSelectNote= () =>{
-        this.setState({ selectedNote:null })
-}
+    onDeSelectNote = () => {
+        this.setState({ selectedNote: null })
+    }
 
     onSelectNote = (noteId) => {
         noteService
@@ -47,18 +47,26 @@ export class KeepApp extends React.Component {
     }
 
     onRemoveNote = (ev) => {
-        if(!this.state.selectedNote){
+        if (!this.state.selectedNote) {
             noteService.remove(ev.target.dataset.id).then(() => {
                 this.loadNotes()
                 this.onSelectNote(null)
             })
-        }else{
-
+        } else {
             noteService.remove(this.state.selectedNote.id).then(() => {
                 this.loadNotes()
                 this.onSelectNote(null)
             })
         }
+    }
+
+    mailNote = (ev) => {
+        ev.stopPropagation()
+        ev.preventDefault()
+        // console.log('ev.target.dataset.id:', ev.target.dataset.id)
+        var noteId = ev.target.dataset.id
+        // console.log('noteId:',noteId)        
+        noteService.sendNote(noteId)        
     }
 
     onAddNote = (ev) => {
@@ -70,7 +78,6 @@ export class KeepApp extends React.Component {
     }
 
     onColorPrevChange = (state) => {
-        console.log('state:', state)
         noteService
             .changeColor(state.note.id, state.backgroundColor)
             .then(() => {
@@ -85,7 +92,6 @@ export class KeepApp extends React.Component {
         noteService.togglePin(noteId).then(() => {
             this.loadNotes()
             this.onSelectNote(null)
-
         })
     }
 
@@ -106,6 +112,7 @@ export class KeepApp extends React.Component {
                     onSetFilter={this.onSetFilter}
                 />
                 <NoteList
+                    mailNote={this.mailNote}
                     onRemoveNote={this.onRemoveNote}
                     onColorPrevChange={this.onColorPrevChange}
                     onTogglePin={this.onTogglePin}
@@ -116,7 +123,7 @@ export class KeepApp extends React.Component {
                 />
                 {selectedNote && (
                     <NoteDetails
-                    onDeSelectNote={this.onDeSelectNote}
+                        onDeSelectNote={this.onDeSelectNote}
                         onTogglePin={this.onTogglePin}
                         onDuplicateNote={this.onDuplicateNote}
                         changeColor={this.changeColor}

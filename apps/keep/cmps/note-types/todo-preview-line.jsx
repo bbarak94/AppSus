@@ -33,7 +33,7 @@ export class TodoPreviewLine extends React.Component {
                                 src='assets\img\keep\todo-undone.svg'
                             ></img>
                         </div>
-                        <h1>{txt}</h1>
+                        <h1 className="todo-txt" >{txt}</h1>
                     </div>
                 )}
                 {doneAt && (
@@ -49,7 +49,7 @@ export class TodoPreviewLine extends React.Component {
                                 src='assets\img\keep\todo-done.svg'
                             ></img>
                         </div>
-                        <h1>{txt}</h1>
+                        <h1 className="todo-txt" >{txt}</h1>
                     </div>
                 )}
             </div>

@@ -2,7 +2,13 @@ import { NotePreview } from './note-preview.jsx'
 
 export class NoteList extends React.Component {
     render() {
-        const { notes, onSelectNote, onTogglePin, onDuplicateNote,onRemoveNote } = this.props
+        const {
+            notes,
+            onSelectNote,
+            onTogglePin,
+            onDuplicateNote,
+            onRemoveNote,
+        } = this.props
         return (
             <div className='lists-container'>
                 <h1 className='flex justify-center'>Pinned Notes:</h1>
@@ -11,8 +17,11 @@ export class NoteList extends React.Component {
                         (note) =>
                             note.isPinned && (
                                 <NotePreview
-                                onRemoveNote={onRemoveNote}
-                                onColorPrevChange={this.props.onColorPrevChange}
+                                    mailNote={this.props.mailNote}
+                                    onRemoveNote={onRemoveNote}
+                                    onColorPrevChange={
+                                        this.props.onColorPrevChange
+                                    }
                                     onTogglePin={onTogglePin}
                                     onDuplicateNote={onDuplicateNote}
                                     note={note}
@@ -30,8 +39,11 @@ export class NoteList extends React.Component {
                         (note) =>
                             !note.isPinned && (
                                 <NotePreview
-                                onRemoveNote={onRemoveNote}
-                                onColorPrevChange={this.props.onColorPrevChange}
+                                    mailNote={this.props.mailNote}
+                                    onRemoveNote={onRemoveNote}
+                                    onColorPrevChange={
+                                        this.props.onColorPrevChange
+                                    }
                                     onTogglePin={onTogglePin}
                                     onDuplicateNote={onDuplicateNote}
                                     note={note}

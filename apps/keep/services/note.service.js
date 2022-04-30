@@ -11,9 +11,10 @@ export const noteService = {
     duplicateNote,
     removeTodo,
     changeColor,
+    sendNote
 }
 
-const KEY = 'keepDB'
+const KEY = 'keepV1DB'
 
 function query(filterBy) {
     let notes = _loadFromStorage()
@@ -60,6 +61,41 @@ function getById(noteId) {
     const notes = _loadFromStorage()
     const note = notes.find((note) => noteId === note.id)
     return Promise.resolve(note)
+}
+
+function sendNote(noteId){
+    const notes = _loadFromStorage()
+    const note = notes.find((note) => note.id === noteId)
+    // console.log('note:',note)
+    
+    var subject = note.info.title
+    var newMail = {
+        subject: note.info.title,
+        body:''
+    }
+    if (note.type==='note-txt'){
+        newMail.body = note.info.txt
+        
+    }else if (note.type==='note-todos'){
+        var body = `todos:`
+        note.info.todos.map((note,idx) =>{
+            body+= `\n ${idx+1} ${note.txt}`
+
+        })
+        
+        newMail.body = note.info.todos.join('')
+        
+    }else if (note.type==='note-img'){
+        newMail.body = note.info.url        
+    }else if (note.type==='note-vid'){
+        newMail.body = note.info.url        
+    }
+    
+    var searchStr = `/email/compose?subject=${subject}&body=${newMail.body}`
+    console.log('searchStr:',searchStr)
+    
+  
+
 }
 
 function remove(noteId) {
@@ -154,52 +190,44 @@ function createNote(noteType) {
 function _createNotes() {
     const notes = [
         {
-            id: 'n100',
-            type: 'note-vid',
-            isPinned: false,
-            info: {
-                url: 'https://www.youtube.com/embed/oLyM3i24tJM',
-                title: 'Bobi and Me',
-            },
-            style: { backgroundColor: '#FF9F1A' },
+        id: 'n100',
+        type: 'note-vid',
+        isPinned: false,
+        info: {
+            url: 'https://www.youtube.com/embed/lhepKcJzDR0',
+            title: 'You can save any youtube video you like',
         },
-
-        {
-            id: 'n101',
-            type: 'note-txt',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
-            style: { backgroundColor: '#eb5a46' },
+        style: { backgroundColor: '#FF9F1A' },
+    },
+    {
+        id: 'n103',
+        type: 'note-todos',
+        isPinned: false,
+        label: 'Get my stuff together',
+        info: {
+            title: 'Start manage your tasks',
+            todos: [
+                {
+                    id: 't101',
+                    txt: 'Ready to give it a try?',
+                    doneAt: null,
+                },
+                { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
+            ],
         },
-        {
-            id: 'n102',
-            type: 'note-img',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: {
-                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+        style: { backgroundColor: '#61BD4F' },
+    },
+    
+    {
+        id: 'n102',
+        type: 'note-img',
+        isPinned: false,
+        label: 'Get my stuff together',
+        info: {
+            url: 'https://wallpaperaccess.com/full/86289.jpg',
                 title: 'You can upload your images',
             },
             style: { backgroundColor: '#0079BF' },
-        },
-        {
-            id: 'n103',
-            type: 'note-todos',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: {
-                title: 'And manage your tasks',
-                todos: [
-                    {
-                        id: 't101',
-                        txt: 'Ready to give it a try?',
-                        doneAt: null,
-                    },
-                    { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
-                ],
-            },
-            style: { backgroundColor: '#61BD4F' },
         },
         {
             id: 'n104',
@@ -212,11 +240,19 @@ function _createNotes() {
             style: { backgroundColor: '#F2D600' },
         },
         {
+                id: 'n101',
+                type: 'note-txt',
+                isPinned: false,
+                label: 'Get my stuff together',
+                info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
+                style: { backgroundColor: '#eb5a46' },
+            },
+        {
             id: 'n105',
             type: 'note-img',
             isPinned: false,
             info: {
-                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                url: 'https://wallpaperaccess.com/full/154009.jpg',
                 title: 'Bobi and Me',
             },
             style: { backgroundColor: '#FF9F1A' },
@@ -249,7 +285,7 @@ function _createNotes() {
             isPinned: true,
             info: {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
-                title: 'pin Bobi and Me',
+                title: 'Welcome to our note-taking service! ',
             },
             style: { backgroundColor: '#eb5a46' },
         },
@@ -258,11 +294,32 @@ function _createNotes() {
             type: 'note-todos',
             isPinned: true,
             info: {
-                title: 'pin Must do fast',
+                title: "Here's some tasks to help you start",
                 label: 'Get my stuff together',
                 todos: [
-                    { id: 't105', txt: 'Driving liscence', doneAt: null },
-                    { id: 't106', txt: 'Coding power', doneAt: 187111111 },
+                    { id: 't105', txt: 'Unpin this note', doneAt: null },
+                    {
+                        id: 't106',
+                        txt: 'Toggle between done tasks to undone',
+                        doneAt: null,
+                    },
+                    { id: 't107', txt: 'Pin another note', doneAt: 187111111 },
+                    { id: 't108', txt: 'Delete a note', doneAt: null },
+                    {
+                        id: 't109',
+                        txt: 'Click a note to edit it',
+                        doneAt: null,
+                    },
+                    {
+                        id: 't110',
+                        txt: 'Toggle between tasks from the main page',
+                        doneAt: null,
+                    },
+                    {
+                        id: 't111',
+                        txt: "Add images and youtube videos by pasting their URL's",
+                        doneAt: null,
+                    },
                 ],
             },
             style: { backgroundColor: '#0079BF' },
