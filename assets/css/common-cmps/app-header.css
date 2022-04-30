@@ -11,10 +11,27 @@
    margin-inline-start: 1.6em;
 }
 
+#keep{
+   width: 100px;
+}
+
+#email{
+   width: 100px;
+}
+
+.keep{
+   width: 100px;
+}
+
+.email{
+   width: 100px;
+}
+
+
 /* @media (max-width:720px) { */
 @media (max-width:580px) {
-   .main-logo{
-      width: 70px;
+   .main-logo .keep{
+      /* width: 70px; */
       margin-inline-start: 4.6em;
    }   
 }

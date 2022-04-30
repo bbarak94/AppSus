@@ -1,4 +1,4 @@
-.about {
+.app-about {
     display: flex;
     flex-direction: column;
     margin: 5em 1.5em;
@@ -6,7 +6,7 @@
 }
 
 
-.about h2 {
+.app-about h2 {
     margin-bottom: 2em;
     text-align: center;
 }
@@ -18,28 +18,28 @@
     text-align: center;
 }
 
-.about .img-container {
+.app-about .img-container {
     width: 50px;
     margin: 3em auto 1em;
 }
 
 @media (min-width: 720px) {
-    .about .img-container {
+    .app-about .img-container {
         width: 60px;
     }
-    .about {
+    .app-about {
         margin: 5em 12em;
 
     }
 }
 
 @media (min-width: 1120px) {
-    .about {
+    .app-about {
         margin: 5em 25em;
 
     }
 
-    .about .img-container {
+    .app-about .img-container {
         width: 70px;
     }
 

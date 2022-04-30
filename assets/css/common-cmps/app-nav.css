@@ -6,7 +6,8 @@
 .app-nav {
    position: fixed;
    z-index: 100;
-   top: -50%;
+   top: -100%;
+   /* top: -50%; */
    right: 10px;
    height: 0px;
    display: flex;
@@ -25,7 +26,7 @@
 
 body.main-menu-open .app-nav {
    height: auto;
-   top: 80px;
+   top: 81.5px;
    box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
 
 }

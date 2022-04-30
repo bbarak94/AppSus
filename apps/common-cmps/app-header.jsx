@@ -27,7 +27,7 @@ export class AppHeader extends React.Component {
             const { selectedPage, onSetSelectedPage } = this.props
         return (
             <header className='app-header'>
-                <img className='main-logo' style={{cursor: cursor}} src={`assets/img/common-imgs/${selectedPage}.png`} onClick={this.toggleMenu} />
+                <img className={`main-logo ${selectedPage}`} style={{cursor: cursor}} src={`assets/img/common-imgs/${selectedPage}.png`} onClick={this.toggleMenu} />
                 {(selectedPage === 'email') && <EmailFilter />}
                 <AppNav onSetSelectedPage={onSetSelectedPage} />
             </header>
