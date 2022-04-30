@@ -21,18 +21,14 @@ export class KeepApp extends React.Component {
     }
 
     updateNote = (note) => {
-        // console.log('from keep-app: note.style.backgroundColor:',note.style.backgroundColor)
-
         noteService
             .replaceNote(note)
             .then((notes) =>
                 this.setState({ notes: notes, selectedNote: null })
             )
-        // console.log('this.state:', this.state)
     }
 
     onSelectNote = (noteId) => {
-        // console.log('noteId:', noteId)
         noteService
             .getById(noteId)
             .then((selectedNote) => this.setState({ selectedNote }))
@@ -40,21 +36,26 @@ export class KeepApp extends React.Component {
 
     onSetFilter = (filterBy) => {
         this.setState({ filterBy }, () => {
-            // console.log('filterBy from Keep App', this.state.filterBy)
             this.loadNotes()
         })
     }
 
-    onRemoveNote = () => {
-        // console.log('remove note:', this.state.selectedNote)
-        noteService.remove(this.state.selectedNote.id).then(() => {
-            this.loadNotes()
-            this.onSelectNote(null)
-        })
+    onRemoveNote = (ev) => {
+        if(!this.state.selectedNote){
+            noteService.remove(ev.target.dataset.id).then(() => {
+                this.loadNotes()
+                this.onSelectNote(null)
+            })
+        }else{
+
+            noteService.remove(this.state.selectedNote.id).then(() => {
+                this.loadNotes()
+                this.onSelectNote(null)
+            })
+        }
     }
 
     onAddNote = (ev) => {
-        // console.log('ev.target.dataset.type:', ev.target.dataset.type)
         var noteType = ev.target.dataset.type
         noteService.createNote(noteType).then((newNoteId) => {
             this.loadNotes()
@@ -62,14 +63,23 @@ export class KeepApp extends React.Component {
         })
     }
 
-    changeColor = (newColor) => {
-        // console.log('newColor:', newColor)
+    onColorPrevChange = (state) => {
+        console.log('state:', state)
+        noteService
+            .changeColor(state.note.id, state.backgroundColor)
+            .then(() => {
+                this.loadNotes()
+                this.onSelectNote(null)
+            })
     }
+
     onTogglePin = (ev) => {
         ev.stopPropagation()
         var noteId = ev.target.dataset.id
         noteService.togglePin(noteId).then(() => {
             this.loadNotes()
+            this.onSelectNote(null)
+
         })
     }
 
@@ -81,11 +91,6 @@ export class KeepApp extends React.Component {
         })
     }
 
-    // onDeSelect = () => {
-    //     this.setState({selectedNote: null})
-    // }
-    // onDeSelect={this.onDeSelect}
-
     render() {
         const { notes, selectedNote } = this.state
         return (
@@ -96,6 +101,8 @@ export class KeepApp extends React.Component {
                     onSetFilter={this.onSetFilter}
                 />
                 <NoteList
+                    onRemoveNote={this.onRemoveNote}
+                    onColorPrevChange={this.onColorPrevChange}
                     onTogglePin={this.onTogglePin}
                     onDuplicateNote={this.onDuplicateNote}
                     notes={notes}

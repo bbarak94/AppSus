@@ -14,24 +14,15 @@ export class NoteDetails extends React.Component {
     }
 
     onReRenderNote = (note) => {
-        // ev.preventDefault()
-        // console.log('note:', note)
         this.setState({ note: note })
     }
 
     onUpdateNote = (note) => {
-        // console.log('FROM note-details - note:', note)
-        // console.log('note.style:',note.style)
-
-        // this.setState({ note: note }, this.props.updateNote(this.state.note))
         this.props.updateNote(note)
     }
     onColorChange = (ev) => {
-        // console.log('ev.target.value:',ev.target.value)
-        // this.props.changeColor(ev.target.value)
         var newNote = this.state.note
         newNote.style.backgroundColor = ev.target.value
-
         this.setState({
             note: newNote,
             style: {
@@ -39,15 +30,10 @@ export class NoteDetails extends React.Component {
             },
         })
     }
-
-
-    // this.setState({style: {
-    //     backgroundColor :ev.target.value
-    // }})
-
     render() {
-        const { style } = this.state
+        const { note,style } = this.state
         const { backgroundColor } = this.state.style
+        const {onTogglePin} = this.props
         return (
             <div
                 className='note-details'
@@ -85,7 +71,25 @@ export class NoteDetails extends React.Component {
                         note={this.state.note}
                     />
                 )}
-                <button onClick={this.props.onRemoveNote}>Delete Note</button>
+                {!note.isPinned && (
+                        <button
+                            onClick={onTogglePin}
+                            className='pin-button not-pinned'
+                            data-id={this.state.note.id}
+                        >
+                            Pin
+                        </button>
+                    )}
+                    {note.isPinned && (
+                        <button
+                            onClick={onTogglePin}
+                            className='pin-button pinned'
+                            data-id={this.state.note.id}
+                        >
+                            UnPin
+                        </button>
+                    )}
+                <button onClick={this.props.onRemoveNote}>Remove</button>
                 <label>Color:</label>
                 <input
                     onChange={this.onColorChange}

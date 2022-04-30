@@ -7,30 +7,18 @@ export class NoteDetailsImg extends React.Component {
     handleChange = ({ target }) => {
         const value = target.value
         const field = target.name
-        // console.log('value:', value)
-        // console.log('field:', field)
-
-        this.setState(
-            (prevState) => ({ info: { ...prevState.info, [field]: value } }),
-            () => {
-                // console.log('this.state:', this.state)
-            }
-        )
+        this.setState((prevState) => ({
+            info: { ...prevState.info, [field]: value },
+        }))
     }
 
     handleSubmit = (ev) => {
         ev.preventDefault()
         var newNote = this.state.note
         newNote.info = this.state.info
-        // console.log('this.props.backgroundColor:',this.props.backgroundColor)        
         newNote.style.backgroundColor = this.props.backgroundColor
-        // console.log('newNote:', newNote)
         this.props.onUpdateNote(newNote)
-        // this.props.onUpdateNote(this.state.note)
     }
-
-
-
     render() {
         const { title, url } = this.state.info
         return (
