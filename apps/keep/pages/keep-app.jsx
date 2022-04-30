@@ -78,7 +78,6 @@ export class KeepApp extends React.Component {
     }
 
     onColorPrevChange = (state) => {
-        console.log('state:', state)
         noteService
             .changeColor(state.note.id, state.backgroundColor)
             .then(() => {
