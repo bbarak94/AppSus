@@ -14,7 +14,7 @@ export const noteService = {
     sendNote
 }
 
-const KEY = 'keepDB'
+const KEY = 'keepV1DB'
 
 function query(filterBy) {
     let notes = _loadFromStorage()
@@ -190,52 +190,44 @@ function createNote(noteType) {
 function _createNotes() {
     const notes = [
         {
-            id: 'n100',
-            type: 'note-vid',
-            isPinned: false,
-            info: {
-                url: 'https://www.youtube.com/embed/lhepKcJzDR0',
-                title: 'You can save any youtube video you like',
-            },
-            style: { backgroundColor: '#FF9F1A' },
+        id: 'n100',
+        type: 'note-vid',
+        isPinned: false,
+        info: {
+            url: 'https://www.youtube.com/embed/lhepKcJzDR0',
+            title: 'You can save any youtube video you like',
         },
-
-        {
-            id: 'n101',
-            type: 'note-txt',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
-            style: { backgroundColor: '#eb5a46' },
+        style: { backgroundColor: '#FF9F1A' },
+    },
+    {
+        id: 'n103',
+        type: 'note-todos',
+        isPinned: false,
+        label: 'Get my stuff together',
+        info: {
+            title: 'Start manage your tasks',
+            todos: [
+                {
+                    id: 't101',
+                    txt: 'Ready to give it a try?',
+                    doneAt: null,
+                },
+                { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
+            ],
         },
-        {
-            id: 'n102',
-            type: 'note-img',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: {
-                url: 'https://wallpaperaccess.com/full/86289.jpg',
+        style: { backgroundColor: '#61BD4F' },
+    },
+    
+    {
+        id: 'n102',
+        type: 'note-img',
+        isPinned: false,
+        label: 'Get my stuff together',
+        info: {
+            url: 'https://wallpaperaccess.com/full/86289.jpg',
                 title: 'You can upload your images',
             },
             style: { backgroundColor: '#0079BF' },
-        },
-        {
-            id: 'n103',
-            type: 'note-todos',
-            isPinned: false,
-            label: 'Get my stuff together',
-            info: {
-                title: 'And manage your tasks',
-                todos: [
-                    {
-                        id: 't101',
-                        txt: 'Ready to give it a try?',
-                        doneAt: null,
-                    },
-                    { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
-                ],
-            },
-            style: { backgroundColor: '#61BD4F' },
         },
         {
             id: 'n104',
@@ -248,11 +240,19 @@ function _createNotes() {
             style: { backgroundColor: '#F2D600' },
         },
         {
+                id: 'n101',
+                type: 'note-txt',
+                isPinned: false,
+                label: 'Get my stuff together',
+                info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
+                style: { backgroundColor: '#eb5a46' },
+            },
+        {
             id: 'n105',
             type: 'note-img',
             isPinned: false,
             info: {
-                url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgoK5LK150O1AzpX7dV4yfw9Zm-nLXtwTyA&usqp=CAUhttps://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                url: 'https://wallpaperaccess.com/full/154009.jpg',
                 title: 'Bobi and Me',
             },
             style: { backgroundColor: '#FF9F1A' },
@@ -320,7 +320,6 @@ function _createNotes() {
                         txt: "Add images and youtube videos by pasting their URL's",
                         doneAt: null,
                     },
-                    { id: 't112', txt: 'Coding power', doneAt: null },
                 ],
             },
             style: { backgroundColor: '#0079BF' },

@@ -7,14 +7,17 @@
 }
 
 .main-logo{
-   width: 40px;
-   margin-inline-start: 1.6em;
+   width: 150px;
+
+   margin-inline-start: 4.6em;
+   /* margin-inline-start: 1.6em; */
 }
 
-@media (min-width:720px) {
+/* @media (max-width:720px) { */
+@media (max-width:580px) {
    .main-logo{
-      width: 60px;
-      margin-inline-start: 4.6em;
+      margin-inline-start: 20px;
+      /* margin-inline-start: 4.6em; */
    }   
 }
 
