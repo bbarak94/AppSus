@@ -11,6 +11,7 @@ export const noteService = {
     duplicateNote,
     removeTodo,
     changeColor,
+    sendNote
 }
 
 const KEY = 'keepDB'
@@ -60,6 +61,41 @@ function getById(noteId) {
     const notes = _loadFromStorage()
     const note = notes.find((note) => noteId === note.id)
     return Promise.resolve(note)
+}
+
+function sendNote(noteId){
+    const notes = _loadFromStorage()
+    const note = notes.find((note) => note.id === noteId)
+    // console.log('note:',note)
+    
+    var subject = note.info.title
+    var newMail = {
+        subject: note.info.title,
+        body:''
+    }
+    if (note.type==='note-txt'){
+        newMail.body = note.info.txt
+        
+    }else if (note.type==='note-todos'){
+        var body = `todos:`
+        note.info.todos.map((note,idx) =>{
+            body+= `\n ${idx+1} ${note.txt}`
+
+        })
+        
+        newMail.body = note.info.todos.join('')
+        
+    }else if (note.type==='note-img'){
+        newMail.body = note.info.url        
+    }else if (note.type==='note-vid'){
+        newMail.body = note.info.url        
+    }
+    
+    var searchStr = `/email/compose?subject=${subject}&body=${newMail.body}`
+    console.log('searchStr:',searchStr)
+    
+  
+
 }
 
 function remove(noteId) {

@@ -52,3 +52,7 @@ iframe {
         margin-bottom: 0;
     }
 }
+
+.todo-txt{
+    max-width: 90%;
+}
