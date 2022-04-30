@@ -3,6 +3,8 @@ import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteDetails } from '../cmps/note-details.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
+
+import { eventBusService } from '../../../services/event-bus-service.js'
 export class KeepApp extends React.Component {
     state = {
         notes: [],
@@ -12,6 +14,7 @@ export class KeepApp extends React.Component {
 
     componentDidMount() {
         this.loadNotes()
+        eventBusService.emit('selectedPage', 'keep')
     }
 
     loadNotes = () => {
@@ -90,7 +93,7 @@ export class KeepApp extends React.Component {
         const { notes, selectedNote } = this.state
         return (
             <section className='keep-app'>
-                <KeepHeader />
+                {/* <KeepHeader /> */}
                 <NoteFilter
                     onAddNote={this.onAddNote}
                     onSetFilter={this.onSetFilter}

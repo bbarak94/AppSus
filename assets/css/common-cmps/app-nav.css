@@ -1,20 +1,63 @@
+
 .app-nav img {
    width: 30px;
    cursor: pointer;
 }
 
 .app-nav {
+   position: fixed;
+   z-index: 100;
+   top: -50%;
+   right: 0;
+   height: 0px;
    display: flex;
    justify-content: center;
+   flex-direction: column;
    align-items: center;
+   /* gap: 20px; */
    padding: 20px 60px;
-   background-color: lightblue;
-   gap: 20px;
    font-family: roboto-bold;
    font-size: 18px;
+   background-color: rgba(201, 222, 230, 0.767);
+   border-bottom-left-radius: 1em;
+   transition: top 0.4s;
 }
 
-.active {
+body.main-menu-open .app-nav{
+   height: auto;
+   top: 64px;
+   box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
+   
+}
+
+.main-nav-img {
+   width: 60px;
+   margin-inline-end: 4.2em;
+   cursor: pointer;
+   transition: transform .4s;
+   border-radius: 5em;
+}
+
+.main-nav-img:hover {
+   background-color: #eee;
+}
+
+body.main-menu-open .main-nav-img {
+   transform: rotate(90deg);
+}
+
+.app-nav button {
+   background-color: inherit;
+   border: none;
+   font-family: roboto-bold;
+   font-size: 16px;
+}
+
+.app-nav > *:hover {
+  transform: scale(1.1);
+}
+
+.active > button {
    color: green;
 }
 

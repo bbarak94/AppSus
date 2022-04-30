@@ -1,4 +1,4 @@
-
+import { eventBusService } from "../../../services/event-bus-service.js"
 export class EmailFilter extends React.Component {
 
     state = {
@@ -15,7 +15,7 @@ export class EmailFilter extends React.Component {
 
     handleSubmit = (ev) => {
         ev.preventDefault()
-        this.props.onFilter(this.state.filterBy)
+        eventBusService.emit('filterBy', this.state.filterBy)
     }
 
     render() {

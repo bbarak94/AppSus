@@ -5,25 +5,40 @@ import { EmailDetails } from './apps/email/pages/email-details.jsx'
 import { UserMsg } from './apps/common-cmps/user-msg.jsx'
 import { About } from './apps/common-cmps/about.jsx'
 import { AppHeader } from "./apps/common-cmps/app-header.jsx"
+import { eventBusService } from './services/event-bus-service.js'
 
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
-export function App() {
-   return (
-      <Router>
-         <AppHeader/>
-         <section className='app'>
-            <Switch>
-               <Route path='/email/:emailId' component={EmailDetails} />
-               <Route path='/email' component={EmailApp} />
-               <Route path='/keep' component={KeepApp} />
-               <Route path='/about' component={About} />
-               <Route path='/' component={AppHome} />
-            </Switch>
-         </section>
-         <UserMsg />
-      </Router>
-   )
+export class App extends React.Component {
+   state = {
+      selectedPage: null
+   }
+
+   onSetSelectedPage = (selectedPage) => {
+      this.setState({ selectedPage })
+   }
+   
+   render() {
+      eventBusService.on('selectedPage', (selectedPage) => {
+         this.setState({selectedPage})
+      })
+      const { selectedPage } = this.state
+      return (
+         <Router>
+            <AppHeader selectedPage={selectedPage} onSetSelectedPage={this.onSetSelectedPage} />
+            <section className='app'>
+               <Switch>
+                  <Route path='/email/:emailId' component={EmailDetails} />
+                  <Route path='/email' component={EmailApp} />
+                  <Route path='/keep' component={KeepApp} />
+                  <Route path='/about' component={About} />
+                  <Route path='/' component={AppHome} />
+               </Switch>
+            </section>
+            <UserMsg />
+         </Router>
+      )
+   }
 }

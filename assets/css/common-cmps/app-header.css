@@ -1,3 +1,14 @@
 .app-header {
+   display: flex;
    justify-content: space-between;
+   align-items: center;
+   background-color: lightblue;
+
 }
+
+.main-logo{
+   width: 60px;
+   margin-inline-start: 4.6em;
+}
+
+
