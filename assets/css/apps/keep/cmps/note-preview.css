@@ -1,7 +1,19 @@
 .note-preview-img-container {
     margin: auto;
     margin-top: 10px;
-    max-width: 80%;
+    max-height: 80%;
+    /* max-width: 80%; */
+    
+    
+    
+    /* max-height: 80%; */
+    /* object-fit: contain; */
+
+    
+    
+}
+.preview-img{
+    max-height: 80%;
 }
 
 .note-preview-vid-container {
@@ -37,6 +49,6 @@ iframe {
 
 @media (max-width: 580px) {
     .note-preview-container {
-        margin-bottom: 50px;
+        margin-bottom: 0;
     }
 }

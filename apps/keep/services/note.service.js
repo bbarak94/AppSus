@@ -158,8 +158,8 @@ function _createNotes() {
             type: 'note-vid',
             isPinned: false,
             info: {
-                url: 'https://www.youtube.com/embed/oLyM3i24tJM',
-                title: 'Bobi and Me',
+                url: 'https://www.youtube.com/embed/lhepKcJzDR0',
+                title: 'You can save any youtube video you like',
             },
             style: { backgroundColor: '#FF9F1A' },
         },
@@ -178,7 +178,7 @@ function _createNotes() {
             isPinned: false,
             label: 'Get my stuff together',
             info: {
-                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                url: 'https://wallpaperaccess.com/full/86289.jpg',
                 title: 'You can upload your images',
             },
             style: { backgroundColor: '#0079BF' },
@@ -216,7 +216,7 @@ function _createNotes() {
             type: 'note-img',
             isPinned: false,
             info: {
-                url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
+                url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREgoK5LK150O1AzpX7dV4yfw9Zm-nLXtwTyA&usqp=CAUhttps://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Bobi and Me',
             },
             style: { backgroundColor: '#FF9F1A' },
@@ -249,7 +249,7 @@ function _createNotes() {
             isPinned: true,
             info: {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
-                title: 'pin Bobi and Me',
+                title: 'Welcome to our note-taking service! ',
             },
             style: { backgroundColor: '#eb5a46' },
         },
@@ -258,11 +258,33 @@ function _createNotes() {
             type: 'note-todos',
             isPinned: true,
             info: {
-                title: 'pin Must do fast',
+                title: "Here's some tasks to help you start",
                 label: 'Get my stuff together',
                 todos: [
-                    { id: 't105', txt: 'Driving liscence', doneAt: null },
-                    { id: 't106', txt: 'Coding power', doneAt: 187111111 },
+                    { id: 't105', txt: 'Unpin this note', doneAt: null },
+                    {
+                        id: 't106',
+                        txt: 'Toggle between done tasks to undone',
+                        doneAt: null,
+                    },
+                    { id: 't107', txt: 'Pin another note', doneAt: 187111111 },
+                    { id: 't108', txt: 'Delete a note', doneAt: null },
+                    {
+                        id: 't109',
+                        txt: 'Click a note to edit it',
+                        doneAt: null,
+                    },
+                    {
+                        id: 't110',
+                        txt: 'Toggle between tasks from the main page',
+                        doneAt: null,
+                    },
+                    {
+                        id: 't111',
+                        txt: "Add images and youtube videos by pasting their URL's",
+                        doneAt: null,
+                    },
+                    { id: 't112', txt: 'Coding power', doneAt: null },
                 ],
             },
             style: { backgroundColor: '#0079BF' },
