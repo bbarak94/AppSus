@@ -2,7 +2,7 @@ export function NotePreviewVid({ note }) {
     const { info } = note
     return (
         <div className='note-preview note-preview-vid'>
-            <h1>Title: {info.title}</h1>
+            <h1 className="note-prev-title">{info.title}</h1>
             <div className='note-preview-vid-container'>
                 <iframe
                     src={info.url}

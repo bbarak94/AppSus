@@ -30,7 +30,7 @@ export class NotePreview extends React.Component {
         ev.stopPropagation()
         ev.preventDefault()
         // console.log('ev:',ev)
-        
+
         this.props.mailNote(ev)
     }
 
@@ -64,6 +64,7 @@ export class NotePreview extends React.Component {
                                 className='keep-icon-prev revmove-pin-icon'
                                 src='assets\img\keep\unpin.svg'
                                 data-id={note.id}
+                                data-toggle={note.isPinned}
                             />
                             <span className='tooltiptext tooltiptext-new-note'>
                                 Pin
@@ -77,6 +78,7 @@ export class NotePreview extends React.Component {
                                 className='keep-icon-prev revmove-pin-icon'
                                 src='assets\img\keep\pin.svg'
                                 data-id={note.id}
+                                data-toggle={note.isPinned}
                             />
                             <span className='tooltiptext tooltiptext-new-note'>
                                 Remove Pin
@@ -120,7 +122,15 @@ export class NotePreview extends React.Component {
                         </span>
                     </div>
 
+                    {/* <label
+                        htmlFor='note-color'
+                        onClick={this.clickedColor}
+                        onChange={this.handleColorChange}
+                    >
+                        test
+                    </label> */}
                     <input
+                        list='presetColors'
                         onClick={this.clickedColor}
                         onChange={this.handleColorChange}
                         className='colorPrev-button'
@@ -130,6 +140,21 @@ export class NotePreview extends React.Component {
                         name='note-color'
                         value={note.style.backgroundColor}
                     />
+
+                    <datalist id='presetColors'>
+                        <option>#ffffff</option>
+                        <option>#f28b82</option>
+                        <option>#fbbc04</option>
+                        <option>#fff475</option>
+                        <option>#ccff90</option>
+                        <option>#a7ffeb</option>
+                        <option>#cbf0f8</option>
+                        <option>#aecbfa</option>
+                        <option>#d7aefb</option>
+                        <option>#fdcfe8 </option>
+                        <option>#e6c9a8</option>
+                        <option>#e8eaed</option>
+                    </datalist>
                 </div>
             </div>
         )

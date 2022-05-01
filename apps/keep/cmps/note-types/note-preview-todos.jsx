@@ -7,7 +7,7 @@ export class NotePreviewTodos extends React.Component {
 
         return (
             <div className='note-preview note-preview-todos'>
-                <h1>Title: {info.title}</h1>
+                <h1 className="note-prev-title">{info.title}</h1>
                 <div className='todos-preview flex column'>
                     {todos.map((todo, idx) => (
                         <TodoPreviewLine

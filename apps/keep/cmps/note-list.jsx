@@ -11,7 +11,16 @@ export class NoteList extends React.Component {
         } = this.props
         return (
             <div className='lists-container'>
-                <h1 className='flex justify-center'>Pinned Notes:</h1>
+                <h1 className='pin-title flex justify-center'>
+                <div className="note-list-pin">
+                <img src='assets\img\keep\pin.svg' />
+                   </div>             
+                Pinned Notes
+                   <div className="note-list-pin">
+                <img src='assets\img\keep\pin.svg' />
+                   </div>      
+                :
+                </h1>
                 <section className='note-list grid'>
                     {notes.map(
                         (note) =>
@@ -33,7 +42,16 @@ export class NoteList extends React.Component {
                     )}
                 </section>
 
-                <h1 className='flex justify-center'>Non-Pinned Notes:</h1>
+                <h1 className='pin-title flex justify-center'>
+                   <div className="note-list-pin">
+                <img src='assets\img\keep\unpin.svg' />
+                   </div>             
+                Non-Pinned Notes
+                   <div className="note-list-pin">
+                <img src='assets\img\keep\unpin.svg' />
+                   </div>             
+                :
+                </h1>
                 <section className='note-list grid'>
                     {notes.map(
                         (note) =>
