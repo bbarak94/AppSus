@@ -35,7 +35,7 @@ body.main-menu-open .app-nav {
 
 }
 .main-nav-img {
-   /* width: 40px; */
+   max-width: 40px;
    max-height: 48px;
    align-self: flex-end;
    /* margin-inline-end: 1.5em; */

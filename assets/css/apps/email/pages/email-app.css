@@ -1,9 +1,12 @@
 .email-app {
     position: relative;
+    /* width: 10px; */
+
 }
 
 .email-body {
     display: block;
+    width: 100%;
 }
 
 @media (min-width:720px) {
