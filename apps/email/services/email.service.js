@@ -65,7 +65,7 @@ let gEmails = [
         body: 'Ten thousand have passed through this place, the clothed and the naked, the old and the young, the sick and the healthy—and I am left to live and work and stay cheerful. It will be my parents turn to leave soon, if by some miracle not this week, then certainly one of the next. ',
         isRead: false,
         isStarred: false,
-        sentAt: '21-9-2021',
+        sentAt: '21-09-2021',
         to: 'itai.rotstein@gmail.com',
         from: '<rental@cars.net>'  
     },

@@ -35,7 +35,7 @@ export class EmailPreview extends React.Component {
 
     render() {
         const { eMail, onSetIsRead, onSetIsStarred, filterBy } = this.props
-        const isReadClass = (eMail.isRead) ? 'read' : ''
+        const isReadClass = (eMail.isRead) ? 'read' : 'un-read'
         const isStarredClass = (eMail.isStarred) ? 'starred' : 'un-starred'
 
         return (
@@ -47,7 +47,11 @@ export class EmailPreview extends React.Component {
                     {(filterBy.status === 'sent') && <div className={`preview-to ${isReadClass}`}>{eMail.to}</div>}
                     <div className={`preview-subject ${isReadClass}`}>{this.subjectLong(eMail.subject)}</div>
                     <div className="preview-body">{this.bodyLong(eMail.body)}</div>
-                    <div className="sent-at"><pre>         {eMail.sentAt}</pre></div>
+                    <div className="preview-sent-at">
+                        {/* <pre className="preview-pre"> */}
+                            {eMail.sentAt}
+                            {/* </pre> */}
+                            </div>
                 </section>
             </Link>
             // </article>
