@@ -33,8 +33,8 @@ export class EmailApp extends React.Component {
             })
 
         EmailService.getLength()
-            .then(eMailsCount => {
-                eventBusService.emit('eMailsCount', eMailsCount)
+            .then(emailCount => {
+                eventBusService.emit('emailCount', emailCount)
             })
     }
 

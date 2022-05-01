@@ -1,7 +1,7 @@
 import { eventBusService } from "../../../services/event-bus-service.js"
 export class EmailFolderList extends React.Component {
     state = {
-        eMailsCount: '',
+        emailCount: '',
         activeFolder: '',
         windowWidth: window.innerWidth
     }
@@ -16,8 +16,8 @@ export class EmailFolderList extends React.Component {
     }
 
     componentDidMount() {
-        this.removeEvent = eventBusService.on('eMailsCount', (eMailsCount) => {
-            this.setState({ eMailsCount })
+        this.removeEvent = eventBusService.on('emailCount', (emailCount) => {
+            this.setState({ emailCount })
         })
         window.addEventListener('resize', () => {
             this.setState({ windowWidth: window.innerWidth })
@@ -38,7 +38,7 @@ export class EmailFolderList extends React.Component {
     }
 
     render() {
-        const { eMailsCount } = this.state
+        const { emailCount } = this.state
         return (
             <aside className="email-folder-list">
                 <div className="compose-btn-container" onClick={this.handleComposeClick}>
@@ -63,9 +63,13 @@ export class EmailFolderList extends React.Component {
                         Trash
                     </div>
                 </section>
-                {eMailsCount && <span>Emails: {eMailsCount}</span>}
+                <div className="email-count-container flex">
+                    <div className="email-count">
+                        <div style={{ width: `${emailCount}%` }}></div>
+                    </div>
+                        <div className="count-value">{emailCount}%</div>
+                </div>
             </aside>
         )
-
     }
 }
