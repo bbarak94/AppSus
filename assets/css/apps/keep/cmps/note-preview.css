@@ -54,11 +54,12 @@ iframe {
 
 }
 
-pre{
+.note-prev-txt{
+    font-size: 14px;
     white-space: pre-wrap;
     word-wrap: break-word;
-    font-family: roboto-bold;
-    margin: 0;
+    font-family: roboto-regular;
+    font-weight: bold;
 }
 
 
