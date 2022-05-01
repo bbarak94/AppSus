@@ -12,6 +12,10 @@
     
     
 }
+.note-prev-title{
+    font-size: 18px;
+    font-weight: bolder;
+}
 .preview-img{
     max-height: 80%;
 }
@@ -29,9 +33,13 @@ iframe {
     object-fit: cover;
 }
 
-/* .colorPrev-button{
-   z-index: 5;
-} */
+.colorPrev-button{
+    /* display: none; */
+
+    max-width: 30px;
+
+   /* z-index: 5; */
+}
 
 /* .pin-button */
 /* .pinned */
@@ -44,6 +52,13 @@ iframe {
     flex-direction: column;
     gap: 5px;
 
+}
+
+pre{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: roboto-bold;
+    margin: 0;
 }
 
 

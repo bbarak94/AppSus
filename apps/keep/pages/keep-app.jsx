@@ -48,15 +48,52 @@ export class KeepApp extends React.Component {
 
     onRemoveNote = (ev) => {
         if (!this.state.selectedNote) {
-            noteService.remove(ev.target.dataset.id).then(() => {
+            noteService.remove(ev.target.dataset.id)
+            .then(() => {
                 this.loadNotes()
                 this.onSelectNote(null)
+                eventBusService.emit('user-msg', {
+                    type: 'success',
+                    txt: `Note Removed` ,
+                })
             })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger',
+                    txt: 'Could not Remove Note',
+                })
+            })
+            
+            
+            
+            // .then(() => {
+            //     this.loadNotes()
+            //     this.onSelectNote(null)
+            // })
         } else {
-            noteService.remove(this.state.selectedNote.id).then(() => {
+            noteService.remove(this.state.selectedNote.id)
+            .then(() => {
                 this.loadNotes()
                 this.onSelectNote(null)
+                eventBusService.emit('user-msg', {
+                    type: 'success',
+                    txt: `Note Removed` ,
+                })
             })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger',
+                    txt: 'Could not Remove note',
+                })
+            })
+            
+            
+            
+            
+            // .then(() => {
+            //     this.loadNotes()
+            //     this.onSelectNote(null)
+            // })
         }
     }
 
@@ -65,16 +102,33 @@ export class KeepApp extends React.Component {
         ev.preventDefault()
         // console.log('ev.target.dataset.id:', ev.target.dataset.id)
         var noteId = ev.target.dataset.id
-        // console.log('noteId:',noteId)        
-        noteService.sendNote(noteId)        
+        // console.log('noteId:',noteId)
+        noteService.sendNote(noteId)
     }
 
     onAddNote = (ev) => {
         var noteType = ev.target.dataset.type
-        noteService.createNote(noteType).then((newNoteId) => {
-            this.loadNotes()
-            this.onSelectNote(newNoteId)
-        })
+        noteService
+            .createNote(noteType)
+            .then((newNoteId) => {
+                this.loadNotes()
+                this.onSelectNote(newNoteId)
+                eventBusService.emit('user-msg', {
+                    type: 'success',
+                    txt: 'Note edded succesfully',
+                })
+            })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger',
+                    txt: 'Could not add Note',
+                })
+            })
+
+        // .then((newNoteId) => {
+        //     this.loadNotes()
+        //     this.onSelectNote(newNoteId)
+        // })
     }
 
     onColorPrevChange = (state) => {
@@ -83,13 +137,52 @@ export class KeepApp extends React.Component {
             .then(() => {
                 this.loadNotes()
                 this.onSelectNote(null)
+                eventBusService.emit('user-msg', {
+                    type: 'success',
+                    txt: 'Note color changed',
+                })
             })
+            .catch(() => {
+                eventBusService.emit('user-msg', {
+                    type: 'danger',
+                    txt: 'Could not change Note\'s color',
+                })
+            })
+            
+            
+            
+            
+            // .then(() => {
+            //     this.loadNotes()
+            //     this.onSelectNote(null)
+            // })
     }
 
     onTogglePin = (ev) => {
         ev.stopPropagation()
         var noteId = ev.target.dataset.id
-        noteService.togglePin(noteId).then(() => {
+        var noteIsPinned = ev.target.dataset.toggle
+        var isPinned = (noteIsPinned==='true') ? 'non-pinned' : 'pinned'
+        noteService.togglePin(noteId)
+        .then(() => {
+            this.loadNotes()
+            this.onSelectNote(null)
+            eventBusService.emit('user-msg', {
+                type: 'success',
+                txt: `Note moved to ${isPinned} section` ,
+            })
+        })
+        .catch(() => {
+            eventBusService.emit('user-msg', {
+                type: 'danger',
+                txt: 'Could not change Note\'s color',
+            })
+        })
+        
+        
+        
+        
+        .then(() => {
             this.loadNotes()
             this.onSelectNote(null)
         })
@@ -98,9 +191,30 @@ export class KeepApp extends React.Component {
     onDuplicateNote = (ev) => {
         ev.stopPropagation()
         var noteId = ev.target.dataset.id
-        noteService.duplicateNote(noteId).then(() => {
+        noteService.duplicateNote(noteId)
+        .then(() => {
             this.loadNotes()
+            eventBusService.emit('user-msg', {
+                type: 'success',
+                txt: `Note Duplicated` ,
+            })
         })
+        .catch(() => {
+            eventBusService.emit('user-msg', {
+                type: 'danger',
+                txt: 'Could not Duplicate Note',
+            })
+        })
+        
+        
+        
+        
+        
+        
+        
+        // .then(() => {
+        //     this.loadNotes()
+        // })
     }
 
     render() {

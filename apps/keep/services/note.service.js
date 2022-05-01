@@ -135,9 +135,11 @@ function changeColor(noteId, newColor) {
 function duplicateNote(noteId) {
     var notes = _loadFromStorage()
     var selectedNote = notes.find((note) => noteId === note.id)
+    var prevNoteIdx = notes.indexOf(selectedNote)
     selectedNote = { ...selectedNote }
     selectedNote.id = utilService.makeId()
-    notes.unshift(selectedNote)
+    notes.splice(prevNoteIdx,0,selectedNote)
+    // notes.unshift(selectedNote)
     _saveToStorage(notes)
     return Promise.resolve()
 }
@@ -178,7 +180,7 @@ function createNote(noteType) {
         isPinned: false,
         label: null,
         info: info,
-        style: { backgroundColor: '#ffffff' },
+        style: { backgroundColor: '#d7aefb' },
     }
     var notes = _loadFromStorage()
     notes.unshift(newNote)
@@ -197,7 +199,7 @@ function _createNotes() {
             url: 'https://www.youtube.com/embed/lhepKcJzDR0',
             title: 'You can save any youtube video you like',
         },
-        style: { backgroundColor: '#FF9F1A' },
+        style: { backgroundColor: '#cbf0f8' },
     },
     {
         id: 'n103',
@@ -215,7 +217,7 @@ function _createNotes() {
                 { id: 't102', txt: 'To give it a try', doneAt: 187111111 },
             ],
         },
-        style: { backgroundColor: '#61BD4F' },
+        style: { backgroundColor: '#a7ffeb' },
     },
     
     {
@@ -227,7 +229,7 @@ function _createNotes() {
             url: 'https://wallpaperaccess.com/full/86289.jpg',
                 title: 'You can upload your images',
             },
-            style: { backgroundColor: '#0079BF' },
+            style: { backgroundColor: '#e6c9a8' },
         },
         {
             id: 'n104',
@@ -237,7 +239,7 @@ function _createNotes() {
                 title: 'The whole app mad with React.',
                 txt: 'You can try it on you phone too!',
             },
-            style: { backgroundColor: '#F2D600' },
+            style: { backgroundColor: '#e8eaed' },
         },
         {
                 id: 'n101',
@@ -245,7 +247,7 @@ function _createNotes() {
                 isPinned: false,
                 label: 'Get my stuff together',
                 info: { title: 'Wellcome to Our App!', txt: 'By Barak and Itay!' },
-                style: { backgroundColor: '#eb5a46' },
+                style: { backgroundColor: '#f28b82' },
             },
         {
             id: 'n105',
@@ -255,7 +257,7 @@ function _createNotes() {
                 url: 'https://wallpaperaccess.com/full/154009.jpg',
                 title: 'Bobi and Me',
             },
-            style: { backgroundColor: '#FF9F1A' },
+            style: { backgroundColor: '#ccff90' },
         },
 
         {
@@ -270,14 +272,14 @@ function _createNotes() {
                     { id: 't104', txt: 'Coding power', doneAt: 187111111 },
                 ],
             },
-            style: { backgroundColor: '#C377E0' },
+            style: { backgroundColor: '#fff475' },
         },
         {
             id: 'n107',
             type: 'note-txt',
             isPinned: false,
             info: { title: 'barak is the king!', txt: 'Fullstack Me Baby!' },
-            style: { backgroundColor: '#0098B7' },
+            style: { backgroundColor: '#ffffff' },
         },
         {
             id: 'n108',
@@ -287,7 +289,7 @@ function _createNotes() {
                 url: 'https://media.istockphoto.com/photos/funny-raccoon-in-green-sunglasses-showing-a-rock-gesture-isolated-on-picture-id1154370446?k=20&m=1154370446&s=612x612&w=0&h=2AWvof66ovB87P3b7C_cu0pCZlZhDDFYUFr2KQ2UnwQ=',
                 title: 'Welcome to our note-taking service! ',
             },
-            style: { backgroundColor: '#eb5a46' },
+            style: { backgroundColor: '#aecbfa' },
         },
         {
             id: 'n109',
@@ -322,7 +324,7 @@ function _createNotes() {
                     },
                 ],
             },
-            style: { backgroundColor: '#0079BF' },
+            style: { backgroundColor: '#fdcfe8' },
         },
     ]
 

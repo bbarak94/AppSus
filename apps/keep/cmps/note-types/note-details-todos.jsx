@@ -67,10 +67,7 @@ export class NoteDetailsTodos extends React.Component {
                     />
 
                     {todos.map((todo, idx) => (
-                        <div
-                            className='todo-line flex align-center'
-                            key={idx}
-                        >
+                        <div className='todo-line flex align-center' key={idx}>
                             {!todo.doneAt && (
                                 <div className='todo-undone'>
                                     <div
@@ -129,17 +126,6 @@ export class NoteDetailsTodos extends React.Component {
                             </div>
                         </div>
                     ))}
-
-                    <div className='icon-details-container tooltip tooltip-save flex justify-center align-center'>
-                        <img
-                            onClick={this.handleSubmit}
-                            className='keep-icon-details save-icon'
-                            src='assets\img\keep\save.svg'
-                        />
-                        <span className='tooltiptext tooltip-save-text'>
-                            Save Note
-                        </span>
-                    </div>
                 </form>
                 {/* <button onClick={this.onAddNewTodo}>Add new task</button> */}
                 <div className='icon-details-container tooltip tooltip-add-todo flex justify-center align-center'>
@@ -152,6 +138,17 @@ export class NoteDetailsTodos extends React.Component {
                         Add Todo
                     </span>
                 </div>
+                <div className='icon-details-container tooltip tooltip-save flex justify-center align-center'>
+                    <img
+                        onClick={this.handleSubmit}
+                        className='keep-icon-details save-icon'
+                        src='assets\img\keep\save.svg'
+                    />
+                    <span className='tooltiptext tooltip-save-text'>
+                        Save Note
+                    </span>
+                </div>
+
             </div>
         )
     }

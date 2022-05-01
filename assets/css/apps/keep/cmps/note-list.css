@@ -10,6 +10,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 } */
+.pin-title{
+    margin-bottom: 10px;
+}
 
 .note-preview-container {
     cursor: pointer;
@@ -20,8 +23,8 @@
     /* max-width: 380px; */
     border: 2px black solid;
     padding: 15px;
-    margin-block-start: 10px;
-    margin-block-end: 10px;
+    /* margin-block-start: 10px;
+    margin-block-end: 10px; */
 }
 
 .note-preview-container:hover {
@@ -67,14 +70,14 @@
 @media (max-width: 660px) {
     .note-list {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 10px;
     }
 }
 @media (max-width: 580px) {
     .note-preview-container {
         min-width: 100px;
-        margin-block-start: 12px;
-        margin-block-end: 12px;
+        /* margin-block-start: 12px;
+        margin-block-end: 12px; */
         width: 100%;
         min-width: 50px;
     }

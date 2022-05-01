@@ -19,8 +19,6 @@ export class NoteDetails extends React.Component {
             left: 0,
             behavior: 'smooth',
         })
-
-
     }
     componentDidUpdate() {
         scrollTo({
@@ -97,6 +95,7 @@ export class NoteDetails extends React.Component {
                                 className='keep-icon-details revmove-pin-icon'
                                 src='assets\img\keep\unpin.svg'
                                 data-id={note.id}
+                                data-toggle={note.isPinned}
                             />
                             <span className='tooltiptext tooltiptext-new-note'>
                                 Pin
@@ -110,6 +109,7 @@ export class NoteDetails extends React.Component {
                                 className='keep-icon-prev revmove-pin-icon'
                                 src='assets\img\keep\pin.svg'
                                 data-id={note.id}
+                                data-toggle={note.isPinned}
                             />
                             <span className='tooltiptext tooltiptext-pin'>
                                 Remove Pin
@@ -130,13 +130,29 @@ export class NoteDetails extends React.Component {
                     </div>
 
                     <div className='icon-details-container tooltip tooltip-revmove-pin flex justify-center align-center'>
+                        
                         <input
+                            list='presetColors'
                             onChange={this.onColorChange}
                             id='note-color'
                             type='color'
                             name='note-color'
                             value={style.backgroundColor}
                         />
+                        <datalist id='presetColors'>
+                            <option>#ffffff</option>
+                            <option>#f28b82</option>
+                            <option>#fbbc04</option>
+                            <option>#fff475</option>
+                            <option>#ccff90</option>
+                            <option>#a7ffeb</option>
+                            <option>#cbf0f8</option>
+                            <option>#aecbfa</option>
+                            <option>#d7aefb</option>
+                            <option>#fdcfe8 </option>
+                            <option>#e6c9a8</option>
+                            <option>#e8eaed</option>
+                        </datalist>
                     </div>
                 </div>
             </div>
