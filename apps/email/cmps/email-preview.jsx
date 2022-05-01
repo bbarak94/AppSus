@@ -48,9 +48,9 @@ export class EmailPreview extends React.Component {
                     <div className={`preview-subject ${isReadClass}`}>{this.subjectLong(eMail.subject)}</div>
                     <div className="preview-body">{this.bodyLong(eMail.body)}</div>
                     <div className="preview-sent-at">
-                        {/* <pre className="preview-pre"> */}
+                        <pre className="preview-pre">
                             {eMail.sentAt}
-                            {/* </pre> */}
+                            </pre>
                             </div>
                 </section>
             </Link>
