@@ -50,9 +50,9 @@
         width: 80vw;
     }
 
-    img {
-        max-width: 80vw;
-    }
+    /* img { */
+        /* max-width: 80vw; */
+    /* } */
 }
 
 .todo-text {
