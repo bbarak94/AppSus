@@ -13,7 +13,8 @@ class _AppNav extends React.Component {
     render() {
         if (!this.props) return <div>no props yet</div>
         return (
-            <section>
+            <section className="nav-img-container">
+
                 <img className="main-nav-img" src="assets/img/keep/nav.svg" onClick={this.toggleMenu} />
                 <nav className='app-nav'>
                     <NavLink to="/" exact ><button id="home" onClick={this.handleClick}>Home</button></NavLink>

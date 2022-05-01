@@ -29,6 +29,11 @@ body.main-menu-open .app-nav {
 
 }
 
+
+.nav-img-container{
+   justify-self: flex-end;
+
+}
 .main-nav-img {
    /* width: 40px; */
    max-height: 48px;
