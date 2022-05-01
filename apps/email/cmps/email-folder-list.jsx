@@ -5,7 +5,7 @@ export class EmailFolderList extends React.Component {
         activeFolder: '',
         windowWidth: window.innerWidth
     }
-    removeEvent
+    removeEvent;
     onStatusFilter = (folder) => {
         const filterBy = {
             status: folder

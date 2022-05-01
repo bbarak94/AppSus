@@ -1,5 +1,5 @@
 
-.header-container {
+.hero {
     height: 50vh;
     background-image: url('../../img/common-imgs/nasa.jpg');
     background-size: cover;
@@ -15,14 +15,14 @@
 }
 
 @media (min-width: 720px) {
-    .header-container {
+    .hero {
         font-size: 50px;
         
     }  
 }
 
 @media (min-width: 1120px) {
-    .header-container {
+    .hero {
         font-size: 60px;
         
     }  

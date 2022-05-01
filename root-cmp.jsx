@@ -5,8 +5,7 @@ import { EmailDetails } from './apps/email/pages/email-details.jsx'
 import { UserMsg } from './apps/common-cmps/user-msg.jsx'
 import { About } from './apps/common-cmps/about.jsx'
 import { AppHeader } from "./apps/common-cmps/app-header.jsx"
-// import { EmailCompose } from "./apps/email/cmps/email-compose"
-import { eventBusService } from './services/event-bus-service.js'
+ import { eventBusService } from './services/event-bus-service.js'
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
@@ -34,7 +33,6 @@ export class App extends React.Component {
             <AppHeader selectedPage={selectedPage} onSetSelectedPage={this.onSetSelectedPage} />
             <section className='app'>
                <Switch>
-                  {/* <Route path='/email/compose/:sub' component={EmailApp} /> */}
                   <Route path='/email/:emailId' component={EmailDetails} />
                   <Route path='/email' component={EmailApp} />
                   <Route path='/keep' component={KeepApp} />

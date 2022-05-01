@@ -24,12 +24,14 @@ export class AppHeader extends React.Component {
     }
     render() {
         const cursor = (this.state.windowWidth < 720) ? 'pointer' : 'auto'
-            const { selectedPage, onSetSelectedPage } = this.props
+        const { selectedPage, onSetSelectedPage } = this.props
         return (
             <header className='app-header'>
-                <img className={`main-logo ${selectedPage}`} style={{cursor: cursor}} src={`assets/img/common-imgs/${selectedPage}.png`} onClick={this.toggleMenu} />
-                {(selectedPage === 'email') && <EmailFilter />}
-                <AppNav onSetSelectedPage={onSetSelectedPage} />
+                <section className='header-container'>
+                    <img className={`main-logo ${selectedPage}`} style={{ cursor: cursor }} src={`assets/img/common-imgs/${selectedPage}.png`} onClick={this.toggleMenu} />
+                    {(selectedPage === 'email') && <EmailFilter />}
+                    <AppNav onSetSelectedPage={onSetSelectedPage} />
+                </section>
             </header>
         )
     }

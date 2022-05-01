@@ -1,7 +1,7 @@
 
-export function MainScreen() {
+export function EmailScreen() {
     return (
-        <div className="main-screen" onClick={toggleMenu}></div>
+        <div className="email-screen" onClick={toggleMenu}></div>
     )
 }
 
