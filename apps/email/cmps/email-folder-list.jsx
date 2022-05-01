@@ -65,7 +65,7 @@ export class EmailFolderList extends React.Component {
                 </section>
                 <div className="email-count-container flex">
                     <div className="email-count">
-                        <div style={{ width: `${emailCount}%` }}></div>
+                        <div style={{ width: `${100}%` }}></div>
                     </div>
                         <div className="count-value">{emailCount}%</div>
                 </div>

@@ -80,7 +80,11 @@ body.email-menu-open .email-folder-list {
 .email-count > :first-child {
     height: 100%;
     background-color: red;
-    border-radius: 1em;
+    border-radius: 50%;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
     color: white
 }
 

@@ -32,7 +32,7 @@ body.main-menu-open .app-nav {
 .main-nav-img {
    /* width: 40px; */
    max-height: 48px;
-   align-content: flex-end;
+   align-self: flex-end;
    /* margin-inline-end: 1.5em; */
    /* margin-left: 400%; */
    cursor: pointer;
