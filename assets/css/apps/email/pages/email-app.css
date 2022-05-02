@@ -1,7 +1,6 @@
 .email-app {
     position: relative;
-    /* width: 10px; */
-
+    overflow: hidden;
 }
 
 .email-body {

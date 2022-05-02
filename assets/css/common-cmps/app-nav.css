@@ -6,29 +6,32 @@
 .app-nav {
    position: absolute;
    z-index: 100;
-   top: -100%;
+   top: -500%;
    right: 0;
    height: 0px;
    display: flex;
-   flex-direction: column;
+   flex-wrap: wrap;
    align-items: center;
-   gap: 40px;
-   padding: 20px 40px;
+   gap: 20px;
+   padding: 10px;
    font-family: roboto-bold;
    font-size: 18px;
-   background-color: rgba(201, 222, 230, 0.767);
+   background-color: white;
    border-bottom-left-radius: 1em;
    border-bottom-right-radius: 1em;
    transition: top 0.4s;
 }
 
+.app-nav > * {
+   flex-basis: 25%;
+}
+
 body.main-menu-open .app-nav {
    height: auto;
-   top: 68px;
+   top: 61px;
    box-shadow: -10px 0px 13px rgb(0 0 0 / 16%);
 
 }
-
 
 .nav-img-container{
    justify-self: flex-end;
@@ -38,8 +41,6 @@ body.main-menu-open .app-nav {
    max-width: 40px;
    max-height: 48px;
    align-self: flex-end;
-   /* margin-inline-end: 1.5em; */
-   /* margin-left: 400%; */
    cursor: pointer;
    transition: transform .4s;
    border-radius: 5em;
@@ -68,10 +69,42 @@ body.main-menu-open .main-nav-img {
    color: green;
 }
 
+
+#keep{
+   width: 70px;
+}
+
+#email{
+   width: 100px;
+}
+
+#home{
+   width: 50px;
+}
+
+#about{
+   width: 40px;
+}
+
+.keep{
+   width: 70px;
+}
+
+.email{
+   width: 90px;
+}
+
+.home{
+   width: 100px;
+}
+
+.about{
+   width: 35px;
+   object-fit: contain;
+}
+
 @media (min-width: 720px) {
    .app-nav {
-      padding: 20px 60px;
-      gap: 90px;
    }
 
    .app-nav img {
@@ -80,7 +113,5 @@ body.main-menu-open .main-nav-img {
 
    .main-nav-img {
       width: 50px;
-      /* margin-inline-end: 4.2em; */
-
    }
 }

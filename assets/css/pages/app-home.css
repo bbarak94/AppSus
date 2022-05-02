@@ -1,85 +1,71 @@
-
-
-.app-home{
+.app-home {
     padding: 60px 140px 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: josefin;
+    background-color: rgb(249, 237, 221);
 }
-.home-page-txt{
+
+.home-page-txt {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-.line-one{
-    font-size: 100px;
+
+.line-one {
+    font-size: 80px;
     text-align: left;
 }
-.line-two{
+
+.line-two {
     font-size: 100px;
     text-align: right;
     margin-bottom: 80px;
 }
 
-.home-img-container{
+.home-img-container {
     min-width: 600px;
     max-width: 600px;
-    /* position: fixed; */
-    /* transform: translate(-50%,-50%); */
 }
-.home-img{
+
+.home-img {
     border-radius: 10px;
-}
-
-
-
-
-.hero {
-    height: 50vh;
-    background-image: url('../../img/common-imgs/nasa.jpg');
-    background-size: cover;
-    background-position:center;
-    background-repeat: no-repeat;
-    color: #FFF;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center ;
-    font-family: montserrat;
-    font-size: 30px;
 }
 
 @media (min-width: 720px) {
     .hero {
         font-size: 50px;
-        
-    }  
+
+    }
 }
 
 @media (min-width: 1120px) {
     .hero {
         font-size: 60px;
-        
-    }  
+
+    }
 }
 
 @media (max-width: 760px) {
-    
-    .app-home{
+
+    .app-home {
         padding: 40px 40px 0;
     }
-    .line-one{
+
+    .line-one {
         font-size: 40px;
         text-align: left;
     }
-    .line-two{
+
+    .line-two {
         font-size: 40px;
         text-align: right;
         margin-bottom: 40px;
-}
+    }
 
-    
-    .home-img-container{
+
+    .home-img-container {
         min-width: 200px;
         max-width: 500px;
         /* position: fixed; */
@@ -91,25 +77,22 @@
 @media (max-width: 520px) {
 
 
-    .app-home{
+    .app-home {
         padding: 40px 40px 0;
     }
-    .line-one{
+
+    .line-one {
         font-size: 35px;
         text-align: left;
     }
-    .line-two{
+
+    .line-two {
         font-size: 35px;
         text-align: right;
     }
 
-    
-    .home-img-container{
+
+    .home-img-container {
         min-width: 100px;
-        /* max-width: 500px; */
-        /* position: fixed; */
-        /* transform: translate(-50%,-50%); */
     }
-
-
 }

@@ -4,7 +4,8 @@ import { AppNav } from './app-nav.jsx'
 export class AppHeader extends React.Component {
 
     state = {
-        windowWidth: window.innerWidth
+        windowWidth: window.innerWidth,
+        emailActive: null
     }
 
     componentDidMount() {
@@ -14,12 +15,15 @@ export class AppHeader extends React.Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', () => { })
+        window.removeEventListener('resize', () => {
+            this.setState({ windowWidth: window.innerWidth })
+        })
     }
 
     toggleMenu = () => {
         if (this.props.selectedPage === 'email' && this.state.windowWidth < 720) {
             document.body.classList.toggle('email-menu-open')
+            this.setState({})
         }
     }
     render() {
@@ -28,7 +32,13 @@ export class AppHeader extends React.Component {
         return (
             <header className='app-header'>
                 <section className='header-container'>
-                    <img className={`main-logo ${selectedPage}`} style={{ cursor: cursor }} src={`assets/img/common-imgs/${selectedPage}.png`} onClick={this.toggleMenu} />
+                    <div>
+                        <img className={`main-logo ${selectedPage}`}
+                            style={{ cursor: cursor }}
+                            src={`assets/img/common-imgs/${selectedPage}.png`}
+                            onClick={this.toggleMenu}
+                        />
+                    </div>
                     {(selectedPage === 'email') && <EmailFilter />}
                     <AppNav onSetSelectedPage={onSetSelectedPage} />
                 </section>

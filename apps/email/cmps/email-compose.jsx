@@ -14,13 +14,16 @@ export class EmailCompose extends React.Component {
 
     onAddEmail = (ev) => {
         ev.preventDefault()
+        console.log('reached');
         const newEmail = this.state
        this.props.onAddEmail(newEmail)
         this.props.isAdd()
     }
 
-    onCloseMassage = () => {
+    onCloseMassage = (ev) => {
+        ev.preventDefault()
         this.props.isAdd()
+        console.log(ev);
     }
 
     render() {

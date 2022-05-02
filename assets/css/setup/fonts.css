@@ -23,3 +23,8 @@
     font-family: montserrat;
     src: url(../../fonts/Montserrat/Montserrat-Black.ttf);
 }
+
+@font-face {
+    font-family: josefin;
+    src: url(../../fonts/josefin/JosefinSans-Bold.ttf);
+}

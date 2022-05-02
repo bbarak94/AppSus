@@ -9,44 +9,19 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   background-color: lightblue;
    padding: 8px 60px;
    width: 100%;
+   border-bottom: 1px solid #ccc;
 }
 
 .main-logo{
-   /* align-self: flex-start; */
    align-content: flex-start;
-   width: 50px;
    max-height: 48px;
-   /* margin-inline-start: 1.6em; */
 }
 
-#keep{
-   width: 100px;
-}
-
-#email{
-   width: 100px;
-}
-
-.keep{
-   width: 100px;
-}
-
-.email{
-   width: 100px;
-}
-
-
-/* @media (max-width:720px) { */
 @media (max-width:580px) {
    .header-container {
       padding: 8px 20px;
    }
-   
 }
-
-
-
 

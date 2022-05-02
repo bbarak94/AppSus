@@ -119,6 +119,16 @@ let gEmails = [
         to: '<kibutz@hanita.com>',
         from: 'itai.rotstein@gmail.com' 
     },
+    {
+        id: utilService.makeId(),
+        subject: 'Real estates now in shefaraam, dont miss it!! ',
+        body: 'Etty spent much of the time eloquently describing her experience in diaries and letters, many of which she passed to Maria Tuinzing (the recipient of this particular missive) before her departure from Westerbork. Her final note, written to a family friend, was thrown from the train and found by a farmer who sent it on.',
+        isRead: false,
+        isStarred: true,
+        sentAt: '12-04-2020',
+        to: '<kibutz@hanita.com>',
+        from: 'itai.rotstein@gmail.com' 
+    },
 ]
 
 _saveToStorage(gEmails)

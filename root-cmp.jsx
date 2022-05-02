@@ -11,7 +11,7 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 export class App extends React.Component {
    state = {
-      selectedPage: null
+      selectedPage: 'main'
    }
    removeEvent
 

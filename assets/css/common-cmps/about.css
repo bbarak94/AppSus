@@ -1,46 +1,35 @@
 .app-about {
+    padding: 10em;
+    display: flex;
+    justify-content: space-evenly; 
+    align-items: center;
+}
+
+.profile-pic{
     display: flex;
     flex-direction: column;
-    margin: 5em 1.5em;
-    color: var(--clr1);
+    align-items: center;
+    height: 100%;
+    width: 300px;
+}
+.profile-pic img {
+    border-radius: 100%;
 }
 
-
-.app-about h2 {
-    margin-bottom: 2em;
+.profile-card{
     text-align: center;
+    border-radius: 0.5em;
+    padding: 1em;
 }
 
-.about-subject {
-    font-family: roboto-bold;
-    display: block;
-    margin-bottom: 1.2em;
-    text-align: center;
-}
-
-.app-about .img-container {
-    width: 50px;
-    margin: 3em auto 1em;
+.profile-card h3 {
+    margin-top: 0.5em;
 }
 
 @media (min-width: 720px) {
-    .app-about .img-container {
-        width: 60px;
-    }
-    .app-about {
-        margin: 5em 12em;
-
-    }
+    
 }
 
 @media (min-width: 1120px) {
-    .app-about {
-        margin: 5em 25em;
-
-    }
-
-    .app-about .img-container {
-        width: 70px;
-    }
-
+   
 }

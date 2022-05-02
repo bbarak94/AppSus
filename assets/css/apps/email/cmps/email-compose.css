@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 50;
     right:  20px;
-    bottom: 70px;
+    bottom: 0;
 }
 
 .email-compose div {
@@ -67,5 +67,7 @@
 }
 
 @media (min-width: 720) {
-   
+    .email-compose textarea {
+        width: 30em;
+    }
 }

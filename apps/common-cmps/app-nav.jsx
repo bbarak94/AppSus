@@ -17,10 +17,10 @@ class _AppNav extends React.Component {
 
                 <img className="main-nav-img" src="assets/img/keep/nav.svg" onClick={this.toggleMenu} />
                 <nav className='app-nav'>
-                    <NavLink to="/" exact ><button id="home" onClick={this.handleClick}>Home</button></NavLink>
-                    <NavLink to="/keep"><img id="keep" onClick={this.handleClick} src="assets/img/common-imgs/keep.png" /></NavLink>
-                    <NavLink to="/email"><img id="email" onClick={this.handleClick} src="assets/img/common-imgs/email.png" /></NavLink>
-                    <NavLink to="/about" ><button id="about" onClick={this.handleClick}>About</button></NavLink>
+                    <NavLink to="/" exact ><img id="home" onClick={this.handleClick} src="assets/img/common-imgs/home.png"/></NavLink>
+                    <NavLink to="/keep"><img id="keep" onClick={this.handleClick} src="assets/img/common-imgs/keep.png"/></NavLink>
+                    <NavLink to="/email"><img id="email" onClick={this.handleClick} src="assets/img/common-imgs/email.png"/></NavLink>
+                    <NavLink to="/about" ><img id="about" onClick={this.handleClick} src="assets/img/common-imgs/about.png"/></NavLink>
                 </nav>
             </section>
         )

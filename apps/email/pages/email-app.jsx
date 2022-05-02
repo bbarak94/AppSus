@@ -57,16 +57,19 @@ export class EmailApp extends React.Component {
             })
     }
 
-    onSetIsAdd = () => {
-        this.setState({ isAdd: true })
+    onSetIsAdd = (isAdd) => {
+        console.log('yesss');
+        this.setState({ isAdd: isAdd })
     }
 
     onSetIsRead = (eMailId) => {
         EmailService.setIsRead(eMailId)
     }
 
-    onSetIsStarred = (eMailId) => {
-        EmailService.setIsStarred(eMailId)
+    onSetIsStarred = (ev) => {
+        ev.preventDefault()
+        const emailId = ev.target.id
+        EmailService.setIsStarred(emailId)
             .then(this.loadEmails)
     }
 
@@ -75,7 +78,7 @@ export class EmailApp extends React.Component {
         return (
             <section className='email-app'>
                 <section className='email-body'>
-                    <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd()} />
+                    <EmailFolderList onFilter={this.onFilter} isAdd={() => this.onSetIsAdd(true)} />
                     {isAdd && <EmailCompose
                         onAddEmail={this.onAddEmail}
                         isAdd={() => this.onSetIsAdd(false)}

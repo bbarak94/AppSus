@@ -2,7 +2,7 @@ import { eventBusService } from '../services/event-bus-service.js'
 
 export class AppHome extends React.Component {
     componentDidMount() {
-        eventBusService.emit('selectedPage', 'home')
+        eventBusService.emit('selectedPage', 'main')
     }
 
     render() {
